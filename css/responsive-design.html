@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--responsive design for different sizes of screens-->
+<!--always mobile screen first-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+        
+        div {
+            background-color: blue;
+            height: 100px;
+            margin-bottom: 10px;
+            background-size: contain;
+            background-image: url(https://images.pexels.com/photos/6569318/pexels-photo-6569318.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+        }
+
+        /*        3*2*/
+        @media all and (min-width: 501px){
+            div {
+                width: 48%;
+                display: inline-block;
+                background-color: green;
+                background-image: url(https://images.pexels.com/photos/3856256/pexels-photo-3856256.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+            }
+        }   
+        
+        @media all and (min-width: 700px){
+            div {
+                width: 32%;
+                background-color: red;
+                background-image: url(https://images.pexels.com/photos/1684304/pexels-photo-1684304.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+            }
+        }
+        
+        @media all and (min-width: 1000px){
+            div{
+                width:16% ;
+                background: yellow;
+                background-image: url(https://images.pexels.com/photos/3094216/pexels-photo-3094216.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+</body>
+
+</html>

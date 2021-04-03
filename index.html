@@ -1,0 +1,176 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-16">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        div {
+            background-color: silver;
+        }
+
+        nav {
+            width: 100%;
+            background-color: whitesmoke;
+            padding: 10px;
+            font-weight: 600;
+            box-shadow: -30px 40px 20px -32px grey;
+            position: fixed; 
+            z-index: 2;
+        }
+
+        #logo {
+            width: 50px;
+            position: relative;
+            right: -30px;
+        }
+
+        nav ul {
+            position: absolute;
+            right: 40px;
+            top: 25px;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        nav li {
+            display: inline-block;
+            padding-left: 20px;
+        }
+
+        .box a {
+            position: absolute;
+            left: 136px;
+            top: 96px;
+        }
+        #bao{
+            width: 10%;
+        }
+        #about,
+        #yuukai {
+            text-align: center;
+            width: 90%;
+            position: relative;
+            top: 25px;
+            margin: auto;
+            background-color: #F7F7F7;
+            padding: 30px;
+            letter-spacing: 0.5px;
+
+        }
+
+        #yuukai {
+            top: auto;
+            padding: 20px;
+        }
+
+        /*        main */
+        .box {
+            border: solid;
+            position: relative;
+            width: 30%;
+            display: inline-block;
+            height: 1000px;
+            margin: 0 5px;
+            margin-bottom: 100px;
+        }
+
+        main {
+            margin: auto;
+            text-align: center;
+        }
+
+        .word_image {
+            position: absolute;
+            left: 10px;
+            width: 100px;
+        }
+
+        #hanh {
+            position: absolute;
+            left: 10px;
+            width: 107px;
+        }
+
+        .box {
+            vertical-align: top;
+        }
+
+        .box h1 {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            margin-right: 15px;
+        }
+
+        .web{
+            position: relative;
+            text-decoration: none;
+            color: black;
+            font-size: 23px;
+            margin-top: 10px;
+            margin-left: -120px;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <div id="bgc"></div>
+        <nav>
+            <img src="http://zu.zi.tools/%E2%BF%B0%E6%B0%B5%E2%BF%B1%E8%89%B9%F0%A1%97%97.svg" alt="" id="logo">
+            <ul>
+                <li><a href="http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/">汉語多功能字库</a></li>
+                <li><a href="https://dict.variants.moe.edu.tw/variants/rbt/query_by_standard_tiles.rbt">教育部异体字字典</a></li>
+                <li><a href="http://zi.tools/">字统网</a></li>
+            </ul>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p id="about">此网站以因网页设计课的需要而建，旨在收集一下平时作为一个俗字爱好者而用到的常用网址。本来想为希顶语建个网址结果發现已经有人建了，想为兒旹的黑厤史而建网站结果發现过于羞耻導致不适。只能为俗字这个稍稍有点逼格的爱好而建。这邊写这麽多也纯粹是为了让我的网站看起来好似豐满许多。别无它意。</p>
+        <p id="yuukai">愉快を</p>
+        <br>
+        <br>
+        <br>
+    </header>
+
+    <main>
+        <div class='box'>
+            <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%BC%A2_H.svg" alt="" class='word_image'>
+            <h1>汉<br>字</h1>
+            <a href="https://www.zdic.net/" class="web" id="hd">漢典</a>
+            <a href="http://xiaoxue.iis.sinica.edu.tw/" class="web" id="xxt">小學堂</a>
+            <a href="http://chinese-linguipedia.org/" class="web" id="zhywzsk">中華語文知識庫</a>
+            
+
+        </div>
+        <div class='box'>
+            <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%F0%A3%B6%94_T.svg" alt="" class="word_image">
+            <h1>俗<br>字</h1>
+        </div>
+        <div class='box'>
+            <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%B1%89_G.svg" alt="" class="word_image" id="hanh">
+            <h1>其<br>他</h1>
+        </div>
+    </main>
+
+
+</body></html>
+
+
