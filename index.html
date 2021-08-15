@@ -1,182 +1,303 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-        div {
-            background-color: silver;
-        }
+		div {
+			background-color: silver;
+		}
 
-        nav {
-            width: 100%;
-            height: 80px;
-            background-color: whitesmoke;
-            padding: 10px;
-            font-weight: 600;
-            box-shadow: -30px 40px 20px -32px grey;
-            position: fixed; 
-            z-index: 2;
-        }
+		nav {
+			width: 100%;
+			height: 80px;
+			background-color: whitesmoke;
+			padding: 10px;
+			font-weight: 600;
+			box-shadow: -30px 40px 20px -32px grey;
+			position: fixed;
+			z-index: 2;
+		}
 
-        #logo {
-            width: 50px;
-            position: absolute;
-            text-align: right;
-            left: 30px;
-        }
+		#logo {
+			width: 60px;
+			position: absolute;
+			text-align: right;
+			left: 30px;
+		}
 
-        nav ul {
-            position: absolute;
-            right: 40px;
-            top: 25px;
-        }
+		nav ul {
+			position: absolute;
+			right: 40px;
+			top: 25px;
+		}
 
-        nav ul li a {
-            color: black;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-        }
+		nav ul li a {
+			color: black;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 16px;
+		}
 
-        nav li {
-            display: inline-block;
-            padding-left: 20px;
-        }
+		nav li {
+			display: inline-block;
+			padding-left: 20px;
+		}
 
-        .box a {
-            position: absolute;
-            left: 136px;
-            top: 96px;
-        }
-        #bao{
-            width: 10%;
-        }
-        #about,
-        #yuukai {
-            text-align: center;
-            width: 90%;
-            position: relative;
-            top: 25px;
-            margin: auto;
-            background-color: #F7F7F7;
-            padding: 30px;
-            letter-spacing: 0.5px;
+		.box a {
+			position: absolute;
+			left: 136px;
+			top: 96px;
+		}
 
-        }
+		#bao {
+			width: 10%;
+		}
 
-        #yuukai {
-            top: auto;
-            padding: 20px;
-        }
+		#about,
+		#yuukai {
+			text-align: center;
+			width: 90%;
+			position: relative;
+			top: 25px;
+			margin: auto;
+			background-color: #F7F7F7;
+			padding: 30px;
+			letter-spacing: 0.5px;
 
-        /*        main */
-        .box {
-            border: solid;
-            position: relative;
-            width: 30%;
-            display: inline-block;
-            height: 1000px;
-            margin: 0 5px;
-            margin-bottom: 100px;
-        }
+		}
 
-        main {
-            margin: auto;
-            text-align: center;
-        }
+		#yuukai {
+			top: auto;
+			padding: 20px;
+		}
 
-        .word_image {
-            position: absolute;
-            left: 10px;
-            width: 100px;
-        }
+		/*main */
+		.box {
+			border: solid;
+			position: relative;
+			width: 30%;
+			display: inline-block;
+			height: 1000px;
+			margin: 0 5px;
+			margin-bottom: 100px;
+		}
 
-        #hanh {
-            position: absolute;
-            left: 10px;
-            width: 107px;
-        }
+		main {
+			margin: auto;
+			text-align: center;
+		}
 
-        .box {
-            vertical-align: top;
-        }
+		.word_image {
+			position: absolute;
+			left: 10px;
+			width: 100px;
+		}
 
-        .box h1 {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            margin-right: 15px;
-        }
+		#hanh {
+			position: absolute;
+			left: 10px;
+			width: 107px;
+		}
 
-        .web{
-            position: relative;
-            text-decoration: none; 
-            display: inline-block;
-            color: black;
-            font-size: 23px;
-            margin-top: 10px;
-            margin-left: -120px;
-        }
-        #xxt{
-            margin-top: 45px;
-        }
-        #zhywzsk{
-            margin-top: 80px;
-        }
+		.box {
+			vertical-align: top;
+		}
 
-    </style>
+		.box h1 {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			margin-right: 15px;
+		}
+
+		.web {
+			position: relative;
+			text-decoration: none;
+			display: inline-block;
+			color: black;
+			font-size: 23px;
+			margin-top: 10px;
+			margin-left: -120px;
+		}
+
+		/*hahn zih*/
+		#hd{
+			margin-top: 35px;
+		}
+		#xxt {
+			margin-top: 70px;
+		}
+
+		#gycx {
+			margin-top: 105px;
+		}
+
+		/*sur zih*/
+		/*nihonn ryakuji*/
+		#nihon {
+			margin-top: 130px;
+		}
+
+		#rjir {
+			margin-top: 76px;
+		}
+
+		#rjir2 {
+			margin-top: 112px;
+		}
+
+		#sszj {
+			margin-left: -121px;
+			margin-top: 147px;
+		}
+
+		/*zorng guor zahn diaan*/
+		#zorngguor {
+			margin-top: 150px;
+		}
+
+		#gtsz {
+			margin-top: 255px;
+		}
+
+		#dh {
+			margin-top: 290px;
+		}
+		
+		#fjnz{
+			margin-top: 325px;
+		}
+		/*atogaki*/
+		#sz-atogaki {
+			margin-top: 275px;
+			margin-bottom: 10px;
+		}
+		#sz-atgk{
+			text-align: left;
+			margin-bottom: 5px;
+			margin-left: 10px;
+			margin-right: 5px;
+			letter-spacing: 2px;
+			font-size: 14px;
+		}
+
+		/*wern daang*/
+/*jiaan huah zih biaao*/
+		#jhzb{
+			margin-top: 130px;
+		}
+		
+		#yjz {
+			margin-top: 76px;
+			margin-left: -119px;
+		}
+		
+		#ejz {
+			margin-top: 112px;
+/*			margin-left: -137px;*/
+		}
+
+		#yjb {
+			margin-top: 147px;
+			text-align: left;
+/*			margin-left: -137px;*/
+		}
+		/*su*/
+		#wd-su{
+			margin-top: 180px;
+		}
+		#jhzy{
+			margin-top: 285px;
+		}
+		
+	</style>
 </head>
 
 
 <body>
-    <header>
-        <div id="bgc"></div>
-        <nav>
-            <img src="http://zu.zi.tools/%E2%BF%B0%E6%B0%B5%E2%BF%B1%E8%89%B9%F0%A1%97%97.svg" alt="" id="logo">
-            <ul>
-                <li><a href="http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/">汉語多功能字库</a></li>
-                <li><a href="https://dict.variants.moe.edu.tw/variants/rbt/query_by_standard_tiles.rbt">教育部异体字字典</a></li>
-                <li><a href="http://zi.tools/">字统网</a></li>
-            </ul>
-        </nav>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p id="about">此网站以因网页设计课的需要而建，旨在收集一下平时作为一个俗字爱好者而用到的常用网址。本来想为希顶语建个网址结果發现已经有人建了，想为兒旹的黑厤史而建网站结果發现过于羞耻導致不适。只能为俗字这个稍稍有点逼格的爱好而建。这邊写这麽多也纯粹是为了让我的网站看起来好似豐满许多。别无它意。</p>
-        <p id="yuukai">愉快を</p>
-        <br>
-        <br>
-        <br>
-    </header>
+	<header>
+		<div id="bgc"></div>
+		<nav>
+			<img src="file:///C:/Users/acer/%E8%BD%AF%E4%BB%B6%E7%89%A9/%E2%BF%B0%E6%B0%B5%E2%BF%B1%E8%89%B9%F0%A1%97%97.svg" alt="" id="logo">
+			<ul>
+				<li><a href="http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/">汉語多功能字库</a></li>
+				<li><a href="https://dict.variants.moe.edu.tw/variants/rbt/query_by_standard_tiles.rbt">教育部异体字字典</a></li>
+				<li><a href="http://zi.tools/">字统网</a></li>
+			</ul>
+		</nav>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<p id="about">此网站以因网页设计课的需要而建，旨在收集一下平时作为一个俗字爱好者而用到的常用网址。本来想为希顶语建个网址结果發现已经有人建了，想为兒旹的黑厤史而建网站结果發现过于羞耻導致不适。只能为俗字这个稍稍有点逼格的爱好而建。这邊写这麽多也纯粹是为了让我的网站看起来好似豐满许多。别无它意。</p>
+		<p id="yuukai">ご愉快を</p>
+		<br>
+		<br>
+		<br>
+	</header>
 
-    <main>
-        <div class='box'>
-            <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%BC%A2_H.svg" alt="" class='word_image'>
-            <h1>汉<br>字</h1>
-            <a href="https://www.zdic.net/" class="web" id="hd">漢典</a>
-            <a href="http://xiaoxue.iis.sinica.edu.tw/" class="web" id="xxt">小學堂</a>
-            <a href="http://chinese-linguipedia.org/" class="web" id="zhywzsk">中華語文知識庫</a>
-            
+	<main>
+		<div class='box'>
+			<img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%BC%A2_H.svg" alt="" class='word_image'>
+			<h1>汉<br>字</h1>
 
-        </div>
-        <div class='box'>
-            <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%F0%A3%B6%94_T.svg" alt="" class="word_image">
-            <h1>俗<br>字</h1>
-        </div>
-        <div class='box'>
-            <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%B1%89_G.svg" alt="" class="word_image" id="hanh">
-            <h1>其<br>他</h1>
-        </div>
-    </main>
+			<a href="https://www.zdic.net/" class="web" id="hd">漢典</a>
+
+			<a href="http://xiaoxue.iis.sinica.edu.tw/" class="web" id="xxt">小學堂</a>
+
+			<a href="http://www.kaom.net/book_niyin.php" class="web" id="gycx">古音小镜 (查古音)</a>
+
+		</div>
+		<div class='box'>
+			<img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%F0%A3%B6%94_T.svg" alt="" class="word_image">
+			<h1>俗<br>字</h1>
+			<h2 id="nihon">日本站点</h2>
+			<a href="http://pbbs.web.fc2.com/etc/yumei7ryakuji.html" class="web" id="rjir">略字一覽</a>
+			<a href="https://seesaawiki.jp/ryakuji/d/%C4%B6%C4%B6%C4%B6%B0%EC%B2%A1%A4%B7%A4%CA%CE%AC%BB%FA%A4%CE%B0%EC%CD%F7" class="web" id="rjir2">略字一覽 (新增中)</a>
+			<a href="http://nrifs.fra.affrc.go.jp/book/D_archives/2011DA020/jpegver.html" class="web" id="sszj">水產俗字集 (明治編)</a>
+
+			<!--            -->
+			<h2 id="zorngguor">中國 内 俗字</h2>
+			<a href="https://www.wikiwand.com/zh-cn/%E7%B9%81%E9%AB%94%E4%BF%97%E5%AD%97#/%E5%85%B6%E4%BB%96" class="web" id="gtsz">繁體字地區俗字</a>
+			<a href="https://file.deliwenku.com/FileRoot2/temp/book4ce55a260562cc404c01485c8713fbdc/%E6%95%A6%E7%85%8C%E4%BF%97%E5%AD%97%E5%85%B8_11457197.pdf" class="web" id="dh">敦煌俗字典</a>
+			<a href="https://ctext.org/library.pl?if=gb&file=1000071&page=19" class="web" id="fjnz">佛教难字字典</a>
+			<h2 id="sz-atogaki">あとがき</h2>
+			<div id="sz-atgk">爲什麽這裏連古籍這個本來想收錄在 文檔 裏的東西都出來了？ 
+			<br>因爲找不到官方收集 現代民間俗字 的網站啊！
+			<br>
+			<br>日本做得已經很好了，至少有收集民間俗字的網站。港臺也有一個維基百科頁面收錄。但大陸是真的目前爲止沒找到。
+			<br>
+			<br>這可以看作是簡體字的成功吧。但對漢字圈的所謂 俗字文化是個蠻大的打擊就是了...
+			<br>
+			<br> 但是如果誰知道有哪些政府收集民間俗字的網站的話<br>請務必黑進這個網站告訴我啊！</div>
+		</div>
+
+		<div class='box'>
+			<img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%B1%89_G.svg" alt="" class="word_image" id="hanh">
+			<h1>文<br>档</h1>
+			<h2 id="jhzb">（简化）字表</h2>
+			<a href="https://library.moegirl.org/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%B1%89%E5%AD%97%E7%AE%80%E5%8C%96%E6%96%B9%E6%A1%88%EF%BC%88%E8%8D%89%E6%A1%88%EF%BC%89" class="web" id="ejz">第二次汉字简化方案</a>
+
+			<a href="https://library.moegirl.org.cn/%E3%80%8A%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%B1%89%E5%AD%97%E7%AE%80%E5%8C%96%E6%96%B9%E6%A1%88%E4%BF%AE%E8%AE%A2%E8%8D%89%E6%A1%88%E3%80%8B%E5%BE%81%E6%B1%82%E6%84%8F%E8%A7%81%E8%A1%A8" class="web" id="yjb">第二次汉字简化草案征求意见表</a>
+
+			<a href="https://zh.m.wikisource.org/zh-hans/%E7%AE%80%E5%8C%96%E5%AD%97%E6%80%BB%E8%A1%A8" class="web" id="yjz">简化字总表</a>
+			
+			<h2 id="wd-su">書</h2>
+			
+			<a href="http://www.kaom.net/book_niyin.php" class="web" id="jhzy">简化字源</a>
+			
+			
+			
+		</div>
+	</main>
 
 
 </body></html>
