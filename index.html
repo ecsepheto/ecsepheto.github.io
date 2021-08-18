@@ -22,7 +22,7 @@
 			font-weight: 600;
 			box-shadow: -30px 40px 20px -32px grey;
 			position: fixed;
-			z-index: 2;
+			z-index: 10000;
 		}
 
 		#logo {
@@ -30,6 +30,7 @@
 			position: absolute;
 			text-align: right;
 			left: 30px;
+			z-index: 999;
 		}
 
 		nav ul {
@@ -329,6 +330,14 @@
 			font-weight: 900;
 			margin-bottom: 49px;
 		}
+
+		#ads {
+			width: 20%;
+			position: fixed;
+			z-index: 100;
+			bottom: 0px;
+			right: 0px;
+		}
 	</style>
 </head>
 
@@ -337,7 +346,7 @@
 	<header>
 		<div id="bgc"></div>
 		<nav>
-			<img src="file:///C:/Users/acer/%E8%BD%AF%E4%BB%B6%E7%89%A9/%E2%BF%B0%E6%B0%B5%E2%BF%B1%E8%89%B9%F0%A1%97%97.svg" alt="" id="logo">
+			<img src="http://zu.zi.tools/%E2%BF%B0%E6%B0%B5%E2%BF%B1%E8%89%B9%F0%A1%97%97.svg" alt="gg" id="logo">
 			<ul>
 				<li><a href="http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/">汉語多功能字库</a></li>
 				<li><a href="https://dict.variants.moe.edu.tw/variants/rbt/query_by_standard_tiles.rbt">教育部异体字字典</a></li>
@@ -357,6 +366,9 @@
 	</header>
 
 	<main>
+		<a href="https://zhuanlan.zhihu.com/p/149749600">
+			<img border="0" src="media/guaang-gaoh.jpg" alt="ad" id="ads">
+		</a>
 		<div class='box' id="hz">
 			<img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%BC%A2_H.svg" alt="" class='word_image'>
 			<h1>汉<br>字</h1>
