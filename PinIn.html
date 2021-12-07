@@ -10,11 +10,11 @@
 			box-sizing: border-box;
 		}
 
-		.biaotir{
+		.biaotir {
 			text-align: right;
 			left: 120px;
 		}
-		
+
 		div {
 			background-color: silver;
 		}
@@ -475,10 +475,10 @@
 		}
 
 		.zar-web {
-			padding:5px;
+			padding: 5px;
 			padding-left: 10px;
 			padding-right: 10px;
-			margin-right:10px;
+			margin-right: 10px;
 			position: relative;
 			text-decoration: none;
 			color: black;
@@ -488,7 +488,7 @@
 			background-color: lightgray;
 			border-radius: 10px;
 			height: 35px;
-			line-height:25px;
+			line-height: 25px;
 		}
 
 		.zar-web:hover {
@@ -527,11 +527,11 @@
 			font-size: 18px;
 			margin-bottom: 10px;
 		}
-		
-		.xiang{
+
+		.xiang {
 			border-top: solid 3px;
 		}
-		
+
 		.sahg {
 			position: relative;
 			text-decoration: none;
@@ -544,11 +544,45 @@
 			background-color: #ededed;
 			border-radius: 30px;
 			height: 35px;
-			line-height:25px;
+			line-height: 25px;
+		}
+		
+		.sag{
+			position: relative;
+			margin-left: 10px;
+			text-decoration: none;
+			color: black;
+			font-size: 100%;
+			vertical-align: middle;
+			padding: 8px;
+			background-color: #ededed;
+			border-radius: 30px;
+			height: 35px;
+			line-height: 10px;
+			border:none;
 		}
 		
 	</style>
 </head>
+
+<script>
+function Btn(){
+	var x;
+	var r=confirm("This is what I named ‘PinIn’. It's created to replace Chinese Pinyin when I was learning to code and was too lazy to switch input methods. So I created this, which compared to Chinese Pinyin, it is shorter (NOT more concise), able to show the tones and looks more like a languageヾ(•ω•`)o. Anyway, I created it, I like it, so I put it here. So...");
+	if (r==true){
+		x="Now U Know What It Is!";
+	}	document.getElementById("demo").innerHTML=x;
+}
+
+function AhnNiuu(){
+	var x;
+	var r=confirm("由于学编程时懒得换键盘所以就搞了个这个叫‘便乘拼音’的www。 日常生活中都很常用啦对我，详情可以参考这篇文章https://zhuanlan.zhihu.com/p/441093285?ヾ(•ω•`)o");
+	if (r==true){
+		x="知道啦叭(￣▽￣)";
+	}	document.getElementById("demo").innerHTML=x;
+}
+
+</script>
 
 
 <body id="top">
@@ -566,20 +600,27 @@
 		<br>
 		<br>
 		<br>
-		<p id="about">Tss WaagZahn Ii 'HTML'keh XvYaoh RJahn, ZzZaih SoJr IrXiah PirgSr ZohWeir IrGeh SurZh AihHaohZee TsargYohgDaoh Deh WargZz. BeenXiaag Weih 'Xdi8' JahnGeh WaagZahn JierGuoo FaXiahn IiJig YooRern JiahnL, Youh XiaagWeih RSr Deh HeiLihSs Jiahn JierGuoo FaXiahn GuohVr XiuTss DaooZh BurSh. ZzNerg Weih SurZh ZehGeh SaoYouu BiGer Deh AihHaoh R Jiahn. ZehBian Xiee ZehMeDuo YeZzSh RahgWoo WaagZahn KahnSh FegMaanXvvDuo, JiuhJiahg.</p>
+		<p id="about">
+		<button onclick="AhnNiuu()" class="sag">这是啥</button>
+		<button onclick="Btn()" class="sag">What Is This???</button>
+		<br>
+		<span id="demo"></span>
+		<br>
+		<br>
+		Tss WaagZahn Ii 'HTML'keh XvYaoh RJahn, ZzZaih SoJr IrXiah PirgSr ZohWeir IrGeh SurZh AihHaohZee TsargYohgDaoh Deh WargZz. BeenXiaag Weih 'Xdi8' JahnGeh WaagZahn JierGuoo FaXiahn IiJig YooRern JiahnL, Youh XiaagWeih RSr Deh HeiLihSs Jiahn JierGuoo FaXiahn GuohVr XiuTss DaooZh BurSh. ZzNerg Weih SurZh ZehGeh SaoYouu BiGer Deh AihHaoh R Jiahn. ZehBian Xiee ZehMeDuo YeZzSh RahgWoo WaagZahn KahnSh FegMaanXvvDuo, JiuhJiahg.</p>
 		<div id="yuukai">ごVrKuaihを
-		<br>
-		<br>
-		<a href="SihJih.html" class="sahg">WaagZahn RihZh</a>
-		<a href="Eng.html" class="sahg">English</a>
-		<a href="index.html" class="sahg">汉字</a>
-		<br>
-		<br>
+			<br>
+			<br>
+			<a href="SihJih.html" class="sahg">WaagZahn RihZh</a>
+			<a href="Eng.html" class="sahg">English</a>
+			<a href="index.html" class="sahg">汉字</a>
+			<br>
+			<br>
 		</div>
 		<br>
 		<br>
 		<br>
-		
+
 	</header>
 	<main>
 
@@ -638,7 +679,7 @@
 				Dahn WeihSeenMe HairSoSh HuiLihSs Ma... PieeQvh KairTor JjPian JhgSh TsanKaoo XahgXr ZhDiaan ZehZoog WaagZahn Xiee TsuLairDeh, Lii Miahn HeenDo Zh GaiiDeh DoHaoo JgFen... MeirYoo MirgQveh Deh LiiNiahn, SenHouh Deh XverSr GaaoTsuLair Deh Jiuh Zeh L...
 				<br>
 				<br>
-				HuargQvehFei Deh 'Xdi8' SoZaih ZehLii ZuuYaoh InWeir Ta Deh 'Xdi8' Been JiuhSh Duih HahnZh BuhJiahn Deh LaDigHuah, ZehYahg Kahn Yee SuahnSih Duih HahnZh Deh R Tsuahg. Baa HahnZh Ii LaDig GerSh XieeXiahLair L Mag. 
+				HuargQvehFei Deh 'Xdi8' SoZaih ZehLii ZuuYaoh InWeir Ta Deh 'Xdi8' Been JiuhSh Duih HahnZh BuhJiahn Deh LaDigHuah, ZehYahg Kahn Yee SuahnSih Duih HahnZh Deh R Tsuahg. Baa HahnZh Ii LaDig GerSh XieeXiahLair L Mag.
 			</div>
 
 		</div>
@@ -663,7 +704,7 @@
 
 
 			<h2 id="atogaki2">あとがき</h2>
-			<div id="atgk">WeihSeenMe Liarn GuuJr ZehGeh BeenXiaag SoDaoh WernDaag Lii Deh Dou TsuLair L? 
+			<div id="atgk">WeihSeenMe Liarn GuuJr ZehGeh BeenXiaag SoDaoh WernDaag Lii Deh Dou TsuLair L?
 				<br>InWeir ZaooBurDaoh SoJr MirnJian SurZh Deh WaagZahn Ah.
 				<br>
 				<br>RihBeen Yoo TaihDo WaagZahn L, GaagTair Yer YooGeh 'Wiki' BaiiKe, Dahn DahLuh Sh MuhQiarn WeirZz MeirZaooDaoh...
@@ -721,7 +762,7 @@
 
 
 			<h2 id="atogaki3">あとがき</h2>
-			<div id="atgk">Awww, GooRarn Meir TaihDo Su Awww 
+			<div id="atgk">Awww, GooRarn Meir TaihDo Su Awww
 				<br>
 				HaooDo DoSh Tsurn DiahnNaoo Lii Deh。ですから，ZehLii Meir SoTaihDo。
 				<br>
@@ -736,13 +777,13 @@
 		</div>
 		<div class='xiang' id="zar">
 			<h1 id="zar-zar">ZarQi ZarBa</h1>
-			
+
 			<h3>WernZh Xih</h3>
 			<br>
 			<a href="https://www.shufadict.com/dict/x" class="zar-web" id="sfzd">SuFaa ZhDiaan</a>
 			<a href="https://www.mebag.com/index/" class='zar-web' id='yds'>IinDerSh</a>
 			<a href="https://www.unicode.org/charts/unihan.html" class='zar-web' id='unihan'>'UniHan' SuhJvhKuh</a>
-			<a href="http://www.ccamc.co/index.php" class='zar-web' id='gjwzjc'>GuuJin WernZh JirCerg</a>
+			<a href="http://www.ccamc.co/index.php" class='zar-web' id='gjwzjc'>GuuJin WernZh JrCerg</a>
 
 			<br>
 			<br>
@@ -751,9 +792,9 @@
 			<br>
 			<a href="https://gogen-yurai.jp/" class='zar-web' id='ggyr'>RihVv TsirVarn</a>
 			<a href="https://phesoca.com/kanbun-html/" class='zar-web' id='kym'>HahnWern XvhnDur PairBaan</a>
-			<a href="https://dictionary.goo.ne.jp/" class="zar-web" id="kjjd">'Goo'TsirDiaan</a>
-			<a href="http://daijirin.dual-d.net/extra/katakana.html" class="zar-web" id='htgn'>JiaaMirg SurXiee</a>
-			<a href="http://codh.rois.ac.jp/char-shape/hentaigana/" class='zar-web' id='hekn'>BiahnTii JiaaMirg</a>
+			<a href="https://dictionary.goo.ne.jp/" class="zar-web" id="kjjd">'Goo'TsrDiaan</a>
+			<a href="http://daijirin.dual-d.net/extra/katakana.html" class="zar-web" id='htgn'>JaaMirg SurXee</a>
+			<a href="http://codh.rois.ac.jp/char-shape/hentaigana/" class='zar-web' id='hekn'>BiahnTii JaaMirg</a>
 
 			<br>
 			<br>
@@ -762,7 +803,7 @@
 			<br>
 			<a href="https://zh.moegirl.org.cn/zh-hans/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6" class='zar-web' id='yc'>IhTseh YarnJiuSoo</a>
 			<a href="https://phesoca.com/" class='zar-web' id='unt'>Unt Deh GehRern WaagZahn</a>
-			<a href="https://ecsepheto.github.io/" class='zar-web' id='ecsepheto'>ZyaNa</a>
+			<a href="https://ecsepheto.github.io/" class='zar-web' id='ecsepheto'>JyaNa</a>
 			<span class='uarndihtp'>原地TP呢你搁这儿</span>
 
 			<br>
@@ -798,7 +839,8 @@
 			<h3>Jier</h3>
 			<br>
 			<a href="https://kahoot.it/" class="zar-web">'Kahoot'</a>
-			
+			<a href="https://app.grammarly.com/" class='zar-web'>'Grammarly'</a>
+
 			<br>
 			<br>
 			<h3>Hoh</h3>
