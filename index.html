@@ -494,22 +494,6 @@
  			background-color: ghostwhite;
  		}
 
- 		.uarndihtp {
- 			visibility: hidden;
- 			width: 120px;
- 			background-color: black;
- 			color: #fff;
- 			text-align: center;
- 			padding: 5px 0;
- 			border-radius: 6px;
- 			z-index: 888;
- 			position: absolute;
- 		}
-
- 		#ecsepheto:hover .uarndihtp {
- 			visibility: visible;
- 		}
-
  		.zar-img {
  			width: 15%;
  			border-radius: 30px;
@@ -571,7 +555,7 @@
  			width: 20px;
  			position: absolute;
  			color: dimgrey;
-			padding-left: 10px;
+ 			padding-left: 10px;
  			border-left: solid 2px;
  		}
 
@@ -583,7 +567,7 @@
  		.gjxiang {
  			width: 40%;
  			display: inline-block;
-/* 			border-left: solid 2px;*/
+ 			/* 			border-left: solid 2px;*/
  			vertical-align: top;
  			height: auto;
  		}
@@ -591,7 +575,7 @@
  		.gjxag {
  			width: 40%;
  			display: inline-block;
-/* 			border-left: solid 2px;*/
+ 			/* 			border-left: solid 2px;*/
  		}
 
  		.zarweb {
@@ -614,6 +598,64 @@
  			background-color: antiquewhite;
  		}
 
+
+ 		.muhluh {
+ 			margin: 0 0 21px;
+ 			padding: 15px;
+ 			border-left: solid 7px darkblue;
+ 			width: 181px;
+ 			display: inline-block;
+ 			text-align: left;
+ 			float: left;
+
+ 		}
+
+ 		.mulu {
+ 			margin: 10px 15px;
+ 			text-decoration: none;
+ 			color: black;
+ 		}
+
+ 		#taoh {
+ 			width: 100%;
+			height: 250px;
+ 			text-align: left;
+ 			margin-bottom: 100px;
+			background-image: url(media/%E6%97%A5%E5%B8%B8%E4%B8%8A%E6%B2%B3%E5%9B%BE.jpg);
+			background-size: cover;
+			background-position: 200px 0px;
+			background-repeat: repeat-x;
+			animation: animatedBackground 210s linear infinite;
+ 		}
+		
+		@keyframes animatedBackground{
+			from{
+				background-position: 200 0;
+			}
+			to{
+				background-position: 100% 0;
+			}
+		}
+		
+		.zar{
+			position: relative;
+			width: 23%;
+ 			text-decoration: none;
+ 			color: black;
+ 			font-size: 100%;
+ 			display: inline-block;
+ 			background-color: lightgray;
+ 			border-radius: 30px;
+ 			height: 35px;
+ 			line-height: 35px;
+			margin: 10px 5px 0px 5px;
+			padding: 1px 5px 0 5px;
+		}
+		
+		.zar:hover {
+ 			background-color: antiquewhite;
+ 		}
+
  	</style>
  </head>
 
@@ -633,7 +675,8 @@
  		<br>
  		<br>
  		<br>
- 		<p id="about">此网站以因网页设计课的需要而建，旨在收集一下平时作为一个俗字爱好者而用到的常用网址。本来想为希顶语建个网址结果發现已经有人建了，想为兒旹的黑厤史而建网站结果發现过于羞耻導致不适。只能为俗字这个稍稍有点逼格的爱好而建。这邊写这麽多也纯粹是为了让我的网站看起来好似豐满许多。别无它意。</p>
+
+ 		<p id="about">此网站以因网页设计课的需要而建，旨在收集一下平旹作为一个俗字爱好者而用到的常用网址。本来想为希顶语建个网址结果發现已经有人建了，想为兒旹的黑厤史而建网站结果發现过于羞耻導致不适。只能为俗字这个稍稍有点逼格的爱好而建。这邊写这麽多也纯粹是为了譲我的网站看起来好似豐满许多啦·。</p>
  		<div id="yuukai">ご愉快を
  			<br>
  			<br>
@@ -646,9 +689,20 @@
  		<br>
  		<br>
  		<br>
-
  	</header>
+
  	<main>
+ 		<div id="taoh">
+ 			<div class='muhluh'>
+ 				<h3>目录</h3>
+ 				<li class="mulu"><a href="#g">工具箱</a></li>
+ 				<li class="mulu"><a href="#hz">三大箱</a></li>
+ 				<li class="mulu"><a href="#zar">杂七杂八</a></li>
+ 				<li class="mulu"><a href="#hzec">汉字二创</a></li>
+ 				<li class="mulu"><a href="#hoka">学校物</a></li>
+ 				<li class="mulu"><a href="#jyana">之也奈</a></li>
+ 			</div>
+ 		</div>
 
  		<div class='xiang' id='gjx1'>
  			<h3 id='g'>工具箱</h3>
@@ -860,7 +914,6 @@
  			<a href="https://zh.moegirl.org.cn/zh-hans/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6" class='zar-web' id='yc'>懿册研究所</a>
  			<a href="https://phesoca.com/" class='zar-web' id='unt'>Unt的个人站</a>
  			<a href="https://ecsepheto.github.io/" class='zar-web' id='ecsepheto'>之也奈</a>
- 			<span class='uarndihtp'>原地TP呢你搁这儿</span>
 
  			<br>
  			<br>
@@ -876,20 +929,58 @@
  			</div>
  			<br>
  		</div>
+ 		<div class="xiang" id="hzec">
+ 			<h1>汉字二创</h1>
+ 			<br>
+ 			<br>
+ 			<h3>六书法（改字）</h3>
+ 			<br>
+			<a href="https://zh.moegirl.org.cn/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6/%E6%99%A8%E5%BC%8F%E6%A5%B5%E7%B0%A1%E5%AD%97%E5%85%A8%E8%A9%B3%E7%B8%BD%E8%A1%A8#%E5%AD%97%E5%BD%A2%E8%B0%83%E6%95%B4" class="zar">晨式极简字</a>
+			<a href="http://blog.livedoor.jp/tdiaryblog/archives/1839200.html" class="zar">自作略字</a>
+			<a href="https://jump2.bdimg.com/f?kw=%E4%BC%98%E5%8C%96%E5%AD%97&ie=utf-8&tab=main" class="zar">优化字吧</a>
+			<a href="https://www.bilibili.com/read/cv11999344?spm_id_from=333.999.0.0" class="zar">文字改良刍议</a>
+			<a href="https://zhuanlan.zhihu.com/p/185101371" class="zar">简体字改革</a>
+			<a href="https://zhuanlan.zhihu.com/p/258038078" class="zar">周字</a>
+			<a href="https://zhuanlan.zhihu.com/p/398058723" class="zar">优体新汉字</a>
+			<a href="https://zhuanlan.zhihu.com/p/58410690" class="zar">汉字国际语</a>
+			<a href="http://blog.sina.com.cn/s/blog_50485daa010087h3.html" class="zar">素字</a>
+			<a href="https://www.zhihu.com/column/c_1401698676205678592" class="zar">本造字</a>
+			<br>
+			<br>
+			<br>
+			<h3>表音法</h3>
+			<br>
+			<a href="https://xdi8.top/cmn-hans/" class="zar">希顶语</a>
+			<a href="http://biaoyinzi.com/index.php/zh-hans" class="zar">表音方块字</a>
+			<a href="http://www.rangmo.com/rangmowen/index.html" class="zar">让墨文</a>
+			<br>
+			<br>
+			<br>
+			<h3>其他</h3>
+			<br>
+			<a href="https://www.omniglot.com/conscripts/linglese.htm" class="zar">凌角文</a>
+			<a href="https://www.zhihu.com/column/c_1338531634900533250" class="zar">托兰格语</a>
+			<br>
+			<div id="zars">
+ 				<h2>あとがき</h2><br>所以这个跟上面那个汉字二创有什么区别呢？<br>确实没区别，只不过以后我发现的的汉字二创者都会在这里更新了，因为那三个箱子真的是太屎山了... <br><br>托兰格语和凌角文我没理解错的话是像万叶假名一样把汉字借过去表音，所以也不知道该怎么分，甚至都不清楚这算不算是汉字二创。但还是加到“其他”里了。<br>素字现在的资料只剩下了一个博客，他原来的网站挂掉了，甚至连张图都搜不出来。这边唯一能找到的图就是<a href="https://www.bilibili.com/video/BV1n34y1U7mZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click" style="color: rgb(20, 70, 183)">这个视频</a>里的... <br><br>不管他是为啥给搞的痕迹全无了，总的还是有点悲的。就像是一座一直无人问津的小城一样，默默地成长着，默默地存在着，最后也默默地消失了；当后人无意间发现这座小城的残垣断壁时，城里早已杳无人烟，任何地方都很忙，都没人记载这座城，只有小城自己在孤独地生活着，直到痕迹全无。<br><br>悲
+ 			</div>
+ 			<br>
+ 			<br>
+ 		</div>
  		<div class='xiang' id='hoka'>
  			<h1>如果 ChromeBook 加载太慢了</h1>
  			<br>
  			<br>
  			<h3>Google 系</h3>
  			<br>
- 			<a href="https://classroom.google.com/u/0/h" class='zar-web'>Google 教室</a>
- 			<a href="https://docs.google.com/document/u/0/?tgif=c" class='zar-web'>Google 文档</a>
- 			<a href="https://docs.google.com/presentation/u/0/?tgif=d" class="zar-web">Google 演讲</a>
- 			<a href="https://mail.google.com/mail/u/0/#inbox" class="zar-web">Gmail 邮箱</a>
- 			<a href="https://drive.google.com/drive/u/0/my-drive" class="zar-web">Google 云盘</a>
- 			<a href="https://docs.google.com/spreadsheets/u/0/?tgif=d" class="zar-web">Google 表单</a>
- 			<a href="https://jamboard.google.com/u/0/" class="zar-web">Google 白板</a>
- 			<a href="https://earth.google.com/web/?authuser=0" class="zar-web">Google 地球</a>
+ 			<a href="https://classroom.google.com/u/0/h" class='zar-web'>G 教室</a>
+ 			<a href="https://docs.google.com/document/u/0/?tgif=c" class='zar-web'>G 文档</a>
+ 			<a href="https://docs.google.com/presentation/u/0/?tgif=d" class="zar-web">G 演讲</a>
+ 			<a href="https://mail.google.com/mail/u/0/#inbox" class="zar-web">G 邮箱</a>
+ 			<a href="https://drive.google.com/drive/u/0/my-drive" class="zar-web">G 云盘</a>
+ 			<a href="https://docs.google.com/spreadsheets/u/0/?tgif=d" class="zar-web">G 表单</a>
+ 			<a href="https://jamboard.google.com/u/0/" class="zar-web">G 白板</a>
+ 			<a href="https://earth.google.com/web/?authuser=0" class="zar-web">G 地球</a>
  			<br>
  			<br>
  			<h3>捷</h3>
