@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img {
+            width: 250px;
+        }
+        
+        video {
+            width: 250px;
+        }
+        
+        button {
+            width: 250px;
+        }
+        
+        image {
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label for="nameinput">name</label>
+        <input id="nameinput" name=username>
+        <br>
+        <textarea name="comments" id="" cols="30" rows="10"></textarea>
+        <br>
+        <input list="food">
+        <datalist id="food">
+            <option value="rice"></option>
+            <option value="noodles"></option>
+            <option value="sushi"></option>
+        </datalist>
+
+        <select name="food" id="">
+            <option value="rice">rice</option>
+            <option value="noodles">noodles</option>
+            <option value="sushi">sushi</option>
+            
+<!--        -->
+            <br>
+            <optgroup label="name of group">
+            <option value="rice">rice</option>
+            <option value="noodles">noodles</option>
+            <option value="sushi">sushi</option>
+            </optgroup>
+        </select>
+
+        <br>
+        <meter min=0 max=100 value=50></meter>
+
+        <br>
+        <!--        go back and force when no value. -->
+        <!--        progress more semantic-->
+        <progress min=0 max=100 value=30></progress>
+
+        <br>
+        <input type="password">
+        <!--stateful vs stateless server(for hidden)-->
+
+        <!--input hidden to hide the data users don't need to see and send it to server when user click ok. So server won't forget about information-->
+        <input type="hidden" value=100>
+        <br>
+        <input type="number" value=100>
+        <br>
+        <input type="email" value=diw9667@gmail.com>
+        <input type="submit">
+        <br>
+        <input type="url" value=http://google.com>
+        <input type="submit">
+        <br>
+        <input type="tel" value=100>
+        <br>
+        <input min=0 max=9 type="range" value=100>
+        <br>
+        <input type="color">
+        <br>
+        <input type="file">
+        <br>
+        <!--remember history aru-->
+        <input type="search" value=search>
+        <br>
+        <input type="radio">male
+        <input type="radio">female
+        <br>
+        <input type="radio" name=gender>male
+        <input type="radio" name=gender>female
+        <br>
+        <input type="checkbox">rice
+        <input type="checkbox">noodles
+        <input type="checkbox">sushi
+        <br>
+        <input type="date">
+        <br>
+        <input type="time">
+        <br>
+        <input type="week">
+        <br>
+        <input type="month">
+        <br>
+        <input type="datetime-local">
+        <br>
+        <br>
+        <!--buttons-->
+        <input type="submit">
+        <br>
+        <input type="reset">
+        <br>
+        <input type="button" value=cancel>
+        <!--only work for Java script-->
+        <br>
+        <input type="image" src=https://www.ssbwiki.com/images/4/41/ButtonIcon-GCN-A.svg>
+        <br>
+        <!--can put everything in button-->
+        <button>
+            <img src="https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_1920,f_auto/A-Alamy-BXWK5E_vvmkuf.jpg" alt="Mountain" alt="Button">
+        </button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </form>
+</body>
+</html>
+
+
+
+
