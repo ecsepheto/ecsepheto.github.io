@@ -4,6 +4,7 @@
  <head>
  	<meta charset="UTF-8">
  	<title>之也奈</title>
+ 	<script src="https://kit.fontawesome.com/3be782a9ab.js" crossorigin="anonymous"></script>
  	<style>
  		* {
  			margin: 0;
@@ -163,7 +164,7 @@
 
  		/*汉字二创（独体户）*/
  		#hz-ec {
- 			margin-top: 105px;
+ 			margin-top: 90px;
  		}
 
  		#csjjz {
@@ -354,14 +355,14 @@
 
  		#jyana {
  			background-color: whitesmoke;
- 			height: 600px;
+ 			height: 100vh;
  			font-size: 90px;
  			font-weight: 900;
  		}
 
  		#jyana:hover {
  			background-color: silver;
- 			font-size: 100px
+ 			font-size: 100px;
  		}
 
  		#btn {
@@ -391,28 +392,15 @@
  		}
 
  		.houh {
- 			font-weight: 100;
- 			font-size: 21px;
+ 			font-size: 43px;
  			background: transparent;
- 			position: inline-block;
  			text-decoration: none;
  			color: black;
- 			text-align: left;
- 			margin-left: 81px;
  			margin-top: 49px;
  		}
 
- 		#bzan {
- 			margin-top: 100px;
- 		}
-
  		.houh:hover {
- 			font-weight: 900;
- 		}
-
- 		#houh-zyn {
- 			background-color: transparent;
- 			margin-top: 25px;
+ 			font-weight: 500;
  		}
 
  		#houh-zyn:hover {
@@ -505,29 +493,6 @@
  			margin-bottom: 10px;
  		}
 
- 		#gjx1 {
- 			margin-bottom: 33px;
- 			width: 45%;
- 			padding-left: 0px;
- 			border-color: orangered;
- 			display: inline-block;
- 			margin-left: 10px;
- 			margin-right: 10px;
- 			height: 210px;
- 		}
-
- 		#gjx2 {
- 			margin-bottom: 33px;
- 			width: 45%;
- 			padding-left: 0px;
- 			border-color: orangered;
- 			display: inline-block;
- 			margin-left: 10px;
- 			margin-right: 10px;
- 			height: 210px;
- 			vertical-align: bottom;
- 		}
-
  		.xiang {
  			border-top: solid 3px;
  		}
@@ -546,35 +511,12 @@
  			line-height: 35px;
  		}
 
- 		.sdiao {
- 			width: 130px;
- 		}
-
  		.biaotir {
  			width: 20px;
  			position: absolute;
  			color: dimgrey;
  			padding-left: 10px;
  			border-left: solid 2px;
- 		}
-
- 		.byzf {
- 			text-align: left;
- 			margin-left: 40px;
- 		}
-
- 		.gjxiang {
- 			width: 40%;
- 			display: inline-block;
- 			/* 			border-left: solid 2px;*/
- 			vertical-align: top;
- 			height: auto;
- 		}
-
- 		.gjxag {
- 			width: calc;
- 			display: inline-block;
- 			/* 			border-left: solid 2px;*/
  		}
 
  		.zarweb {
@@ -606,8 +548,8 @@
  			display: inline-block;
  			text-align: left;
  			float: left;
-			height: 270px;
-			overflow: hidden;
+ 			height: 270px;
+ 			overflow: hidden;
  		}
 
  		.mulu {
@@ -694,8 +636,11 @@
  	</header>
 
  	<main>
- 	<div class="xiang" style="border-top: solid 7px purple;"><h1>
- 	<a href="WaagZahn.html" style="color: darkblue;">>>>一些怪网站~</a></h1></div>
+ 		<div class="xiang" style="border-top: solid 7px purple;">
+ 			<h1>
+ 				<a href="WaagZahn.html" style="color: darkblue;">>>>一些怪网站~</a>
+ 			</h1>
+ 		</div>
  		<div id="taoh">
  			<div class='muhluh'>
  				<h3>目录</h3>
@@ -708,37 +653,43 @@
  			</div>
  		</div>
 
- 		<div class='xiang' id='gjx1'>
- 			<h3 id='g'>工具箱</h3>
- 			<br>
- 			<div class='gjxiang'>
- 				<div class='biaotir'>汉语拼音声调</div>
- 				<div class='sdiao'>ā á ǎ à <br>ō ó ǒ ò <br>ē é ě è <br>ī í ǐ ì <br>ū ú ǔ ù<br>ǖ ǘ ǚ ǜ </div>
+ 		<div style="display: flex; justify-content: space-evenly; width: 96vw; margin: 0 auto; margin-bottom: 60px; background-color: transparent; ">
+ 			<div style="width: 46%; display: flex; border-top: solid 5px orangered; flex-direction: column; padding-bottom: 35px;">
+ 				<h3 style="margin: 25px auto 18px auto;">工具箱</h3>
+ 				<div style="display:flex; flex-direction: row; justify-content: space-around;">
+ 					<div style="display:flex; flex-direction: row; align-items: center;">
+ 						<div style="width:30px;">汉语拼音声调</div>
+ 						<hr style="height:100%;">
+ 						<div style="margin-left: 18px; font-family: consolas; font-size: 18px;">a ā á ǎ à <br>o ō ó ǒ ò <br>e ē é ě è <br>i ī í ǐ ì<br>u ū ú ǔ ù<br>ü ǖ ǘ ǚ ǜ</div>
+ 					</div>
+ 					<div style="display:flex; flex-direction: row; align-items: center;">
+ 						<div style="width:30px;">文字描述字符</div>
+ 						<hr style="height:100%;">
+ 						<div style="margin-left: 18px; font-size: 18px;">⿰ ⿱ <br>⿲ ⿳ <br> ⿶ ⿵ <br> ⿺ ⿷ <br> ⿸ ⿹ <br> ⿴ ⿻</div>
+ 					</div>
+ 				</div>
  			</div>
- 			<div class='gjxag'>
- 				<div class='biaotir'>文字描述字符</div>
- 				<div class='byzf'>⿰ ⿱ <br>⿲ ⿳ <br> ⿴ ⿵ <br> ⿶ ⿷ <br> ⿸ ⿹ <br> ⿺ ⿻</div>
+ 			<div style="width: 46%; display: flex; flex-direction: column; border-top: solid 5px orangered; padding-bottom: 30px;">
+ 				<h3 style="margin: 25px auto 30px auto;">工具箱</h3>
+ 				<div style="">
+ 					<a href="https://classroom.google.com/u/0/h" class='zarweb'>教室</a>
+ 					<a href="https://docs.google.com/document/u/0/?tgif=c" class='zarweb'>文档</a>
+ 					<a href="https://drive.google.com/drive/u/0/my-drive" class="zarweb">云盘</a>
+ 				</div>
+ 				<div>
+ 					<a href="https://mail.google.com/mail/u/0/#inbox" class="zarweb">邮箱</a>
+ 					<a href="https://jamboard.google.com/u/0/" class="zarweb">白板</a>
+ 					<a href="https://kahoot.it/" class="zarweb">问答</a>
+ 				</div>
  			</div>
- 			<div class='gjxiang'></div>
- 		</div>
-
- 		<div class='xiang' id='gjx2'>
- 			<h3 id='g'>工具箱</h3>
- 			<br>
- 			<a href="https://classroom.google.com/u/0/h" class='zarweb'>教室</a>
- 			<a href="https://docs.google.com/document/u/0/?tgif=c" class='zarweb'>文档</a>
- 			<a href="https://drive.google.com/drive/u/0/my-drive" class="zarweb">云盘</a>
- 			<br>
- 			<a href="https://mail.google.com/mail/u/0/#inbox" class="zarweb">邮箱</a>
- 			<a href="https://jamboard.google.com/u/0/" class="zarweb">白板</a>
-
- 			<a href="https://kahoot.it/" class="zarweb">问答</a>
  		</div>
 
  		<a href="guanbih.html"><button id="btn">关闭</button></a>
+ 		<!--
  		<a href="https://zhuanlan.zhihu.com/p/149749600">
  			<img border="0" src="media/guaang-gaoh.jpg" alt="ad" id="ads">
  		</a>
+-->
 
  		<div class='box' id="hz">
  			<img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%BC%A2_H.svg" alt="" class='word_image'>
@@ -968,7 +919,8 @@
  			<a href="https://zhuanlan.zhihu.com/p/406288556" class="zar">拼辅汉方案*</a>
  			<br>
  			<div id="zars">
- 				<h2>あとがき</h2><br>所以这个跟上面那个汉字二创有什么区别呢？<br>确实没区别，只不过以后我发现的的汉字二创者都会在这里更新了，因为那三个箱子真的是太屎山了... <br><br>托兰格语和凌角文我没理解错的话是像万叶假名一样把汉字借过去表音，所以也不知道该怎么分，甚至都不清楚这算不算是汉字二创。但还是加到“其他”里了。<br>素字现在的资料只剩下了一个博客，他原来的网站挂掉了，甚至连张图都搜不出来。这边唯一能找到的图就是<a href="https://www.bilibili.com/video/BV1n34y1U7mZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click" style="color: rgb(20, 70, 183)">这个视频</a>里的... <br><br>不管他是为啥给搞的痕迹全无了，总的还是有点悲的。就像是一座一直无人问津的小城一样，默默地成长着，默默地存在着，最后也默默地消失了；当后人无意间发现这座小城的残垣断壁时，城里早已杳无人烟，任何地方都很忙，都没人记载这座城，只有小城自己在孤独地生活着，直到痕迹全无。<br><br>悲 <br><br><div style="text-align: left; ">*: 全称 汉语拼音辅助汉字使用实验方案</div>
+ 				<h2>あとがき</h2><br>所以这个跟上面那个汉字二创有什么区别呢？<br>确实没区别，只不过以后我发现的的汉字二创者都会在这里更新了，因为那三个箱子真的是太屎山了... <br><br>托兰格语和凌角文我没理解错的话是像万叶假名一样把汉字借过去表音，所以也不知道该怎么分，甚至都不清楚这算不算是汉字二创。但还是加到“其他”里了。<br>素字现在的资料只剩下了一个博客，他原来的网站挂掉了，甚至连张图都搜不出来。这边唯一能找到的图就是<a href="https://www.bilibili.com/video/BV1n34y1U7mZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click" style="color: rgb(20, 70, 183)">这个视频</a>里的... <br><br>不管他是为啥给搞的痕迹全无了，总的还是有点悲的。就像是一座一直无人问津的小城一样，默默地成长着，默默地存在着，最后也默默地消失了；当后人无意间发现这座小城的残垣断壁时，城里早已杳无人烟，任何地方都很忙，都没人记载这座城，只有小城自己在孤独地生活着，直到痕迹全无。<br><br>悲 <br><br>
+ 				<div style="text-align: left; ">*: 全称 汉语拼音辅助汉字使用实验方案</div>
  			</div>
  			<br>
  			<br>
@@ -1011,13 +963,23 @@
  		</div>
  		<p id="synr">ごめん<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br><a href="https://www.bilibili.com/s/video/BV1i7411d7Fe">サヨナラ</a>（bushi</p>
  		<div id="jyana">
- 			<br>
- 			<div id="houh-zyn">之”-也 奈</div>
- 			<div class="houh" id="bzan">b站(动态up):
- 				<a href="https://space.bilibili.com/298174467" class="houh">猫は懒得理你</a>
- 			</div>
- 			<div class="houh">知乎 ():
- 				<a href="https://www.zhihu.com/people/zhen-shi-xing-56" class="houh" id="zynai">之也奈</a>
+ 			<div id="houh-zyn" style="background-color: transparent; padding-top: 30vh; padding-bottom: 3%">之”-也 奈</div>
+
+ 			<div style="background-color: transparent; display: flex;justify-content: space-evenly;">
+ 				<span style="display: flex; flex-direction: column;">
+ 				<a href="https://space.bilibili.com/298174467" class="houh"><i class="fa-brands fa-bilibili"></i></a>
+<!-- 				<span class="houh">bilibili</span>-->
+ 				</span>
+
+ 				<a href="https://www.zhihu.com/people/zhen-shi-xing-56" class="houh"><i class="fa-brands fa-zhihu"></i></a>
+
+ 				<a href="https://github.com/ecsepheto" class="houh"><i class="fa-brands fa-github"></i></a>
+
+ 				<a href="https://www.instagram.com/ecsepheto/" class="houh"><i class="fa-brands fa-instagram"></i></a>
+
+ 				<a href="gmail.html" class="houh">
+ 					<i class="fa-solid fa-at"></i>
+ 				</a>
  			</div>
  		</div>
  	</main>
