@@ -27,12 +27,7 @@
  			z-index: 10000;
  		}
 
- 		#logo {
- 			width: 60px;
- 			position: absolute;
- 			left: 30px;
- 			z-index: 999;
- 		}
+
 
  		nav ul {
  			position: absolute;
@@ -58,10 +53,6 @@
  			top: 96px;
  		}
 
- 		#bao {
- 			width: 10%;
- 		}
-
  		#about,
  		#yuukai {
  			text-align: center;
@@ -72,12 +63,12 @@
  			background-color: #F7F7F7;
  			padding: 30px;
  			letter-spacing: 0.5px;
-
  		}
 
  		#yuukai {
  			top: auto;
  			padding: 20px;
+			margin-bottom: 90px;
  		}
 
  		/*main */
@@ -399,8 +390,13 @@
  			margin-top: 49px;
  		}
 
- 		.houh:hover {
- 			font-weight: 500;
+ 		.houhz {
+ 			font-size: 25px;
+ 			font-weight: 300;
+ 		}
+
+ 		.houhz:hover {
+ 			font-weight: 900;
  		}
 
  		#houh-zyn:hover {
@@ -544,23 +540,23 @@
  			margin: 0 0 21px;
  			padding: 15px;
  			border-left: solid 7px darkblue;
- 			width: 181px;
+ 			width: 200px;
  			display: inline-block;
  			text-align: left;
  			float: left;
- 			height: 270px;
+ 			height: 39vh;
  			overflow: hidden;
  		}
 
  		.mulu {
- 			margin: 10px 15px;
+ 			margin: 10px 20px;
  			text-decoration: none;
- 			color: black;
+			letter-spacing: 2px;
  		}
 
  		#taoh {
  			width: 100%;
- 			height: 270px;
+ 			height: 39vh;
  			text-align: left;
  			margin-bottom: 100px;
  			background-image: url(media/%E6%97%A5%E5%B8%B8%E4%B8%8A%E6%B2%B3%E5%9B%BE.jpg);
@@ -568,7 +564,7 @@
  			background-position: 200px 0px;
  			background-repeat: repeat-x;
  			animation: animatedBackground 210s linear infinite;
- 			box-shadow: 0px 12px 27px grey;
+ 			box-shadow: 0px 12px 30px grey;
  		}
 
  		@keyframes animatedBackground {
@@ -607,18 +603,20 @@
  <body id="top">
  	<header>
  		<nav>
- 			<a href="#top"><img src="media/svgexport-1.svg" alt="guaanggaoh" id="logo"></a>
+ 			<div style="display: flex; background-color: transparent; padding-left: 3.5vw;">
+ 				<a href="#top"><img src="media/svgexport-1.svg" alt="guaanggaoh" style="width: 60px;"></a>
+ 				<a href="WaagZahn.html"><img src="media/%E7%8C%AB%E6%87%92%E5%BE%97%E7%90%86%E4%BD%A0.jpg" alt="" style="width: 65px; margin-left: 2vw; border-radius: 50%"></a>
+ 				<span style="">⬅怪网站们</span>
+ 			</div>
  			<ul>
  				<li><a href="http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/">汉語多功能字库</a></li>
  				<li><a href="https://dict.variants.moe.edu.tw/variants/rbt/query_by_standard_tiles.rbt">教育部异体字字典</a></li>
  				<li><a href="http://zi.tools/">字统网</a></li>
  			</ul>
  		</nav>
- 		<br>
- 		<br>
- 		<br>
- 		<br>
- 		<br>
+
+ 		<p style="padding-bottom: 15vh;">
+ 		</p>
 
  		<p id="about">此网站以因网页设计课的需要而建，旨在收集一下平旹作为一个俗字爱好者而用到的常用网址。本来想为希顶语建个网址结果發现已经有人建了，想为兒旹的黑厤史而建网站结果發现过于羞耻導致不适。只能为俗字这个稍稍有点逼格的爱好而建。这邊写这麽多也纯粹是为了譲我的网站看起来好似豐满许多啦·。</p>
  		<div id="yuukai">ご愉快を
@@ -630,17 +628,9 @@
  			<br>
  			<br>
  		</div>
- 		<br>
- 		<br>
- 		<br>
  	</header>
 
  	<main>
- 		<div class="xiang" style="border-top: solid 7px purple;">
- 			<h1>
- 				<a href="WaagZahn.html" style="color: darkblue;">>>>一些怪网站~</a>
- 			</h1>
- 		</div>
  		<div id="taoh">
  			<div class='muhluh'>
  				<h3>目录</h3>
@@ -650,10 +640,11 @@
  				<li class="mulu"><a href="#hzec">汉字二创</a></li>
  				<li class="mulu"><a href="#hoka">学校物</a></li>
  				<li class="mulu"><a href="#jyana">之也奈</a></li>
+ 				<li class="mulu"><a href="WaagZahn.html">怪网站们</a></li>
  			</div>
  		</div>
 
- 		<div style="display: flex; justify-content: space-evenly; width: 96vw; margin: 0 auto; margin-bottom: 60px; background-color: transparent; ">
+ 		<div id="g" style="display: flex; justify-content: space-evenly; width: 96vw; margin: 0 auto; margin-bottom: 60px; background-color: transparent; ">
  			<div style="width: 46%; display: flex; border-top: solid 5px orangered; flex-direction: column; padding-bottom: 35px;">
  				<h3 style="margin: 25px auto 18px auto;">工具箱</h3>
  				<div style="display:flex; flex-direction: row; justify-content: space-around;">
@@ -685,11 +676,11 @@
  		</div>
 
  		<a href="guanbih.html"><button id="btn">关闭</button></a>
- 		<!--
+
  		<a href="https://zhuanlan.zhihu.com/p/149749600">
  			<img border="0" src="media/guaang-gaoh.jpg" alt="ad" id="ads">
  		</a>
--->
+
 
  		<div class='box' id="hz">
  			<img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%BC%A2_H.svg" alt="" class='word_image'>
@@ -967,19 +958,21 @@
 
  			<div style="background-color: transparent; display: flex;justify-content: space-evenly;">
  				<span style="display: flex; flex-direction: column;">
- 				<a href="https://space.bilibili.com/298174467" class="houh"><i class="fa-brands fa-bilibili"></i></a>
-<!-- 				<span class="houh">bilibili</span>-->
+ 					<a href="https://space.bilibili.com/298174467" class="houh"><i class="fa-brands fa-bilibili"></i></a>
+ 					<span class="houhz">bilibili</span>
  				</span>
 
- 				<a href="https://www.zhihu.com/people/zhen-shi-xing-56" class="houh"><i class="fa-brands fa-zhihu"></i></a>
+ 				<span style="display: flex; flex-direction: column;">
+ 					<a href="https://www.zhihu.com/people/zhen-shi-xing-56" class="houh"><i class="fa-brands fa-zhihu"></i></a><span class="houhz">知乎</span></span>
 
- 				<a href="https://github.com/ecsepheto" class="houh"><i class="fa-brands fa-github"></i></a>
+ 				<span style="display: flex; flex-direction: column;">
+ 					<a href="https://github.com/ecsepheto" class="houh"><i class="fa-brands fa-github"></i></a><span class="houhz">Github</span></span>
 
- 				<a href="https://www.instagram.com/ecsepheto/" class="houh"><i class="fa-brands fa-instagram"></i></a>
+ 				<span style="display: flex; flex-direction: column;"><a href="https://www.instagram.com/ecsepheto/" class="houh"><i class="fa-brands fa-instagram"></i></a><span class="houhz">Ins</span></span>
 
- 				<a href="gmail.html" class="houh">
- 					<i class="fa-solid fa-at"></i>
- 				</a>
+ 				<span style="display: flex; flex-direction: column;"><a href="gmail.html" class="houh">
+ 						<i class="fa-solid fa-at"></i>
+ 					</a><span class="houhz">邮箱</span></span>
  			</div>
  		</div>
  	</main>
