@@ -351,7 +351,7 @@
  			font-weight: 900;
  		}
 
- 		#jyana:hover {
+ 		#jyana: {
  			background-color: silver;
  			font-size: 100px;
  		}
@@ -373,13 +373,14 @@
  		#ads {
  			width: 285px;
  			position: fixed;
- 			z-index: 100;
  			bottom: 0px;
  			right: 0px;
+			z-index: 90;
  		}
 
  		#ads:hover {
- 			width: 302px;
+ 			width: 300px;
+			opacity: 80%;
  		}
 
  		.houh {
@@ -454,23 +455,7 @@
  			margin-top: 63px;
  		}
 
- 		.zar-web {
- 			position: relative;
- 			text-decoration: none;
- 			color: black;
- 			font-size: 100%;
- 			width: 18%;
- 			display: inline-block;
- 			margin-bottom: 10px;
- 			background-color: lightgray;
- 			border-radius: 30px;
- 			height: 35px;
- 			line-height: 35px;
- 		}
-
- 		.zar-web:hover {
- 			background-color: antiquewhite;
- 		}
+ 		
 
  		#ecsepheto:hover {
  			border: solid white;
@@ -514,21 +499,36 @@
  			padding-left: 10px;
  			border-left: solid 2px;
  		}
-
- 		.zarweb {
- 			margin-top: 5px;
+		
+		.zar-web {
  			position: relative;
  			text-decoration: none;
  			color: black;
  			font-size: 100%;
+			width: 23%;
+			display: inline-block;
+ 			margin: 5px;
+ 			background-color: lightgray;
+ 			border-radius: 15px;
+ 			height: 35px;
+			line-height: 35px;
+			padding-left: 10px;
+			padding-right: 10px;
+ 		}
+
+ 		.zarweb {
+ 			text-decoration: none;
+ 			color: black;
  			width: 18%;
  			display: inline-block;
- 			margin-bottom: 20px;
  			background-color: lightgray;
  			border-radius: 30px;
- 			height: 35px;
  			line-height: 35px;
- 			margin-left: 20px;
+ 			margin: 5px 13px 15px 13px;
+ 		}
+		
+ 		.zar-web:hover {
+ 			background-color: antiquewhite;
  		}
 
  		.zarweb:hover {
@@ -596,6 +596,10 @@
  			background-color: antiquewhite;
  		}
 
+		.h3{
+			margin-top: 73px;
+		}
+		
  	</style>
  </head>
 
@@ -839,12 +843,13 @@
  			<a href="https://www.shufadict.com/dict/x" class="zar-web" id="sfzd">书法字典</a>
  			<a href="https://www.mebag.com/index/" class='zar-web' id='yds'>引得市</a>
  			<a href="https://www.unicode.org/charts/unihan.html" class='zar-web' id='unihan'>UniHan数据库</a>
+ 			<a href="https://unicode-table.com/cn/" class="zar-web">UniCode 百科</a>
  			<a href="http://www.ccamc.co/index.php" class='zar-web' id='gjwzjc'>古今文字集成</a>
+ 			<a href="https://langwiki.org/w/Home" class="zar-web">语言维基</a>
+ 			<a href="https://langwiki.org/tools/dict/" class="zar-web">汉字古今中外读音查询</a>
 
- 			<br>
- 			<br>
- 			<br>
- 			<h3>日语相关</h3>
+			
+ 			<h3 class="h3">日语相关</h3>
  			<br>
  			<a href="https://gogen-yurai.jp/" class='zar-web' id='ggyr'>日语词源</a>
  			<a href="https://phesoca.com/kanbun-html/" class='zar-web' id='kym'>汉文训读排版</a>
@@ -852,24 +857,20 @@
  			<a href="http://daijirin.dual-d.net/extra/katakana.html" class="zar-web" id='htgn'>假名俗写</a>
  			<a href="http://codh.rois.ac.jp/char-shape/hentaigana/" class='zar-web' id='hekn'>变体假名</a>
 
- 			<br>
- 			<br>
- 			<br>
- 			<h3>个人网站等（应该没版权什么的吧ww）</h3>
+ 			<h3 class="h3">个人网站等（应该没版权什么的吧ww）</h3>
  			<br>
  			<a href="https://zh.moegirl.org.cn/zh-hans/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6" class='zar-web' id='yc'>懿册研究所</a>
  			<a href="https://phesoca.com/" class='zar-web' id='unt'>Unt的个人站</a>
+ 			<a href="http://www.xubing.com/cn" class="zar-web">徐冰</a>
  			<a href="https://ecsepheto.github.io/" class='zar-web' id='ecsepheto'>之也奈</a>
 
- 			<br>
- 			<br>
- 			<br>
- 			<h3>文化作品相关</h3>
+ 			<h3 class="h3">文化作品相关</h3>
  			<br>
  			<h5 id='genshin'>原神</h5>
  			<a href="https://wiki.biligame.com/ys/%E7%8E%B0%E4%BB%A3%E4%B8%98%E4%B8%98%E8%AF%AD%E8%AF%8D%E5%85%B8" class='zar-web' id='gs'>丘丘语词典</a>
  			<a href="https://www.reddit.com/r/Genshin_Impact/comments/jjivx3/linguistics_of_gi_a_study_of_romanizing_liyue_and/" class='zar-web' id='liyue'>璃月语罗马化</a>
 
+			<br><br><br>
  			<div id="zars">
  				<h2>あとがき</h2><br>大概就是记一些杂七杂八的网址吧<br>今天我尝试新的时候才发现我这堆代码就是标准的祖传屎山www<br>散了，随便收点啥吧。<br>实际上也可以看作上面那三个箱子收录的是这个网站刚建立那会儿我用的网址，这个箱子收录的是我现在的网址。也可以看作是保护我的历史层次了www <br>（其实是一团屎山实在懒得改了...）
  			</div>
@@ -883,13 +884,14 @@
  			<br>
  			<a href="https://zh.moegirl.org.cn/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6/%E6%99%A8%E5%BC%8F%E6%A5%B5%E7%B0%A1%E5%AD%97%E5%85%A8%E8%A9%B3%E7%B8%BD%E8%A1%A8#%E5%AD%97%E5%BD%A2%E8%B0%83%E6%95%B4" class="zar">晨式极简字</a>
  			<a href="http://blog.livedoor.jp/tdiaryblog/archives/1839200.html" class="zar">自作略字</a>
- 			<a href="https://jump2.bdimg.com/f?kw=%E4%BC%98%E5%8C%96%E5%AD%97&ie=utf-8&tab=main" class="zar">优化字吧</a>
  			<a href="https://www.bilibili.com/read/cv11999344?spm_id_from=333.999.0.0" class="zar">文字改良刍议</a>
  			<a href="https://zhuanlan.zhihu.com/p/185101371" class="zar">简体字改革</a>
  			<a href="https://zhuanlan.zhihu.com/p/258038078" class="zar">周字</a>
  			<a href="https://zhuanlan.zhihu.com/p/398058723" class="zar">优体新汉字</a>
  			<a href="https://zhuanlan.zhihu.com/p/58410690" class="zar">汉字国际语</a>
  			<a href="http://blog.sina.com.cn/s/blog_50485daa010087h3.html" class="zar">素字</a>
+ 			<a href="https://tieba.baidu.com/f?kw=%E8%B1%A1%E7%AC%A6%E5%AD%97&ie=utf-8&pn=250" class="zar">象符字</a>
+ 			<a href="https://zhuanlan.zhihu.com/p/353634915" class="zar">意音汉字**</a>
  			<a href="https://www.zhihu.com/column/c_1401698676205678592" class="zar">本造字</a>
  			<br>
  			<br>
@@ -909,9 +911,20 @@
  			<a href="https://www.zhihu.com/column/c_1338531634900533250" class="zar">托兰格语</a>
  			<a href="https://zhuanlan.zhihu.com/p/406288556" class="zar">拼辅汉方案*</a>
  			<br>
+ 			
+ 			<br>
+ 			<br>
+ 			<br>
+ 			<h3>论坛</h3>
+ 			<br>
+ 			<a href="http://yuyannet.com/forum-44-1.html" class="zar">语言文字论坛</a>
+ 			<a href="https://jump2.bdimg.com/f?kw=%E4%BC%98%E5%8C%96%E5%AD%97&ie=utf-8&tab=main" class="zar">优化字吧</a>
+ 			
+ 			<br>
  			<div id="zars">
  				<h2>あとがき</h2><br>所以这个跟上面那个汉字二创有什么区别呢？<br>确实没区别，只不过以后我发现的的汉字二创者都会在这里更新了，因为那三个箱子真的是太屎山了... <br><br>托兰格语和凌角文我没理解错的话是像万叶假名一样把汉字借过去表音，所以也不知道该怎么分，甚至都不清楚这算不算是汉字二创。但还是加到“其他”里了。<br>素字现在的资料只剩下了一个博客，他原来的网站挂掉了，甚至连张图都搜不出来。这边唯一能找到的图就是<a href="https://www.bilibili.com/video/BV1n34y1U7mZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click" style="color: rgb(20, 70, 183)">这个视频</a>里的... <br><br>不管他是为啥给搞的痕迹全无了，总的还是有点悲的。就像是一座一直无人问津的小城一样，默默地成长着，默默地存在着，最后也默默地消失了；当后人无意间发现这座小城的残垣断壁时，城里早已杳无人烟，任何地方都很忙，都没人记载这座城，只有小城自己在孤独地生活着，直到痕迹全无。<br><br>悲 <br><br>
  				<div style="text-align: left; ">*: 全称 汉语拼音辅助汉字使用实验方案</div>
+ 				<div style="text-align: left; ">**: 全称 意、音双表新体汉字构建法</div>
  			</div>
  			<br>
  			<br>
@@ -936,6 +949,7 @@
  			<br>
  			<a href="https://kahoot.it/" class="zar-web">Kahoot</a>
  			<a href="https://app.grammarly.com/" class='zar-web'>Grammarly</a>
+ 			<a href="https://yrdsb.schoolcashonline.com/" class="zar-web">SchoolCashOnline</a>
  			<br>
  			<br>
  			<h3>后</h3>
@@ -970,7 +984,7 @@
 
  				<span style="display: flex; flex-direction: column;"><a href="https://www.instagram.com/ecsepheto/" class="houh"><i class="fa-brands fa-instagram"></i></a><span class="houhz">Ins</span></span>
 
- 				<span style="display: flex; flex-direction: column;"><a href="gmail.html" class="houh">
+ 				<span style="display: flex; flex-direction: column; z-index: 100;"><a href="gmail.html" class="houh">
  						<i class="fa-solid fa-at"></i>
  					</a><span class="houhz">邮箱</span></span>
  			</div>
