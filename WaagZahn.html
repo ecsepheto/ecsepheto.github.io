@@ -6,18 +6,12 @@
 	<title>怪网站</title>
 	<script src="https://kit.fontawesome.com/3be782a9ab.js" crossorigin="anonymous"></script>
 	<style>
-		#background {
-			height: 100%;
-			position: fixed;
-			/*因为网站收集器要往下20px*/
-			top: -20px;
-			z-index: -100;
-			background-repeat: repeat-y;
-		}
-
 		body {
 			margin: 0px;
 			padding: 0px;
+			background-image: url(media/%E7%8C%AB%E6%87%92%E5%BE%97%E7%90%86%E4%BD%A0.jpg);
+			background-size: contain;
+			background-repeat: repeat-y;
 		}
 
 		h3 {
@@ -40,18 +34,22 @@
 */
 
 		#xiang {
-			background-color: white;
+			background-color: lightgrey;
+			opacity: 0.8;
 			margin: 20px 20px 20px 20px;
 			padding: 1px;
 			border: none;
+			display: flex;
 
+			/*
 			background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url(media/flags/prech逆.jpg);
 			background-repeat: no-repeat;
 			background-position: right;
 			background-size: 75% 100%;
+*/
 		}
 
-/*
+		/*
 		#xiang::before {
 			content: "";
 			position: absolute;
@@ -129,8 +127,8 @@
 </head>
 
 <script>
-	var fasterheight = document.getElementById('xiang');
-	var sonheight = document.getElementById('son');
+	var fasterheight = document.getElementById('body');
+	var sonheight = document.getElementById('background');
 	fasterheight.style.height = sonheight.offsetHeight + 'px';
 
 	var fasterwidth = document.getElementById('xiang');
@@ -139,15 +137,19 @@
 
 </script>
 
-<body>
-	<div id="background">
-		<img src="media/%E7%8C%AB%E6%87%92%E5%BE%97%E7%90%86%E4%BD%A0.jpg" alt="" style="width: 100%;">
-	</div>
+<body id="body">
 	<div id="xiang">
-		<a href="index.html" style="text-decoration: none;">
-			<div style="text-align: left; font-size: 33pt; margin-top: 30px; margin-bottom: 10px; margin-left: 5%; font-weight: bold; color: black;">网站收集器~</div>
+		<span style="flex-grow:9;">
+			<a href="index.html" style="text-decoration: none;">
+				<div style="text-align: left; font-size: 33pt; margin-top: 30px; margin-bottom: 10px; margin-left: 5%; font-weight: bold; color: black;">网站收集器~</div>
+			</a>
+			<div style="color: grey; font-size: 10pt; text-align: left; margin-bottom: 20px; margin-left: 8%;">其实是方便在别的浏览器里也能访到这个浏览器的收藏夹而做的啦</div>
+		</span>
+		<a href="index.html" style="text-decoration: none; flex-grow:1;">
+			<div style="font-size: 85pt; color: black;">回</div>
 		</a>
-		<div style="color: grey; font-size: 10pt; text-align: left; margin-bottom: 20px; margin-left: 8%;">其实是方便在别的浏览器里也能访到这个浏览器的收藏夹而做的啦</div>
+
+
 	</div>
 
 	<div style="display:flex;">
