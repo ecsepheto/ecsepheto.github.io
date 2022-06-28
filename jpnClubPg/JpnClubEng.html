@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>日语社</title>
+	<style>
+		* {
+			margin-left: 3.5vw;
+			list-style-type: none;
+		}
+
+		.fadeCircle {
+			width: 20vw;
+			height: 20vw;
+			background: #ed013a;
+			border-radius: 50%;
+			position: fixed;
+			display: inline-block;
+			bottom: -7vh;
+			right: -7vh;
+			opacity: 1;
+		}
+
+		.fadeCircle.fadeout {
+
+			-webkit-transition: all 1.5s;
+			-moz-transition: all 1.5s;
+			-ms-transition: all 1.5s;
+			-o-transition: all 1.5s;
+			transition: all 1.5s;
+			opacity: 0;
+
+		}
+
+		#circle:hover {
+			opacity: 1;
+		}
+
+		.nav {
+			text-decoration: none;
+		}
+
+		.biaotir {
+			font-weight: bolder;
+			font-size: 45px;
+			margin: 80px 0px 50px 0px;
+			margin-left: 3.5vw;
+			color: #BC002D
+		}
+
+		.fuhbiaotir {
+			font-weight: bold;
+			font-size: 35px;
+			margin-left: 3.5vw;
+			color: #c10d38;
+			margin: 20px;
+		}
+
+		.zehgwern {
+			width: 50vw;
+			font-size: 20px;
+			color: dimgrey;
+			line-height: 150%;
+		}
+
+		hr {
+			border: solid #BC002D;
+			width: 30vw;
+			margin-bottom: 80px;
+
+		}
+
+		nav ul li a {
+			margin: 30px;
+			text-decoration: none;
+			font-weight: bold;
+			color: #BC002D;
+			list-style-type: none;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		function FadeOutClick() {
+
+			var frame = document.getElementById("circle");
+
+			frame.className = "fadeCircle fadeout";
+
+		}
+
+	</script>
+
+</head>
+
+<body>
+	<a id="fadeout" href="javascript:void(0);" onclick="FadeOutClick();">
+		<div id="circle" class="fadeCircle" >click me</div>
+	</a>
+
+	<nav style="padding-bottom: -30px; display: flex; ">
+		<div style="font-weight: bolder; font-size: 60px; margin: 30px; margin-left:0px; color: #BC002D; width: 75%;">BurOak Japanese Club is now Open!</div>
+
+		<ul style="position: absolute; right: 40px; top: 50px;">
+			<li class="nav"><a href="JapaneseClub.html">中文</a></li>
+			<li class="nav"><a href="JapaneseClubEng.html">English</a></li>
+			<li class="nav"><a href="JapaneseClubJpn.html">日本語</a></li>
+		</ul>
+	</nav>
+
+	<hr style="border: solid #BC002D; width: 30vw; margin-left: 3.5vw;">
+
+	<div class="biaotir">BurOak Japanese Club</div>
+	<div class="zehgwern">Welcome to this Club!<br><br>
+		There are two reasons for me to start this club. <br>
+		First, my friend started a puzzle club last month, and his resume has so much things to say that is almost a publishable book, so I start to feel peer pressure and choose to begin this "clubs race". <br><br>
+		Second, a club is very helpful for your resume. When writing your resume, you can say: "I'm a eager-learning person. I have a strong ability on learning languages, that in highschool joined a JAPANESE club!"<br>
+		If you are applying a part time job like McDonald, you can even say: "I have a strong language skill because I joined a Japanese club in my school so I can handle Japanese customers." <br><br>
+		Although I said that ... this club will still be a pretty normal Japanese club, I won't just let us sit there and do nothing. I still have something that I want to show you guys that is related to Japanese. so Don't think it's just a wasting of time, it'll be pretty fun... I guess?<br><br>
+		And that's all about my introduction to our club. Hope you will have a great experience in this club and... have fun~</div>
+
+	<hr style="margin: 30px; margin-left: 3.5vw; ">
+
+	<div class="biaotir">Things we might lalk about in our club</div>
+	<ul>
+		<li class="fuhbiaotir">Some anime scenes</li>
+		<div class="zehgwern">We will analysis grammars in some scenes in many animes <br><br>
+			This idea was inspired from<a href="https://www.jianshu.com/p/2f8bcd80887f">this website</a>， Although it's chinese tho... and it's analysing lyrics, and we are analysing lines in that anime thing. </div>
+		<br>
+		<li class="fuhbiaotir">Some wired things</li>
+		<div class="zehgwern">Like the general rules about how Japanese transliterate English words into Katakana and how we can use it to Encrypte our texts ((</div>
+		<br>
+		<li class="fuhbiaotir">Some strange knowledges</li>
+		<div class="zehgwern">For example, the Zokuji in Japan<br><br>
+			Zokuji is a form of Kanji (Chinese Characters) in Japan, that are not the official way of using kanji but the way that people often use it... it's just like color vs colour, or people vs ppl. I'm planning to talk about this in the first day. </div>
+	</ul>
+
+	<footer style="position: absolute; width: 100vw; left: -100px; font-size: 20px;">
+		<p style="position: fixed; bottom: 50px; right: 10px; color: whitesmoke;">Jya-Na</p>
+		<p style="position: fixed; bottom: 0px; right: 10px; color: whitesmoke;"><a href="index.html" style="text-decoration: none;  color: white;">Home</a></p>
+	</footer>
+
+</body>
+
+</html>
