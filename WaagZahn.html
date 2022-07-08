@@ -6,6 +6,19 @@
 	<title>怪网站</title>
 	<script src="https://kit.fontawesome.com/3be782a9ab.js" crossorigin="anonymous"></script>
 	<style>
+	
+		@media all and (min-width: 0px){
+			.container{
+				flex-direction: column;
+			}
+        } 
+		
+		@media all and (min-width: 700px){
+			.container{
+				flex-direction: row;
+			}
+		}
+		
 		body {
 			margin: 0px;
 			padding: 0px;
@@ -152,7 +165,7 @@
 
 	</div>
 
-	<div style="display:flex;">
+	<div class="container" style="display:flex;">
 		<div class="xiang" id="zohyeh" style="flex-grow: 1;">
 			<div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">作业用</div>
 			<hr id=fuhbtXa style="background-color: #d01818">
@@ -196,7 +209,7 @@
 			</div>
 		</div>
 	</div>
-	<div style="display:flex;">
+	<div class="container" style="display:flex;">
 		<div class="xiang" style="flex-grow: 0;">
 			<div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">小工具</div>
 			<hr id=fuhbtXa style="background-color: orange">
@@ -277,7 +290,7 @@
 		</div>
 
 	</div>
-	<div style="display:flex;">
+	<div class="container" style="display:flex;">
 		<div class="xiang" style="flex-grow: 1;">
 			<div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">小游戏</div>
 			<hr id=fuhbtXa style="background-color: #36cc22">
@@ -314,7 +327,7 @@
 		</div>
 
 	</div>
-	<div style="display:flex;">
+	<div class="container" style="display:flex;">
 		<div class="xiang" style="flex-grow: 1;">
 			<div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">怪东西</div>
 			<hr id=fuhbtXa style="background-color: #36cc22">
