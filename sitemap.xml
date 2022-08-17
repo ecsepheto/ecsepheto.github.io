@@ -38,11 +38,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ecsepheto.github.io/guanbih.html</loc>
-  <lastmod>2022-07-27T21:28:19+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://ecsepheto.github.io/diW/DiW.html</loc>
   <lastmod>2022-07-27T21:28:19+00:00</lastmod>
   <priority>0.80</priority>
@@ -50,20 +45,10 @@
 <url>
   <loc>https://ecsepheto.github.io/gmail.html</loc>
   <lastmod>2022-07-27T21:28:19+00:00</lastmod>
-  <priority>0.80</priority>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://ecsepheto.github.io/index.html</loc>
-  <lastmod>2022-07-27T21:28:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://ecsepheto.github.io/Thanks/thanksGiving.html</loc>
-  <lastmod>2022-07-27T21:28:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://ecsepheto.github.io/Thanks/CnThanksGiving.html</loc>
   <lastmod>2022-07-27T21:28:19+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -89,6 +74,21 @@
 </url>
 <url>
   <loc>https://ecsepheto.github.io/SihJih</loc>
+  <lastmod>2022-07-27T21:28:19+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://ecsepheto.github.io/Thanks/thanksGiving.html</loc>
+  <lastmod>2022-07-27T21:28:19+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://ecsepheto.github.io/Thanks/CnThanksGiving.html</loc>
+  <lastmod>2022-07-27T21:28:19+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://ecsepheto.github.io/guanbih.html</loc>
   <lastmod>2022-07-27T21:28:19+00:00</lastmod>
   <priority>0.51</priority>
 </url>
