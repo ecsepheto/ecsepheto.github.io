@@ -5,52 +5,124 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        body{
+        
+        body {
             padding: 33px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url(Unit1/img/%E8%BF%B7%E6%88%91.jpg);
+            background-size: 100% 100%;
+            
         }
-        span{
+
+        span {
             display: block;
             margin-bottom: 33px;
         }
         
-        button{
-            width: 333px;
+        #ctnr{
+            display: flex;
+            width: 80%;
+            margin-bottom: 300px;
+        }
+        
+        .ttl{
+            font-size: 20px;
+            font-weight: bolder;
+        }
+        
+        .hdr{
+            width: 21%;
+            background-color: black;
+            opacity: 0.5;
+            box-shadow: 0px 5px 10px grey;
+            padding: 15px;
+            padding-bottom: 30px;
+            margin: 10px;
+        }
+
+        li {
+            margin: 10px;
+            color: white;
+        }
+        
+        a{
+            color: white; 
+        }
+
+        #btn {
+            width: 80%;
             height: 33px;
             background-color: royalblue;
+            opacity: 0.9;
             color: white;
             border: none;
             box-shadow: 0px 3px 10px grey;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            margin-top: 80vh;
         }
+        
+        button{
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 
 <body>
-    <span id="Unit1">
-        <a href="Unit1">BioChemistry</a>
-        <a href="../Saccharide/Unit1/Saccharide.html">
-            <li>Saccharide</li>
-        </a>
-        <a href="../Saccharide/Unit1/MonoSaccharide.html">
-            <li>MonoSaccharide</li>
-        </a>
-        <a href="../Saccharide/Unit1/Disaccharides.html">
-            <li>DiSaccharide</li>
-        </a>
-        <a href="../Saccharide/Unit1/PolySaccharide.html">
-            <li>PolySaccharide</li>
-        </a>
-        <a href="../Saccharide/Unit1/Linkages.html">
-            <li>Linkages</li>
-        </a>
+   <h1>Grade12 BioCulAsm_DiWang</h1>
+   <br>
+   <br>
+    <span id="ctnr">
+        <span id="Unit1" class="hdr">
+            <a href="Unit1" class="ttl">BioChemistry</a>
+            <a href="../Saccharide/Unit1/Saccharide.html">
+                <li>Saccharide</li>
+            </a>
+            <a href="../Saccharide/Unit1/MonoSaccharide.html">
+                <ul>MonoSaccharide</ul>
+            </a>
+            <a href="../Saccharide/Unit1/Disaccharides.html">
+                <ul>DiSaccharide</ul>
+            </a>
+            <a href="../Saccharide/Unit1/PolySaccharide.html">
+                <ul>PolySaccharide</ul>
+            </a>
+            <a href="../Saccharide/Unit1/Linkages.html">
+                <li>Linkages</li>
+            </a>
+        </span>
+        <span id="Unit2" class="hdr">
+            <a href="" class="ttl">MetabolicProcess</a>
+            <li><a href="">Plant</a>
+                <ul><a href="">LightDependent Rxn</a></ul>
+                <ul><a href="">LightInDependent Rxn</a></ul>
+            </li>
+            <li><a href="">Animal</a>
+                <ul><a href="">Aerobic CellularRespiration</a></ul>
+                <ul><a href="">AnAerobic CellularRespiration</a></ul>
+                <ul><a href="">Lipid Metabolism</a></ul>
+            </li>
+        </span>
+        <span id="Unit3" class="hdr">
+            <a href="" class="ttl">MolecularGenetic</a>
+            <li><a href="">DNA/RNA-Structure</a></li>
+            <li><a href="">GeneRegulation</a></li>
+        </span>
+        <span id="Unit4" class="hdr">
+            <a href="" class="ttl">HomeoStasis</a>
+            <li><a href="">Hormone</a></li>
+            <li><a href="">BloodSugar Regulation</a></li>
+            <li><a href="">Stress</a></li>
+        </span>
     </span>
-    <span id="Unit2">
-        <a href="">CellularRespiration</a>
-    </span>
-    <span id="Unit3">
-        <a href="">MolecularGenetic</a></span>
-    <span id="Unit4">
-        <a href="">HomeoStasis</a></span>
-        
-    <a href="../../diW/DiW.html"><button>Home to DiW Page</button></a>
+    <a href="../../diW/DiW.html" id="btn"><button>Home to DiW Page</button></a>
 </body>
+
 </html>
