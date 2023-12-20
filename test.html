@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* 按钮样式 */
+    .custom-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 33.33vh; /* 1/3屏幕高度 */
+      width: 50vw; /* 1/2屏幕宽度 */
+      background-color: #00008B; /* 深蓝色 */
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      overflow: hidden;
+      transition: background-color 200ms linear;
+    }
+    
+    .custom-button:hover {
+      background-color: #ADD8E6; /* 浅蓝色 */
+      transition: background-color 200ms linear;
+    }
+    
+    /* 文字样式 */
+    .button-text {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 80%; /* 80%的按钮高度 */
+      max-width: 80%; /* 80%的按钮宽度 */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+<body>
+  <button class="custom-button">
+    <div class="button-text">立即购买</div>
+  </button>
+</body>
+</html>
