@@ -6,13 +6,32 @@
      <title>之也奈</title>
      <script src="https://kit.fontawesome.com/3be782a9ab.js" crossorigin="anonymous"></script>
      <style>
+         @media all and (orientation: portrait) {
+             #rhfenweiri {
+                 display: inline-block;
+             }
+             #zarqzarba{
+                 width: auto;
+             }
+         }
+
+         @media all and (orientation: landscape) {
+             
+             #rhfenweiri{
+                 display: flex;
+             }
+             
+             #zarqzarba {
+                 flex-grow: 0.5;
+                 width: 0;
+             }
+         }
+
          * {
              margin: 0;
              padding: 0;
              box-sizing: border-box;
          }
-
-         body {}
 
          div {
              background-color: silver;
@@ -421,42 +440,21 @@
              margin-bottom: 10px;
          }
 
-         .zar-box {
-             /*			border: solid;*/
-             position: relative;
-             width: 95%;
-             display: inline-block;
-             margin-bottom: 100px;
-         }
-
          .xiang {
              margin: 0px 20px 100px 20px;
              padding: 15px;
              box-shadow: 5px 10px 20px #888888;
-             border-top: solid 3px;
+             border-top: solid 7px;
          }
 
-         #zar-zar {
-             text-align: center;
-             position: relative;
-             margin-bottom: 30px;
-         }
-
-         #zars {
+         .atogaki {
              line-height: 25px;
-             position: relative;
              margin-top: 63px;
          }
 
          #ecsepheto:hover {
              border: solid white;
              background-color: ghostwhite;
-         }
-
-         .zar-img {
-             width: 15%;
-             border-radius: 30px;
-             margin: 10px;
          }
 
          .sahg {
@@ -481,39 +479,9 @@
              border-left: solid 2px;
          }
 
-         .zar-web {
-             position: relative;
-             text-decoration: none;
-             color: black;
-             font-size: 100%;
-             min-width: 23%;
-             display: inline-block;
-             margin: 5px;
-             background-color: lightgray;
-             border-radius: 15px;
-             height: 35px;
-             line-height: 35px;
-             padding-left: 10px;
-             padding-right: 10px;
-         }
-
-         .zarweb {
-             text-decoration: none;
-             color: black;
-             min-width: 18%;
-             display: inline-block;
-             background-color: lightgray;
-             border-radius: 30px;
-             line-height: 35px;
-             margin: 5px 13px 15px 13px;
-         }
-
          .zar {
-             position: relative;
-             min-width: 23%;
-             text-decoration: none;
+             min-width: 30%;
              color: black;
-             font-size: 100%;
              display: inline-block;
              background-color: lightgray;
              border-radius: 30px;
@@ -521,20 +489,9 @@
              line-height: 35px;
              margin: 10px 5px 0px 5px;
              padding: 1px 5px 0 5px;
-             /*             box-shadow: 10px 10px 10px;*/
          }
 
          .zar:hover {
-             background-color: antiquewhite;
-             transform: rotate(3deg);
-         }
-
-         .zar-web:hover {
-             background-color: antiquewhite;
-             transform: rotate(3deg);
-         }
-
-         .zarweb:hover {
              background-color: antiquewhite;
              transform: rotate(-3deg);
          }
@@ -605,12 +562,12 @@
  </head>
 
 
- <body id="top">
+ <body>
      <header>
          <nav>
              <div style="display: flex; background-color: transparent; padding-left: 3.5vw;">
                  <a href="#top"><img src="media/svgexport-1.svg" alt="guaanggaoh" style="width: 60px;"></a>
-                 <a href="WaagZahn.html"><img src="media/%E7%8C%AB%E6%87%92%E5%BE%97%E7%90%86%E4%BD%A0.jpg" alt="" style="width: 65px; margin-left: 2vw; border-radius: 50%"></a>
+                 <a href="WaagZahnNew.html"><img src="media/%E7%8C%AB%E6%87%92%E5%BE%97%E7%90%86%E4%BD%A0.jpg" alt="" style="width: 65px; margin-left: 2vw; border-radius: 50%"></a>
                  <span style="vertical-align: middle;">⬅怪网站们</span>
              </div>
              <ul>
@@ -680,14 +637,14 @@
              <div style="width: 46%; display: flex; flex-direction: column; border-top: solid 5px orangered; padding-bottom: 30px; box-shadow: 0px 10px 10px grey;">
                  <h3 style="margin: 25px auto 30px auto;">工具箱</h3>
                  <div style="">
-                     <a href="https://classroom.google.com/u/0/h" class='zarweb'>教室</a>
-                     <a href="https://docs.google.com/document/u/0/?tgif=c" class='zarweb'>文档</a>
-                     <a href="https://drive.google.com/drive/u/0/my-drive" class="zarweb">云盘</a>
+                     <a href="https://classroom.google.com/u/0/h" class='zar'>教室</a>
+                     <a href="https://docs.google.com/document/u/0/?tgif=c" class='zar'>文档</a>
+                     <a href="https://drive.google.com/drive/u/0/my-drive" class="zar">云盘</a>
                  </div>
                  <div>
-                     <a href="https://mail.google.com/mail/u/0/#inbox" class="zarweb">邮箱</a>
-                     <a href="https://jamboard.google.com/u/0/" class="zarweb">白板</a>
-                     <a href="https://kahoot.it/" class="zarweb">问答</a>
+                     <a href="https://mail.google.com/mail/u/0/#inbox" class="zar">邮箱</a>
+                     <a href="https://jamboard.google.com/u/0/" class="zar">白板</a>
+                     <a href="https://kahoot.it/" class="zar">问答</a>
                  </div>
              </div>
          </div>
@@ -699,7 +656,7 @@
          </a>
 
 
-         <div class='box' id="hz">
+         <div class='box'>
              <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%BC%A2_H.svg" alt="" class='word_image'>
              <h1>汉<br>字</h1>
 
@@ -738,7 +695,7 @@
              </div>
 
          </div>
-         <div class='box' id="sz">
+         <div class='box'>
              <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%F0%A3%B6%94_T.svg" alt="" class="word_image">
              <h1>俗<br>字</h1>
              <h2 id="nihon">日本站点</h2>
@@ -781,7 +738,7 @@
                  (台湾那个估计还不能全看我的www，当时赶着元旦发文 是全程困倦的给收完的，所以漏收了很多。如果想参考的话建议自己一个字一个字地读哏)
              </div>
          </div>
-         <div class='box' id="wd">
+         <div class='box'>
              <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%B1%89_G.svg" alt="" class="word_image" id="hanh">
              <h1>文<br>档</h1>
              <h2 id="jhzb">（简化）字表</h2>
@@ -821,150 +778,122 @@
 
 
          </div>
-         <div class='xiang' id="zar">
-             <h1 id="zar-zar">杂七杂八</h1>
 
-             <h3>文字系</h3>
-             <br>
-             <a href="https://www.modernhistory.org.cn/" class="zar-web">抗战文献</a>
-             <a href="http://www.guoxuedashi.net/" class="zar-web">国学大师</a>
-             <a href="https://www.shufadict.com/dict/x" class="zar-web" id="sfzd">书法字典</a>
-             <a href="https://www.mebag.com/index/" class='zar-web' id='yds'>引得市</a>
-             <a href="https://www.unicode.org/charts/unihan.html" class='zar-web' id='unihan'>UniHan数据库</a>
-             <a href="https://unicode-table.com/cn/" class="zar-web">UniCode 百科</a>
-             <a href="http://www.ccamc.co/index.php" class='zar-web' id='gjwzjc'>古今文字集成</a>
-             <a href="https://langwiki.org/w/Home" class="zar-web">语言维基</a>
-             <a href="https://langwiki.org/tools/dict/" class="zar-web">汉字古今中外读音查询</a>
+         <div style="background-color: transparent;" id="rhfenweiri">
+             <div class='xiang' id="zarqzarba">
+                 <h1 style="margin-bottom: 50px">杂七杂八</h1>
 
-             <h3 class="h3">文献</h3>
-             <br>
-             <a href="https://curiosity.lib.harvard.edu/chinese-rare-books/catalog/49-990081640940203941" class="zarweb">清代微积分</a>
-             <a href="https://www.kuizhangge.cn/" class="zarweb">中国古典文献资源导航</a>
-             <a href="https://mp.weixin.qq.com/s/PnG2-Ptkyjndo0TxrgiX_w" class="zarweb">中国县志查询</a>
+                 <h3>文字系</h3>
+                 <br>
+                 <a href="http://www.guoxuedashi.net/" class="zar">国学大师</a>
+                 <a href="https://www.shufadict.com/dict/x" class="zar">书法字典</a>
+                 <a href="https://www.mebag.com/index/" class="zar">引得市</a>
+                 <a href="https://www.unicode.org/charts/unihan.html" class='zar'>UniHan数据库</a>
+                 <a href="https://unicode-table.com/cn/" class="zar">UniCode 百科</a>
+                 <a href="http://www.ccamc.co/index.php" class='zar'>古今文字集成</a>
+                 <a href="https://langwiki.org/w/Home" class="zar">语言维基</a>
+                 <a href="https://langwiki.org/tools/dict/" class="zar">汉字古今中外读音查询</a>
 
-             <h3 class="h3">日语相关</h3>
-             <br>
-             <a href="https://gogen-yurai.jp/" class='zar-web' id='ggyr'>日语词源</a>
-             <a href="https://phesoca.com/kanbun-html/" class='zar-web' id='kym'>汉文训读排版</a>
-             <a href="https://dictionary.goo.ne.jp/" class="zar-web" id="kjjd">Goo辞典(日)</a>
-             <a href="http://daijirin.dual-d.net/extra/katakana.html" class="zar-web" id='htgn'>假名俗写</a>
-             <a href="http://codh.rois.ac.jp/char-shape/hentaigana/" class='zar-web' id='hekn'>变体假名</a>
-             <a href="https://sound.jp/mtnest/k/tojo-daiyo-.htm" class="zar">代用字書き換え</a>
-             <a href="https://sokkidouraku.lsv.jp/" class="zar">速记道乐</a>
+                 <h3 class="h3">文献</h3>
+                 <br>
+                 <a href="https://www.modernhistory.org.cn/" class="zar">抗战文献</a>
+                 <a href="https://curiosity.lib.harvard.edu/chinese-rare-books/catalog/49-990081640940203941" class="zar">清代微积分</a>
+                 <a href="https://www.kuizhangge.cn/" class="zar">中国古典文献资源导航</a>
+                 <a href="https://mp.weixin.qq.com/s/PnG2-Ptkyjndo0TxrgiX_w" class="zar">中国县志查询</a>
 
-             <h3 class="h3">个人网站等（应该没版权什么的吧ww）</h3>
-             <div style="color: dimgray; font-size: 13px; padding: 10px 50px ">私自把您的网站收集进来希望原谅！如果您不想您的网站出现在这里 可以通过页尾的 邮箱, b站 或 知乎 联系我，我会第一时间将其移除！</div>
-             <br>
-             <a href="https://zh.moegirl.org.cn/zh-hans/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6" class='zar-web' id='yc'>懿册研究所</a>
-             <a href="https://phesoca.com/" class='zar-web' id='unt'>Unt的个人站</a>
-             <a href="http://www.xubing.com/cn" class="zar-web">徐冰</a>
-             <a href="https://www.babelstone.co.uk/" class="zar-web">魏安</a>
-             <a href="http://cheonhyeong.com/Simplified.html" class="zar-web">天珩</a>
-             <a href="https://lab.magiconch.com/" class="zar-web">神奇海螺试验场</a>
-             <a href="https://ecsepheto.github.io/" class='zar-web' id='ecsepheto'>之也奈</a>
+                 <h3 class="h3">日语相关</h3>
+                 <br>
+                 <a href="https://gogen-yurai.jp/" class='zar' id='ggyr'>日语词源</a>
+                 <a href="https://phesoca.com/kanbun-html/" class='zar' id='kym'>汉文训读排版</a>
+                 <a href="https://dictionary.goo.ne.jp/" class="zar" id="kjjd">Goo辞典(日)</a>
+                 <a href="http://daijirin.dual-d.net/extra/katakana.html" class="zar" id='htgn'>假名俗写</a>
+                 <a href="http://codh.rois.ac.jp/char-shape/hentaigana/" class='zar' id='hekn'>变体假名</a>
+                 <a href="https://sound.jp/mtnest/k/tojo-daiyo-.htm" class="zar">代用字書き換え</a>
+                 <a href="https://sokkidouraku.lsv.jp/" class="zar">速记道乐</a>
 
-             <h3 class="h3">文化作品相关</h3>
-             <br>
-             <h3>原神</h3>
-             <a href="https://wiki.biligame.com/ys/%E7%8E%B0%E4%BB%A3%E4%B8%98%E4%B8%98%E8%AF%AD%E8%AF%8D%E5%85%B8" class='zar-web' id='gs'>丘丘语词典</a>
-             <a href="https://www.reddit.com/r/Genshin_Impact/comments/jjivx3/linguistics_of_gi_a_study_of_romanizing_liyue_and/" class='zar-web' id='liyue'>璃月语罗马化</a>
-             <a href="https://www.reddit.com/r/Genshin_Impact/comments/jjivx3/linguistics_of_gi_a_study_of_romanizing_liyue_and/" class='zar-web' id='liyue'>璃月语罗马化</a>
+                 <h3 class="h3">个人网站等（应该没版权什么的吧ww）</h3>
+                 <div style="color: dimgray; font-size: 13px; padding: 10px 50px ">私自把您的网站收集进来希望原谅！如果您不想您的网站出现在这里 可以通过页尾的 邮箱, b站 或 知乎 联系我，我会第一时间将其移除！</div>
+                 <br>
+                 <a href="https://zh.moegirl.org.cn/zh-hans/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6" class='zar' id='yc'>懿册研究所</a>
+                 <a href="https://phesoca.com/" class='zar' id='unt'>Unt的个人站</a>
+                 <a href="http://www.xubing.com/cn" class="zar">徐冰</a>
+                 <a href="https://www.babelstone.co.uk/" class="zar">魏安</a>
+                 <a href="http://cheonhyeong.com/Simplified.html" class="zar">天珩</a>
+                 <a href="https://lab.magiconch.com/" class="zar">神奇海螺试验场</a>
+                 <a href="https://ecsepheto.github.io/" class='zar' id='ecsepheto'>之也奈</a>
 
-             <br><br><br>
-             <div id="zars">
-                 <h2>あとがき</h2><br>大概就是记一些杂七杂八的网址吧<br>今天我尝试新的时候才发现我这堆代码就是标准的祖传屎山www<br>散了，随便收点啥吧。<br>实际上也可以看作上面那三个箱子收录的是这个网站刚建立那会儿我用的网址，这个箱子收录的是我现在的网址。也可以看作是保护我的历史层次了www <br>（其实是一团屎山实在懒得改了...）
+                 <h3 class="h3">文化作品相关</h3>
+                 <br>
+                 <h3>原神</h3>
+                 <a href="https://wiki.biligame.com/ys/%E7%8E%B0%E4%BB%A3%E4%B8%98%E4%B8%98%E8%AF%AD%E8%AF%8D%E5%85%B8" class='zar' id='gs'>丘丘语词典</a>
+                 <a href="https://www.reddit.com/r/Genshin_Impact/comments/jjivx3/linguistics_of_gi_a_study_of_romanizing_liyue_and/" class='zar' id='liyue'>璃月语罗马化</a>
+                 <a href="https://www.reddit.com/r/Genshin_Impact/comments/jjivx3/linguistics_of_gi_a_study_of_romanizing_liyue_and/" class='zar' id='liyue'>璃月语罗马化</a>
+
+                 <br><br><br>
+                 <div class="atogaki">
+                     <h2>あとがき</h2><br>大概就是记一些杂七杂八的网址吧<br>今天我尝试新的时候才发现我这堆代码就是标准的祖传屎山www<br>散了，随便收点啥吧。<br>实际上也可以看作上面那三个箱子收录的是这个网站刚建立那会儿我用的网址，这个箱子收录的是我现在的网址。也可以看作是保护我的历史层次了www <br>（其实是一团屎山实在懒得改了...）
+                 </div>
+                 <br>
              </div>
-             <br>
-         </div>
-         <div class="xiang" id="hzec">
-             <h1>汉字二创+新轮子</h1>
-             <div style="color: dimgray; font-size: 13px; padding: 10px 50px ">私自把您的作品收集进来希望原谅！如果您不想您的作品出现在这里 可以通过页尾的 邮箱, b站 或 知乎 联系我，我会第一时间将其移除！</div>
-             <br>
-             <br>
-             <h3>六书法</h3>
-             <br>
-             <a href="https://zh.moegirl.org.cn/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6/%E6%99%A8%E5%BC%8F%E6%A5%B5%E7%B0%A1%E5%AD%97%E5%85%A8%E8%A9%B3%E7%B8%BD%E8%A1%A8#%E5%AD%97%E5%BD%A2%E8%B0%83%E6%95%B4" class="zar">晨式极简字</a>
-             <a href="http://blog.livedoor.jp/tdiaryblog/archives/1839200.html" class="zar">自作略字</a>
-             <a href="https://www.bilibili.com/read/cv11999344?spm_id_from=333.999.0.0" class="zar">文字改良刍议</a>
-             <a href="https://zhuanlan.zhihu.com/p/185101371" class="zar">简体字改革</a>
-             <a href="https://zhuanlan.zhihu.com/p/258038078" class="zar">周字</a>
-             <a href="https://zhuanlan.zhihu.com/p/398058723" class="zar">优体新汉字</a>
-             <a href="https://zhuanlan.zhihu.com/p/58410690" class="zar">汉字国际语</a>
-             <a href="http://blog.sina.com.cn/s/blog_50485daa010087h3.html" class="zar">素字</a>
-             <a href="https://tieba.baidu.com/f?kw=%E8%B1%A1%E7%AC%A6%E5%AD%97&ie=utf-8&pn=250" class="zar">象符字</a>
-             <a href="https://zhuanlan.zhihu.com/p/353634915" class="zar">意音汉字**</a>
-             <a href="https://tieba.baidu.com/p/7756554350?red_tag=0494821147" class="zar">自创三简字</a>
-             <a href="https://seiga.nicovideo.jp/seiga/im4070847" class="zar">メモ用独自略字</a>
-             <a href="https://twitter.com/jumanjikyo/status/1144630530366791681?lang=zh-Hant" class="zar">自分が使う略字</a>
-             <a href="https://www.zhihu.com/column/c_1401698676205678592" class="zar">本造字</a>
-             <br>
-             <br>
-             <br>
-             <h3>表音法</h3>
-             <br>
-             <a href="https://xdi8.top/cmn-hans/" class="zar">希顶语</a>
-             <a href="http://biaoyinzi.com/index.php/zh-hans" class="zar">表音方块字</a>
-             <a href="http://www.rangmo.com/rangmowen/index.html" class="zar">让墨文</a>
-             <a href="https://wukong.toutiao.com/question/6895688526534197508/" class="zar">通音汉字</a>
-             <br>
-             <br>
-             <br>
-             <h3>其他</h3>
-             <br>
-             <a href="https://www.omniglot.com/conscripts/linglese.htm" class="zar">凌角文</a>
-             <a href="https://www.zhihu.com/column/c_1338531634900533250" class="zar">托兰格语</a>
-             <a href="https://zhuanlan.zhihu.com/p/406288556" class="zar">拼辅汉方案*</a>
-             <br>
+             <div class="xiang" id="zarqzarba">
+                 <h1>汉字二创+新轮子</h1>
+                 <div style="color: dimgray; font-size: 13px; padding: 10px 50px ">私自把您的作品收集进来希望原谅！如果您不想您的作品出现在这里 可以通过页尾的 邮箱, b站 或 知乎 联系我，我会第一时间将其移除！</div>
+                 <br>
+                 <br>
+                 <h3>六书法</h3>
+                 <br>
+                 <a href="https://zh.moegirl.org.cn/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6/%E6%99%A8%E5%BC%8F%E6%A5%B5%E7%B0%A1%E5%AD%97%E5%85%A8%E8%A9%B3%E7%B8%BD%E8%A1%A8#%E5%AD%97%E5%BD%A2%E8%B0%83%E6%95%B4" class="zar">晨式极简字</a>
+                 <a href="http://blog.livedoor.jp/tdiaryblog/archives/1839200.html" class="zar">自作略字</a>
+                 <a href="https://www.bilibili.com/read/cv11999344?spm_id_from=333.999.0.0" class="zar">文字改良刍议</a>
+                 <a href="https://zhuanlan.zhihu.com/p/185101371" class="zar">简体字改革</a>
+                 <a href="https://zhuanlan.zhihu.com/p/258038078" class="zar">周字</a>
+                 <a href="https://zhuanlan.zhihu.com/p/398058723" class="zar">优体新汉字</a>
+                 <a href="https://zhuanlan.zhihu.com/p/58410690" class="zar">汉字国际语</a>
+                 <a href="http://blog.sina.com.cn/s/blog_50485daa010087h3.html" class="zar">素字</a>
+                 <a href="https://tieba.baidu.com/f?kw=%E8%B1%A1%E7%AC%A6%E5%AD%97&ie=utf-8&pn=250" class="zar">象符字</a>
+                 <a href="https://zhuanlan.zhihu.com/p/353634915" class="zar">意音汉字**</a>
+                 <a href="https://tieba.baidu.com/p/7756554350?red_tag=0494821147" class="zar">自创三简字</a>
+                 <a href="https://seiga.nicovideo.jp/seiga/im4070847" class="zar">メモ用独自略字</a>
+                 <a href="https://twitter.com/jumanjikyo/status/1144630530366791681?lang=zh-Hant" class="zar">自分が使う略字</a>
+                 <a href="https://www.zhihu.com/column/c_1401698676205678592" class="zar">本造字</a>
+                 <br>
+                 <br>
+                 <br>
+                 <h3>表音法</h3>
+                 <br>
+                 <a href="https://xdi8.top/cmn-hans/" class="zar">希顶语</a>
+                 <a href="http://biaoyinzi.com/index.php/zh-hans" class="zar">表音方块字</a>
+                 <a href="http://www.rangmo.com/rangmowen/index.html" class="zar">让墨文</a>
+                 <a href="https://wukong.toutiao.com/question/6895688526534197508/" class="zar">通音汉字</a>
+                 <br>
+                 <br>
+                 <br>
+                 <h3>其他</h3>
+                 <br>
+                 <a href="https://www.omniglot.com/conscripts/linglese.htm" class="zar">凌角文</a>
+                 <a href="https://www.zhihu.com/column/c_1338531634900533250" class="zar">托兰格语</a>
+                 <a href="https://zhuanlan.zhihu.com/p/406288556" class="zar">拼辅汉方案*</a>
+                 <br>
 
-             <br>
-             <br>
-             <br>
-             <h3>论坛</h3>
-             <br>
-             <a href="http://yuyannet.com/forum-44-1.html" class="zar">语言文字论坛</a>
-             <a href="https://jump2.bdimg.com/f?kw=%E4%BC%98%E5%8C%96%E5%AD%97&ie=utf-8&tab=main" class="zar">优化字吧</a>
+                 <br>
+                 <br>
+                 <br>
+                 <h3>论坛</h3>
+                 <br>
+                 <a href="http://yuyannet.com/forum-44-1.html" class="zar">语言文字论坛</a>
+                 <a href="https://jump2.bdimg.com/f?kw=%E4%BC%98%E5%8C%96%E5%AD%97&ie=utf-8&tab=main" class="zar">优化字吧</a>
 
-             <br>
-             <div id="zars">
-                 <h2>あとがき</h2><br>所以这个跟上面那个汉字二创有什么区别呢？<br>确实没区别，只不过以后我发现的的汉字二创者都会在这里更新了，因为那三个箱子真的是太屎山了... <br><br>托兰格语和凌角文我没理解错的话是像万叶假名一样把汉字借过去表音，所以也不知道该怎么分，甚至都不清楚这算不算是汉字二创。但还是加到“其他”里了。<br>素字现在的资料只剩下了一个博客，他原来的网站挂掉了，甚至连张图都搜不出来。这边唯一能找到的图就是<a href="https://www.bilibili.com/video/BV1n34y1U7mZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click" style="color: rgb(20, 70, 183)">这个视频</a>里的... <br><br>不管他是为啥给搞的痕迹全无了，总的还是有点悲的。就像是一座一直无人问津的小城一样，默默地成长着，默默地存在着，最后也默默地消失了；当后人无意间发现这座小城的残垣断壁时，城里早已杳无人烟，任何地方都很忙，都没人记载这座城，只有小城自己在孤独地生活着，直到痕迹全无。<br><br>悲 <br><br>
-                 <div style="text-align: left; ">*: 全称 汉语拼音辅助汉字使用实验方案</div>
-                 <div style="text-align: left; ">**: 全称 意、音双表新体汉字构建法</div>
+                 <br>
+                 <div class="atogaki">
+                     <h2>あとがき</h2><br>所以这个跟上面那个汉字二创有什么区别呢？<br>确实没区别，只不过以后我发现的的汉字二创者都会在这里更新了，因为那三个箱子真的是太屎山了... <br><br>托兰格语和凌角文我没理解错的话是像万叶假名一样把汉字借过去表音，所以也不知道该怎么分，甚至都不清楚这算不算是汉字二创。但还是加到“其他”里了。<br>素字现在的资料只剩下了一个博客，他原来的网站挂掉了，甚至连张图都搜不出来。这边唯一能找到的图就是<a href="https://www.bilibili.com/video/BV1n34y1U7mZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click" style="color: rgb(20, 70, 183)">这个视频</a>里的... <br><br>不管他是为啥给搞的痕迹全无了，总的还是有点悲的。就像是一座一直无人问津的小城一样，默默地成长着，默默地存在着，最后也默默地消失了；当后人无意间发现这座小城的残垣断壁时，城里早已杳无人烟，任何地方都很忙，都没人记载这座城，只有小城自己在孤独地生活着，直到痕迹全无。<br><br>悲 <br><br>
+                     <div style="text-align: left; ">*: 全称 汉语拼音辅助汉字使用实验方案</div>
+                     <div style="text-align: left; ">**: 全称 意、音双表新体汉字构建法</div>
+                 </div>
+                 <br>
+                 <br>
              </div>
-             <br>
-             <br>
          </div>
-         <div class='xiang' id='hoka'>
-             <h1>如果 ChromeBook 加载太慢了</h1>
-             <br>
-             <br>
-             <h3>Google 系</h3>
-             <br>
-             <a href="https://classroom.google.com/u/0/h" class='zar-web'>G 教室</a>
-             <a href="https://docs.google.com/document/u/0/?tgif=c" class='zar-web'>G 文档</a>
-             <a href="https://docs.google.com/presentation/u/0/?tgif=d" class="zar-web">G 演讲</a>
-             <a href="https://mail.google.com/mail/u/0/#inbox" class="zar-web">G 邮箱</a>
-             <a href="https://drive.google.com/drive/u/0/my-drive" class="zar-web">G 云盘</a>
-             <a href="https://docs.google.com/spreadsheets/u/0/?tgif=d" class="zar-web">G 表单</a>
-             <a href="https://jamboard.google.com/u/0/" class="zar-web">G 白板</a>
-             <a href="https://earth.google.com/web/?authuser=0" class="zar-web">G 地球</a>
-             <br>
-             <br>
-             <h3>捷</h3>
-             <br>
-             <a href="https://kahoot.it/" class="zar-web">Kahoot</a>
-             <a href="https://app.grammarly.com/" class='zar-web'>Grammarly</a>
-             <a href="https://yrdsb.schoolcashonline.com/" class="zar-web">SchoolCashOnline</a>
-             <br>
-             <br>
-             <h3>后</h3>
-             <br>
-             <a href="https://app.myblueprint.ca/student/dashboard" class="zar-web">MyBluePrint</a>
-             <a href="https://ta.yrdsb.ca/live/students/listReports.php?student_id=172212" class="zar-web">TeacherAssist</a>
-             <div id="zars">
-                 <h2>あとがき</h2><br>由于上课时ChromeBook加载太慢所以就搞了个这www <br>感觉可能会用到
-             </div>
-             <br>
-         </div>
+
          <div style="background-color: #F7F7F7; margin: 33px; padding: 30px;">
              <h1 id="hj-hj">后记</h1>
              <div id="hjs">嗯搞完这个网站了呢<br>历时大概几个月，但如果说真正用在他身上多少小时了嘛.. <br>可能不到一周（捂脸<br><br><br>啊之后就要补java script课上的作业了呢<br>有点恐... <br>嘛不过这就行了吧<br>嗯对这样就好这样就好<br><br><br></div>
