@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .grid-container {
+            display: grid;
+            /*display: inline-grid;*/
+            /*auto数量决定grid栏量*/
+            grid-template-columns: auto auto auto auto;
+            /*grid-template: auto;*/
+/*
+            grid-column-gap: 5px;
+            grid-row-gap: 25px;
+*/
+            background-color: skyblue;
+        }
+
+        .grid-container>div {
+            background-color: blanchedalmond;
+            text-align: center;
+        }
+
+        .item1 {
+/*            start on row2 col1, span 2 rows and 3 columns*/
+            grid-area: 1/1/span1/span3;
+/*
+            grid-column-start: 1;
+            grid-column-end: 3;
+*/
+        }
+        
+        .item2{
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="item1">1</div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>
+        <div class="item4">4</div>
+        <div class="item5">5</div>
+        <div class="item6">6</div>
+        <div class="item7">7</div>
+        <div class="item8">8</div>
+    </div>
+</body>
+
+</html>

@@ -13,7 +13,7 @@
 
             div {
                 font-size: 1.5rem;
-            } 
+            }
         }
 
         @media all and (orientation: landscape) {
@@ -39,16 +39,12 @@
         }
 
         #xiang {
-            background-color: lightgrey;
-            opacity: 0.8;
-            margin: 20px 20px 20px 20px;
-            padding: 1px;
+            background-color: whitesmoke;
+            padding-top: 40vh;
+            padding-bottom: 45vh;
+            opacity: 0.9;
             border: none;
-            display: flex;
-        }
-
-        #xiang:hover {
-            transform: rotate(-1deg);
+            display: grid;
         }
 
         #fuhbtXa {
@@ -101,6 +97,25 @@
             justify-content: center;
         }
 
+        #index {
+            grid-column: 3/span1;
+            display: grid;
+            grid-gap: 3% 3%;
+            grid-template-columns: auto auto auto;
+            margin-top: -20vh;
+            margin-right: 5vw;
+        }
+
+        #index>a {
+            z-index: 99;
+            background-color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 5vh 2vw;
+            color: black;
+            border-top: solid darkblue 8px;
+        }
+
     </style>
 </head>
 
@@ -116,20 +131,32 @@
 </script>
 
 <body id="body">
+
+    <a href="index.html" style="position:fixed; background-color: white; padding: 1% 5%; border-right: solid 10px; z-index: 100; text-decoration: none; color: midnightblue; font-weight: 600">好想回家</a>
+
     <div id="xiang">
-        <span style="flex-grow:9;">
-            <a href="index.html" style="text-decoration: none;">
-                <div style="text-align: left; font-size: 33pt; margin-top: 30px; margin-bottom: 10px; margin-left: 5%; font-weight: bold; color: black;">网站收集器~</div>
-            </a>
-            <div style="color: grey; font-size: 10pt; text-align: left; margin-bottom: 20px; margin-left: 8%;">其实是方便在别的浏览器里也能访到这个浏览器的收藏夹而做的啦</div>
+        <span style="grid-column: 1 /span2">
+            <div style="text-align: left; font-size: 350%; margin-left: 5vw; font-weight: bold; color: black;">网站收集器~</div>
+            <hr style="width: 30vw; height: 10px; margin-left: 5vw; background-color: darkblue;">
+            <div style="color: grey; font-size: 10pt; text-align: left; margin-bottom: 20px; margin-left: 8vw;">其实是方便在别的浏览器里也能访到这个浏览器的收藏夹而做的啦</div>
         </span>
-        <a href="index.html" style="text-decoration: none; flex-grow:1;">
-            <div style="font-size: 85pt; color: black;">回</div>
-        </a>
+        <span id="index">
+            <a href="#varnsuh">元素</a>
+            <a href="#sehjh">设计</a>
+            <a href="#gogjvh">工具</a>
+            <a href="#wuhjahn">物件</a>
+            <a href="#xaoowuh">小物</a>
+            <a href="#qta">其他</a>
+            <a href="#yorxh">游戏</a>
+            <a href="#segcergqh">生成</a>
+            <a href="#werj">维基</a>
+            <a href="#rhbeen">日语</a>
+            <a href="#guaihwuh" style="grid-column-start: 2; grid-column-end: 4;">他事</a>
+        </span>
     </div>
 
     <div class="container" style="display:flex;">
-        <div class="xiang" id="zohyeh" style="flex-grow: 1.5;">
+        <div class="xiang" id="varnsuh" style="flex-grow: 1.5;">
             <div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">元素</div>
             <hr id=fuhbtXa style="background-color: #d01818">
             <!--		-->
@@ -160,7 +187,7 @@
             </div>
         </div>
 
-        <div class="xiang" id="sehjih" style="flex-grow: 1.3;">
+        <div class="xiang" id="sehjh" style="flex-grow: 1.3;">
             <div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">设计类</div>
             <hr id=fuhbtXa>
 
@@ -188,7 +215,7 @@
             </div>
         </div>
 
-        <div class="xiang" id="zsh" style="flex-grow: 1.3;">
+        <div class="xiang" id="gogjvh" style="flex-grow: 1.3;">
             <div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">工具类</div>
             <hr id=fuhbtXa style="background-color: royalblue">
             <h3>文件</h3>
@@ -220,7 +247,7 @@
         </div>
     </div>
     <div class="container" style="display:flex;">
-        <div class="xiang" style="flex-grow: 1;">
+        <div class="xiang" id="wuhjahn" style="flex-grow: 1;">
             <div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">物件</div>
             <hr id=fuhbtXa style="background-color: orange">
             <h3>查询</h3>
@@ -250,7 +277,7 @@
                 <a href="https://www.idrlabs.com/tests.php" class="zarweb">政治光谱</a>
                 <a href="https://cnvalues.github.io/quiz.html" class="zarweb">CN Value</a>
             </div>
-            
+
             <h3>书库</h3>
             <div class="url">
                 <a href="https://www.pdfdrive.com/" class="zarweb">PDF书库</a>
@@ -258,7 +285,7 @@
                 <a href="https://zmirror.ml/" class="zarweb">Z图书馆（已寄）</a>
             </div>
         </div>
-        <div class="xiang" style="flex-grow: 1;">
+        <div class="xiang" id="xaoowuh" style="flex-grow: 1;">
             <div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">小玩意</div>
             <hr id=fuhbtXa style="background-color: #ff7b92">
             <div style="display: flex; flex-direction: column;">
@@ -308,8 +335,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="xiang" style="flex-grow: 1;">
+        <div class="xiang" id="qta" style="flex-grow: 1;">
             <div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">其他</div>
             <hr id=fuhbtXa style="background-color: #5022cc">
 
@@ -332,7 +358,7 @@
 
             <h3>文</h3>
             <div class="url"><a href="http://www.h-hagiya.com/geo/yasuo/paleozoic.htm" class="zarweb">地质年代 (日)</a><a href="https://www.163.com/dy/article/G0QJPGBC05148DP9.html" class="zarweb">身份证 (已寄)</a></div>
-            
+
             <h3>旗</h3>
             <div class="url">
                 <a href="https://www.crwflags.com/fotw/flags/ca!.html" class="zarweb">加国旗Proposal (CRWFlags)</a>
@@ -341,13 +367,13 @@
                 <a href="https://en.wikipedia.org/wiki/Armorial_of_Canadian_universities" class="zarweb">加国大学Arms</a>
                 <a href="https://mathcs.pugetsound.edu/~aasmith/flags/" class="zarweb">美国州旗ReDesign</a>
             </div>
-            
+
         </div>
 
 
     </div>
     <div class="container" style="display:flex;">
-        <div class="xiang" style="flex-grow: 1;">
+        <div class="xiang" id="yorxh" style="flex-grow: 1;">
             <div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">小游戏</div>
             <hr id=fuhbtXa style="background-color: #36cc22">
             <div class="url">
@@ -361,7 +387,7 @@
                 <a href="https://www.geo-fs.com/geofs.php?v=3.69" class="zarweb">飞机模拟器</a>
             </div>
         </div>
-        <div class="xiang" style="flex-grow: 0.5;">
+        <div class="xiang" id="segcergqh" style="flex-grow: 0.5;">
             <div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">生成器</div>
             <hr id=fuhbtXa style="background-color: #149362">
             <div class="url">
@@ -373,7 +399,7 @@
             </div>
         </div>
 
-        <div class="xiang" style="flex-grow: 1;">
+        <div class="xiang" id="werj" style="flex-grow: 1;">
             <div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">维基</div>
             <hr id=fuhbtXa style="background-color: #9f9595">
             <h3>正经</h3>
@@ -396,8 +422,7 @@
 
     </div>
     <div class="container" style="display:flex;">
-
-        <div class="xiang" style="flex-grow: 1;">
+        <div class="xiang" id="rhbeen" style="flex-grow: 1;">
             <div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">私事で恐縮ですが
             </div>
             <hr id=fuhbtXa style="background-color: #e2e239">
@@ -422,9 +447,7 @@
                 <a href="http://blog.livedoor.jp/tdiaryblog/archives/20889983.html" class="zarweb">汉字分类</a>
             </div>
         </div>
-
-
-        <div class="xiang" style="flex-grow: 1;">
+        <div class="xiang" id="guaihwuh" style="flex-grow: 1;">
             <div style="font-size: 33px; font-weight: bold; margin: 15px 10px 10px 10px">怪东西</div>
             <hr id=fuhbtXa style="background-color: #36cc22">
 

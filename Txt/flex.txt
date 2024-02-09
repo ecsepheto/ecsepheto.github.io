@@ -21,7 +21,8 @@ flex-direaction:
 				row:默认
 				row-reverse:默认排序反转
 				
-flex-direction:
+flex-direction:flex-direction:
+
 			    column:竖行
 			    column-reverse:竖行反转
 
