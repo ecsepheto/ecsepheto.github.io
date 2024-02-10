@@ -5,13 +5,53 @@
     <meta charset="UTF-8">
     <title>My Works</title>
     <style>
+        @media all and (orientation: portrait) {
+            context {
+                flex-direction: column;
+            }
+
+            .nextCvr {
+                align-self: flex-end;
+            }
+
+            .imageBoxBlog {
+                align-self: flex-end;
+            }
+        }
+
+        @media all and (orientation: landscape) {
+            context {
+                flex-direction: row;
+            }
+
+            .nextCvr {
+                align-self: flex-start;
+            }
+
+            .imageBoxBlog {
+                align-self: flex-start;
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
         }
 
         nav {
-            margin: 50px;
+            padding-top: 25vh;
+            padding-bottom: 40vh;
+            background-image: url(./posters/else/Authotarianism.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        nav>*{
+            width: 35vw;
+            margin-left: 15vw;
+            padding: 3vh;
+            background-color: rgb(245, 245, 245, 0.7);
         }
 
         .fengexahn {
@@ -38,7 +78,7 @@
             margin-top: 15px;
         }
 
-        .next {
+        button {
             width: 35px;
             height: 35px;
             background-color: whitesmoke;
@@ -49,16 +89,15 @@
 </head>
 
 <body>
-
-
-
     <nav>
-        <h1 style="font-size: 50px; margin-bottom: 10px ">Designs I Made</h1>
-        <hr class="fengexahn">
-        <div>I'm very interested in visual designs, including making posters. <br>Since May in 2020, I have joined the PTERYX Foundation of Culture and Education, and now I'm the Director of Art Department there. Most of my posters are made for them. </div>
+        <h1 style="font-size: 50px; margin-bottom: 10px;">MyDesigns</h1>
+        <hr class="fengexahn" style="margin-left: 15vw; padding: 0px;">
+        <div style="">I'm very interested in visual designs, including making posters. <br>Since May in 2020, I have joined the PTERYX Foundation of Culture and Education, and now I'm the Director of Art Department there. Most of my posters are made for them. </div>
     </nav>
 
-    <context style="display: flex; margin-left: 6vw; margin-right: 6vw; flex-direction: column">
+    <context style="display: flex; margin-left: 6vw; margin-right: 6vw; align-items: flex-start;">
+
+        <!--ChaPoster-->
         <div class="showing" style="display: flex; margin: 10px">
 
             <div class="imageBox">
@@ -73,44 +112,44 @@
             </span>
         </div>
 
-        <!--        -->
+        <!--Blog-->
+        <div class="showing" style="display: flex; margin: 10px; flex-direction: column-reverse;">
 
-        <div class="showing" style="display: flex; margin: 10px; flex-direction: column-reverse">
-
-            <div class="imageBox" style="align-self: flex-end;">
-                <img src="posters/Blog_cover/cvr1.jpg" alt="" style="width: 450px;">
+            <div class="imageBoxBlog" style="margin-left: 5vw">
+                <img src="./posters/Blog_cover/cvr1.jpg" alt="" style="width: 450px;">
             </div>
-            <button class="next" style="align-self: flex-end;">></button>
+
+            <button class="nextCvr" style="margin-left: 5vw">></button>
 
             <span class="zehgwern" style="display:flex; flex-direction: column;">
                 <h2>Blog Covers</h2>
                 <hr>
                 <div>
-                    One of my job in the PTERYX foundation is to Design the Covers for their Periodical Blogs. The following are the top ones I thoght could represent them all
+                    One of my job in the PTERYX foundation is to Design the Covers for their Periodical Blogs. The following are choosen from them.
                 </div>
             </span>
         </div>
 
     </context>
 
-<!--
+    <!--Blog-->
     <script>
-        var nextBtn = document.querySelector('.next')
-        var nextImg = document.querySelector('.imageBox>img')
-        var arr = ['posters/Blog_cover/cvr1.jpg', 'posters/Blog_cover/cvr2.jpg'];
+        var nextBtnBlog = document.querySelector('.nextCvr')
+        var nextImgBlog = document.querySelector('.imageBoxBlog>img')
+        var arrBlog = ['posters/Blog_cover/cvr1.jpg', 'posters/Blog_cover/cvr2.jpg', 'posters/Blog_cover/cvr3.jpg', 'posters/Blog_cover/cvr4.jpg'];
 
-        var index = 0
-        nextBtn.onclick = function() {
-            index++
-            if (index === arr.length) index = 0
-            var imgPath = arr[index]
+        var indexBlog = 0
+        nextBtnBlog.onclick = function() {
+            indexBlog++
+            if (indexBlog === arrBlog.length) indexBlog = 0
+            var imgPathBlog = arrBlog[indexBlog]
 
-            nextImg.src = imgPath
+            nextImgBlog.src = imgPathBlog
         }
 
     </script>
--->
 
+    <!--Cha-->
     <script>
         var nextBtn = document.querySelector('.next')
         var nextImg = document.querySelector('.imageBox>img')
