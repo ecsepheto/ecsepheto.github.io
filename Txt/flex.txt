@@ -7,7 +7,7 @@ justify-content:
 				space-around:项目间间距为左右两侧项目到容器间距二倍
 				space-evenly:项目间距相等
 align-items:
-			flex-start:默认位置
+            flex-start:默认位置
 			center:Y轴居中
 			flex-end: Y轴底部
 
