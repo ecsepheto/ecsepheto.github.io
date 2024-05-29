@@ -8,7 +8,10 @@
      <style>
          @media all and (orientation: portrait) {
 
-
+             #rh-zqzb{
+                 display: inline-block;
+             }
+             
              #zarqzarba {
                  width: auto;
              }
@@ -30,7 +33,7 @@
 
          @media all and (orientation: landscape) {
 
-             #rhfenweiri {
+             #rh-zqzb {
                  display: flex;
              }
 
@@ -40,6 +43,33 @@
              }
          }
 
+         @keyframes animatedBackground {
+             from {
+                 background-position: 240 0;
+             }
+
+             to {
+                 background-position: 100% 0;
+             }
+         }
+         
+         @keyframes trans-violet{
+             from {background-color: transparent;
+                 border-left-color: gray;}
+             to {background-color: whitesmoke;
+                 border-left-color: blueviolet;}
+         }
+         
+         @keyframes trans-violet-h2{
+             from {background-color: transparent;
+                 border-left-color: gray;
+                 padding: 0px}
+             to {background-color: whitesmoke;
+                 border-left-color: blueviolet;
+                 padding: 10px 0px}
+         }
+
+
          * {
              margin: 0;
              padding: 0;
@@ -48,6 +78,16 @@
 
          div {
              background-color: rgb(191, 191, 191);
+         }
+
+         a {
+             text-decoration: none;
+             color: darkblue;
+         }
+         
+         main {
+             margin: auto;
+             text-align: center;
          }
 
          nav {
@@ -60,8 +100,6 @@
              position: fixed;
              z-index: 10000;
          }
-
-
 
          nav ul {
              position: absolute;
@@ -86,7 +124,6 @@
              text-align: center;
              width: 90%;
              position: relative;
-             top: 25px;
              margin: auto;
              background-color: #F7F7F7;
              padding: 30px;
@@ -106,43 +143,152 @@
              margin: 0px 5px 100px 5px;
              box-shadow: 5px 10px 10px #dddddd;
          }
-
-
-         main {
-             margin: auto;
-             text-align: center;
+         
+         .sahg {
+             color: black;
+             font-size: 100%;
+             width: 18%;
+             display: inline-block;
+             margin-bottom: 10px;
+             background-color: #ededed;
+             border-radius: 30px;
+             height: 35px;
+             line-height: 35px;
          }
+         
+         .sahg:hover{
+             background-color: black;
+             color: white;
+         }
+
+         .muhluh {
+             margin: 0 0 21px;
+             padding: 15px;
+             border-left: solid 7px darkblue;
+             width: 200px;
+             display: inline-block;
+             text-align: left;
+             float: left;
+             height: 300px;
+             overflow: hidden;
+         }
+
+         .mulu {
+             margin: 10px 20px;
+             text-decoration: none;
+             color: darkblue;
+             letter-spacing: 2px;
+         }
+
+         .mulu:hover {
+             font-size: 110%;
+         }
+
+         #taoh {
+             width: 100%;
+             height: 300px;
+             text-align: left;
+             margin-bottom: 100px;
+             background-image: url(media/%E6%97%A5%E5%B8%B8%E4%B8%8A%E6%B2%B3%E5%9B%BE.jpg);
+             background-size: cover;
+             background-position: 200px 0px;
+             background-repeat: repeat-x;
+             animation: animatedBackground 210s linear infinite;
+             box-shadow: 0px 12px 30px grey;
+         }
+         
+         #circle {
+             width: 250px;
+             height: 250px;
+             border-radius: 195px;
+             position: absolute;
+             right: -80px;
+             margin-top: -100px;
+             background: linear-gradient(rgba(138, 43, 226, 0.13), rgba(0, 0, 0, 0.7)), url(media/flags/Dfy-BurOak-Wstrn.png);
+             background-size: contain;
+             border: solid 5px #671eaa;
+          }
 
          .word_image {
              width: 100px;
          }
+         
+         
+         #san-dah-xag {
+             display: flex;
+             padding: 0px 20px;
+         }
 
-         .web {
+         .img-ttl {
+             display: flex;
+             justify-content: space-between;
+             margin: 30px;
+             align-items: center;
+             border-bottom: solid whitesmoke;
+         }
+
+         .content {
+             display: flex;
+             height: calc(100% - 160px);
+             flex-direction: column;
+             justify-content: space-between;
+         }
+
+         #box-web-biaotir {
+             display: flex;
+             flex-wrap: wrap;
+             margin-top: 10px;
+             margin-bottom: 50px;
+             justify-content: space-around;
+         }
+
+         .box-web {
              text-decoration: none;
              color: black;
              padding: 10px;
              margin-top: 10px;
              min-width: 100px;
              border-left: solid 5px gray;
-             text-align: left
+             text-align: left;
          }
 
-         .web:hover {
-             font-size: 105%;
+         .box-web:hover {
              border-left-color: blueviolet;
              background-color: whitesmoke;
+             animation-name: trans-violet;
+             animation-duration: 0.5s;
+             animation-fill-mode: forwards;
          }
+         
+         
          
          h1:hover{
              border-bottom: solid 5px blueviolet;
              background-color: whitesmoke;
-             padding: 10px;
+             animation-name: trans-violet-h2;
+             animation-duration: 0.5s;
+             animation-fill-mode: forwards;
          }
          
          h2:hover{
              border-left: solid 5px blueviolet;
              background-color: whitesmoke;
-             padding: 10px;
+             animation-name: trans-violet-h2;
+             animation-duration: 0.5s;
+             animation-fill-mode: forwards;
+         }
+         
+         .h3 {
+             margin-top: 50px;
+         }
+
+         
+         h3:hover{
+             border-left: solid 5px blueviolet;
+             background-color: whitesmoke;
+             animation-name: trans-violet-h2;
+             animation-duration: 0.5s;
+             animation-fill-mode: forwards;
          }
 
          .atogaki {
@@ -162,13 +308,11 @@
          #jyana {
              background-color: whitesmoke;
              height: 120vh;
-             font-size: 90px;
              font-weight: 900;
          }
 
          #jyana:hover {
              background-color: silver;
-             font-size: 100px;
          }
 
          #btn {
@@ -217,19 +361,6 @@
 
          #houh-zyn:hover {
              color: white;
-             font-size: 100px;
-         }
-
-         a {
-             text-decoration: none;
-             color: darkblue;
-         }
-
-         #synr {
-             text-align: left;
-             font-size: 25px;
-             margin-left: 5vw;
-             margin-bottom: 10px;
          }
 
          .xiang {
@@ -237,34 +368,6 @@
              padding: 15px;
              box-shadow: 5px 10px 20px #888888;
              border-top: solid 7px;
-             width: auto;
-         }
-
-         #ecsepheto:hover {
-             border: solid white;
-             background-color: ghostwhite;
-         }
-
-         .sahg {
-             position: relative;
-             text-decoration: none;
-             color: black;
-             font-size: 100%;
-             width: 18%;
-             display: inline-block;
-             margin-bottom: 10px;
-             background-color: #ededed;
-             border-radius: 30px;
-             height: 35px;
-             line-height: 35px;
-         }
-
-         .biaotir {
-             width: 20px;
-             position: absolute;
-             color: dimgrey;
-             padding-left: 10px;
-             border-left: solid 2px;
          }
 
          .zar {
@@ -280,99 +383,11 @@
          }
 
          .zar:hover {
-             background-color: antiquewhite;
-             transform: rotate(-3deg);
+             background-color: black;
+             color: white;
+             transform: rotate(-2deg);
          }
 
-
-         .muhluh {
-             margin: 0 0 21px;
-             padding: 15px;
-             border-left: solid 7px darkblue;
-             width: 200px;
-             display: inline-block;
-             text-align: left;
-             float: left;
-             height: 300px;
-             overflow: hidden;
-         }
-
-         .mulu {
-             margin: 10px 20px;
-             text-decoration: none;
-             color: darkblue;
-             letter-spacing: 2px;
-         }
-
-         .mulu:hover {
-             font-size: 110%;
-         }
-
-         #taoh {
-             width: 100%;
-             height: 300px;
-             text-align: left;
-             margin-bottom: 100px;
-             background-image: url(media/%E6%97%A5%E5%B8%B8%E4%B8%8A%E6%B2%B3%E5%9B%BE.jpg);
-             background-size: cover;
-             background-position: 200px 0px;
-             background-repeat: repeat-x;
-             animation: animatedBackground 210s linear infinite;
-             box-shadow: 0px 12px 30px grey;
-         }
-
-         @keyframes animatedBackground {
-             from {
-                 background-position: 240 0;
-             }
-
-             to {
-                 background-position: 100% 0;
-             }
-         }
-
-
-         .h3 {
-             margin-top: 73px;
-         }
-
-         #circle {
-             width: 250px;
-             height: 250px;
-             background: #671eaa;
-             border-radius: 195px;
-             position: absolute;
-             right: -80px;
-             margin-top: -100px;
-         }
-
-         #san-dah-xag {
-             display: flex;
-             padding: 0px 20px;
-         }
-
-         .img-ttl {
-             display: flex;
-             justify-content: space-between;
-             margin: 30px;
-             align-items: center;
-             border-bottom: solid whitesmoke;
-         }
-
-         .content {
-             display: flex;
-             height: calc(100% - 160px);
-             flex-direction: column;
-             justify-content: space-between;
-         }
-
-         #xaao-web {
-             display: flex;
-             flex-wrap: wrap;
-             margin-top: 10px;
-             margin-bottom: 50px;
-             justify-content: space-around;
-         }
 
      </style>
  </head>
@@ -393,7 +408,7 @@
              </ul>
          </nav>
 
-         <p style="padding-bottom: 10vh;">
+         <p style="padding-bottom: 130px;">
          </p>
 
 
@@ -405,8 +420,6 @@
              <a href="SihJih.html" class="sahg">网站日志</a>
              <a href="indexEng.html" class="sahg">English</a>
              <a href="indexPinIn.html" class="sahg">PinIn</a>
-             <br>
-             <br>
          </div>
      </header>
 
@@ -443,12 +456,12 @@
                      <div style="display:flex; flex-direction: row; align-items: center;">
                          <div style="width:30px;">汉语拼音声调</div>
                          <hr style="height:100%;">
-                         <div style="margin-left: 18px; font-family: consolas; font-size: 18px;">a ā á ǎ à <br>o ō ó ǒ ò <br>e ē é ě è <br>i ī í ǐ ì<br>u ū ú ǔ ù<br>ü ǖ ǘ ǚ ǜ</div>
+                         <div style="margin-left: 18px; font-family: consolas; font-size: 100%;">a ā á ǎ à <br>o ō ó ǒ ò <br>e ē é ě è <br>i ī í ǐ ì<br>u ū ú ǔ ù<br>ü ǖ ǘ ǚ ǜ</div>
                      </div>
                      <div style="display:flex; flex-direction: row; align-items: center;">
                          <div style="width:30px;">文字描述字符</div>
                          <hr style="height:100%;">
-                         <div style="margin-left: 18px; font-size: 18px;">⿰ ⿱ <br>⿲ ⿳ <br> ⿶ ⿵ <br> ⿺ ⿷ <br> ⿸ ⿹ <br> ⿴ ⿻</div>
+                         <div style="margin-left: 18px; font-size: 100%;">⿰ ⿱ <br>⿲ ⿳ <br> ⿶ ⿵ <br> ⿺ ⿷ <br> ⿸ ⿹ <br> ⿴ ⿻</div>
                      </div>
                  </div>
              </div>
@@ -483,24 +496,24 @@
                  <span class="content">
                      <div>
                          <h2>正经( • ̀ω•́ )</h2>
-                         <span id="xaao-web">
-                             <a href="https://www.zdic.net/" class="web">漢典</a>
+                         <span id="box-web-biaotir">
+                             <a href="https://www.zdic.net/" class="box-web">漢典</a>
 
-                             <a href="http://xiaoxue.iis.sinica.edu.tw/" class="web">小學堂</a>
+                             <a href="http://xiaoxue.iis.sinica.edu.tw/" class="box-web">小學堂</a>
 
-                             <a href="http://www.kaom.net/book_niyin.php" class="web" id="gycx">古音小镜 (查古音)</a>
+                             <a href="http://www.kaom.net/book_niyin.php" class="box-web" id="gycx">古音小镜 (查古音)</a>
                          </span>
 
                          <h2>漢字二創ヾ(•ω•`)</h2>
-                         <span id="xaao-web">
-                             <a href="http://zhs.glyphwiki.org/wiki/GlyphWiki:%E9%A6%96%E9%A1%B5" class="web">字形維基</a>
+                         <span id="box-web-biaotir">
+                             <a href="http://zhs.glyphwiki.org/wiki/GlyphWiki:%E9%A6%96%E9%A1%B5" class="box-web">字形維基</a>
 
-                             <a href="https://sousaku-kanji.com/archive.html" class="web">創作漢字Contest (日)</a>
+                             <a href="https://sousaku-kanji.com/archive.html" class="box-web">創作漢字Contest (日)</a>
                          </span>
 
                          <h2>漢字二創(个人)</h2>
-                         <span id="xaao-web">
-                             <a href="#zarqzarba" class="web">见目录内汉字二创页面</a>
+                         <span id="box-web">
+                             <a href="#zarqzarba" class="box-web">见目录内汉字二创页面</a>
                          </span>
                      </div>
                      <div class="atgk">
@@ -528,25 +541,25 @@
                  <span class="content">
                      <div>
                          <h2 id="nihon">日本站点</h2>
-                         <span id="xaao-web">
-                             <a href="http://pbbs.web.fc2.com/etc/yumei7ryakuji.html" class="web" id="rjir">略字一覽</a>
-                             <a href="https://seesaawiki.jp/ryakuji/d/%C4%B6%C4%B6%C4%B6%B0%EC%B2%A1%A4%B7%A4%CA%CE%AC%BB%FA%A4%CE%B0%EC%CD%F7" class="web" id="rjir2">略字一覽 (新增中)</a>
-                             <a href="http://nrifs.fra.affrc.go.jp/book/D_archives/2011DA020/jpegver.html" class="web" id="sszj">水產俗字集 (明治編)</a>
+                         <span id="box-web-biaotir">
+                             <a href="http://pbbs.web.fc2.com/etc/yumei7ryakuji.html" class="box-web" id="rjir">略字一覽</a>
+                             <a href="https://seesaawiki.jp/ryakuji/d/%C4%B6%C4%B6%C4%B6%B0%EC%B2%A1%A4%B7%A4%CA%CE%AC%BB%FA%A4%CE%B0%EC%CD%F7" class="box-web">略字一覽 (新增中)</a>
+                             <a href="http://nrifs.fra.affrc.go.jp/book/D_archives/2011DA020/jpegver.html" class="box-web">水產俗字集 (明治編)</a>
                          </span>
 
                          <h2 id="zorngguor">中國 内 俗字</h2>
-                         <span id="xaao-web">
-                             <a href="https://www.wikiwand.com/zh-cn/%E7%B9%81%E9%AB%94%E4%BF%97%E5%AD%97#/%E5%85%B6%E4%BB%96" class="web" id="gtsz">繁體地區俗字</a>
-                             <a href="https://file.deliwenku.com/FileRoot2/temp/book4ce55a260562cc404c01485c8713fbdc/%E6%95%A6%E7%85%8C%E4%BF%97%E5%AD%97%E5%85%B8_11457197.pdf" class="web" id="dh">敦煌俗字典</a>
-                             <a href="https://ctext.org/library.pl?if=gb&file=1000071&page=19" class="web" id="fjnz">佛教难字字典</a>
+                         <span id="box-web-biaotir">
+                             <a href="https://www.wikiwand.com/zh-cn/%E7%B9%81%E9%AB%94%E4%BF%97%E5%AD%97#/%E5%85%B6%E4%BB%96" class="box-web">繁體地區俗字</a>
+                             <a href="https://file.deliwenku.com/FileRoot2/temp/book4ce55a260562cc404c01485c8713fbdc/%E6%95%A6%E7%85%8C%E4%BF%97%E5%AD%97%E5%85%B8_11457197.pdf" class="box-web">敦煌俗字典</a>
+                             <a href="https://ctext.org/library.pl?if=gb&file=1000071&page=19" class="box-web">佛教难字字典</a>
                          </span>
 
                          <h2 id="beenjir">本集俗字</h2>
 
-                         <span id="xaao-web">
-                             <a href="https://www.bilibili.com/read/cv9083138" class="web" id="iseng">台湾医生医嘱</a>
+                         <span id="box-web-biaotir">
+                             <a href="https://www.bilibili.com/read/cv9083138" class="box-web">台湾医生医嘱</a>
 
-                             <a href="https://zhuanlan.zhihu.com/p/367577665" class="web" id="nichijo">本日常使用俗字</a>
+                             <a href="https://zhuanlan.zhihu.com/p/367577665" class="box-web">本日常使用俗字</a>
                          </span>
                      </div>
                      <div>
@@ -572,29 +585,29 @@
                  <span class="content">
                      <div>
                          <h2 id="jhzb">（简化）字表</h2>
-                         <span id="xaao-web">
-                             <a href="https://library.moegirl.org/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%B1%89%E5%AD%97%E7%AE%80%E5%8C%96%E6%96%B9%E6%A1%88%EF%BC%88%E8%8D%89%E6%A1%88%EF%BC%89" class="web" id="ejz">第二次汉字简化方案</a>
+                         <span id="box-web-biaotir">
+                             <a href="https://library.moegirl.org/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%B1%89%E5%AD%97%E7%AE%80%E5%8C%96%E6%96%B9%E6%A1%88%EF%BC%88%E8%8D%89%E6%A1%88%EF%BC%89" class="box-web">第二次汉字简化方案</a>
 
-                             <a href="https://library.moegirl.org.cn/%E3%80%8A%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%B1%89%E5%AD%97%E7%AE%80%E5%8C%96%E6%96%B9%E6%A1%88%E4%BF%AE%E8%AE%A2%E8%8D%89%E6%A1%88%E3%80%8B%E5%BE%81%E6%B1%82%E6%84%8F%E8%A7%81%E8%A1%A8" class="web" id="yjb">第二次汉字简化草案征求意见表</a>
+                             <a href="https://library.moegirl.org.cn/%E3%80%8A%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%B1%89%E5%AD%97%E7%AE%80%E5%8C%96%E6%96%B9%E6%A1%88%E4%BF%AE%E8%AE%A2%E8%8D%89%E6%A1%88%E3%80%8B%E5%BE%81%E6%B1%82%E6%84%8F%E8%A7%81%E8%A1%A8" class="box-web">第二次汉字简化草案征求意见表</a>
 
-                             <a href="https://zh.m.wikisource.org/zh-hans/%E7%AE%80%E5%8C%96%E5%AD%97%E6%80%BB%E8%A1%A8" class="web" id="yjz">简化字总表</a>
+                             <a href="https://zh.m.wikisource.org/zh-hans/%E7%AE%80%E5%8C%96%E5%AD%97%E6%80%BB%E8%A1%A8" class="box-web">简化字总表</a>
 
                          </span>
                          <h2 id="wd-zb">字标s</h2>
-                         <span id="xaao-web">
-                             <a href="http://www.gov.cn/gzdt/att/att/site1/20130819/tygfhzb.pdf" class="web" id="dlzb">通用规范汉字表 2013</a>
+                         <span id="box-web-biaotir">
+                             <a href="http://www.gov.cn/gzdt/att/att/site1/20130819/tygfhzb.pdf" class="box-web">通用规范汉字表 2013</a>
 
-                             <a href="https://stroke-order.learningweb.moe.edu.tw/home.do" class="web" id="twzb">国字标准字体笔顺</a>
+                             <a href="https://stroke-order.learningweb.moe.edu.tw/home.do" class="box-web">国字标准字体笔顺</a>
 
-                             <a href="https://chineselearning.omghomework.com/" class="web" id="xgzb">香港小学习字表</a>
+                             <a href="https://chineselearning.omghomework.com/" class="box-web">香港小学习字表</a>
 
-                             <a href="https://web.archive.org/web/20130121232131/http://www.bunka.go.jp/kokugo_nihongo/joho/kakuki/14/pdf/jyouyou_kanjihyou.pdf" class="web" id="cyhz">常用漢字一覧表(日)</a>
+                             <a href="https://web.archive.org/web/20130121232131/http://www.bunka.go.jp/kokugo_nihongo/joho/kakuki/14/pdf/jyouyou_kanjihyou.pdf" class="box-web">常用漢字一覧表(日)</a>
 
-                             <a href="https://kakijun.jp/m-s/ms_kensakupage.html" class="web" id="kjbs">漢字筆順（日）</a>
+                             <a href="https://kakijun.jp/m-s/ms_kensakupage.html" class="box-web">漢字筆順（日）</a>
 
-                             <a href="https://zh.wikipedia.org/wiki/%E6%BC%A2%E6%96%87%E6%95%99%E8%82%B2%E7%94%A8%E5%9F%BA%E7%A4%8E%E6%BC%A2%E5%AD%97" class="web" id="hghz">汉文教育用基础汉字 </a>
+                             <a href="https://zh.wikipedia.org/wiki/%E6%BC%A2%E6%96%87%E6%95%99%E8%82%B2%E7%94%A8%E5%9F%BA%E7%A4%8E%E6%BC%A2%E5%AD%97" class="box-web">汉文教育用基础汉字 </a>
 
-                             <a href="https://www.wikiwand.com/zh-cn/%E6%BC%A2%E5%AD%97%E6%A8%99%E6%BA%96%E5%88%97%E8%A1%A8#" class="web" id="wjlb">以上元</a>
+                             <a href="https://www.wikiwand.com/zh-cn/%E6%BC%A2%E5%AD%97%E6%A8%99%E6%BA%96%E5%88%97%E8%A1%A8#" class="box-web">以上元</a>
                          </span>
                      </div>
                      <div>
@@ -615,11 +628,11 @@
              </div>
          </span>
 
-         <div style="background-color: transparent; display: flex">
+         <div style="background-color: transparent" id="rh-zqzb">
              <div class='xiang' id="zarqzarba">
                  <h1 style="margin-bottom: 50px">杂七杂八</h1>
 
-                 <h3>文字系</h3>
+                 <h3 class="h3">文字系</h3>
                  <br>
                  <a href="http://www.guoxuedashi.net/" class="zar">国学大师</a>
                  <a href="https://www.shufadict.com/dict/x" class="zar">书法字典</a>
@@ -673,9 +686,7 @@
              <div class="xiang" id="zarqzarba">
                  <h1>汉字二创+新轮子</h1>
                  <div style="color: dimgray; font-size: 13px; padding: 10px 50px ">私自把您的作品收集进来希望原谅！如果您不想您的作品出现在这里 可以通过页尾的 邮箱, b站 或 知乎 联系我，我会第一时间将其移除！</div>
-                 <br>
-                 <br>
-                 <h3>六书法</h3>
+                 <h3 class="h3">六书法</h3>
                  <br>
                  <a href="https://zh.moegirl.org.cn/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6/%E6%99%A8%E5%BC%8F%E6%A5%B5%E7%B0%A1%E5%AD%97%E5%85%A8%E8%A9%B3%E7%B8%BD%E8%A1%A8#%E5%AD%97%E5%BD%A2%E8%B0%83%E6%95%B4" class="zar">晨式极简字</a>
                  <a href="http://blog.livedoor.jp/tdiaryblog/archives/1839200.html" class="zar">自作略字</a>
@@ -691,33 +702,24 @@
                  <a href="https://seiga.nicovideo.jp/seiga/im4070847" class="zar">メモ用独自略字</a>
                  <a href="https://twitter.com/jumanjikyo/status/1144630530366791681?lang=zh-Hant" class="zar">自分が使う略字</a>
                  <a href="https://www.zhihu.com/column/c_1401698676205678592" class="zar">本造字</a>
-                 <br>
-                 <br>
-                 <br>
-                 <h3>表音法</h3>
+                 <h3  class="h3">表音法</h3>
                  <br>
                  <a href="https://xdi8.top/cmn-hans/" class="zar">希顶语</a>
                  <a href="http://biaoyinzi.com/index.php/zh-hans" class="zar">表音方块字</a>
                  <a href="http://www.rangmo.com/rangmowen/index.html" class="zar">让墨文</a>
                  <a href="https://wukong.toutiao.com/question/6895688526534197508/" class="zar">通音汉字</a>
-                 <br>
-                 <br>
-                 <br>
-                 <h3>其他</h3>
+                 <h3 class="h3">其他</h3>
                  <br>
                  <a href="https://www.omniglot.com/conscripts/linglese.htm" class="zar">凌角文</a>
                  <a href="https://www.zhihu.com/column/c_1338531634900533250" class="zar">托兰格语</a>
                  <a href="https://zhuanlan.zhihu.com/p/406288556" class="zar">拼辅汉方案*</a>
-                 <br>
-
-                 <br>
-                 <br>
-                 <br>
-                 <h3>论坛</h3>
+                 <h3 class="h3">论坛</h3>
                  <br>
                  <a href="http://yuyannet.com/forum-44-1.html" class="zar">语言文字论坛</a>
                  <a href="https://jump2.bdimg.com/f?kw=%E4%BC%98%E5%8C%96%E5%AD%97&ie=utf-8&tab=main" class="zar">优化字吧</a>
 
+                 <br>
+                 <br>
                  <br>
                  <div class="atogaki">
                      <h2>あとがき</h2><br>所以这个跟上面那个汉字二创有什么区别呢？<br>确实没区别，只不过以后我发现的的汉字二创者都会在这里更新了，因为那三个箱子真的是太屎山了... <br><br>托兰格语和凌角文我没理解错的话是像万叶假名一样把汉字借过去表音，所以也不知道该怎么分，甚至都不清楚这算不算是汉字二创。但还是加到“其他”里了。<br>素字现在的资料只剩下了一个博客，他原来的网站挂掉了，甚至连张图都搜不出来。这边唯一能找到的图就是<a href="https://www.bilibili.com/video/BV1n34y1U7mZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click" style="color: rgb(20, 70, 183)">这个视频</a>里的... <br><br>不管他是为啥给搞的痕迹全无了，总的还是有点悲的。就像是一座一直无人问津的小城一样，默默地成长着，默默地存在着，最后也默默地消失了；当后人无意间发现这座小城的残垣断壁时，城里早已杳无人烟，任何地方都很忙，都没人记载这座城，只有小城自己在孤独地生活着，直到痕迹全无。<br><br>悲 <br><br>
@@ -734,7 +736,7 @@
              <div style="background-color: transparent">嗯搞完这个网站了呢<br>历时大概几个月，但如果说真正用在他身上多少小时了嘛.. <br>可能不到一周（捂脸<br><br><br>啊之后就要补java script课上的作业了呢<br>有点恐... <br>嘛不过这就行了吧<br>嗯对这样就好这样就好<br><br><br></div>
              <a href="#jyana">那么...</a>
          </div>
-         <p id="synr">ごめん<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br><a href="https://www.bilibili.com/s/video/BV1i7411d7Fe">サヨナラ</a></p>
+         <p id="synr" style="text-align: left; font-size: 25px; margin-left: 5vw; font-weight: 900; margin-bottom: 10px;">ごめん<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br><a href="https://www.bilibili.com/s/video/BV1i7411d7Fe">サヨナラ</a></p>
          <div style="width:50%; margin-left:5vw; ; background-color: transparent;">
              <audio src="other/%E6%82%B2%E5%BD%BC%E5%B2%B8.mp3" controls autoplay muted style="margin-bottom: 50px; width: 100%; height: 30px;"></audio>
          </div>
@@ -742,22 +744,22 @@
          <p style="text-align: left; padding-left: 10px;">对了，下面的“之也奈”点进去是个人页面捏~</p>
          <div id="jyana">
              <a href="diW/DiW.html" style="color: black">
-                 <div id="houh-zyn" style="background-color: transparent; margin-top: 30vh; padding-bottom: 3%; display: inline-block;">之”-也 奈</div>
+                 <div id="houh-zyn" style="background-color: transparent; margin-top: 30vh; font-size: 90px; display: inline-block;">之"-也 奈</div>
              </a>
 
              <div style="background-color: transparent; display: flex;justify-content: space-evenly;">
-                 <span style="display: flex; flex-direction: column;">
+                 <span style="display: flex; flex-direction: column; z-index: 100;">
                      <a href="https://space.bilibili.com/298174467" class="houh"><i class="fa-brands fa-bilibili"></i></a>
                      <span class="houhz">bilibili</span>
                  </span>
 
-                 <span style="display: flex; flex-direction: column;">
+                 <span style="display: flex; flex-direction: column; z-index: 100;">
                      <a href="https://www.zhihu.com/people/zhen-shi-xing-56" class="houh"><i class="fa-brands fa-zhihu"></i></a><span class="houhz">知乎</span></span>
 
-                 <span style="display: flex; flex-direction: column;">
+                 <span style="display: flex; flex-direction: column;  z-index: 100;">
                      <a href="https://github.com/ecsepheto" class="houh"><i class="fa-brands fa-github"></i></a><span class="houhz">Github</span></span>
 
-                 <span style="display: flex; flex-direction: column;"><a href="https://www.instagram.com/ecsepheto/" class="houh"><i class="fa-brands fa-instagram"></i></a><span class="houhz">Ins</span></span>
+                 <span style="display: flex; flex-direction: column; z-index: 100;"><a href="https://www.instagram.com/ecsepheto/" class="houh"><i class="fa-brands fa-instagram"></i></a><span class="houhz">Ins</span></span>
 
                  <span style="display: flex; flex-direction: column; z-index: 100;"><a href="gmail.html" class="houh">
                          <i class="fa-solid fa-at"></i>
