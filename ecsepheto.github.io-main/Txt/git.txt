@@ -31,6 +31,14 @@ For Setup on New Local
 
     git remote remove origin
     git remote add origin https://github.com/ecsepheto/ecsepheto.github.io.git
-    git push --set-upstream origin master
+    git push --set-upstream origin main
 
         git push
+
+
+For Switching Branches:
+
+    git checkout -b main
+
+    在push之前要先pull
+    不要开VPN去push
