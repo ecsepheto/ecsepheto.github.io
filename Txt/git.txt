@@ -1,0 +1,15 @@
+To Update
+
+    cd C:/Users/acer/Dropbox/_a/web/ecsepheto.github.io
+
+    git add *
+
+    git commit -m "My Home Page"
+
+    git push
+    
+    
+    
+For Errno 10054 
+
+    rm -f .git/index.lock

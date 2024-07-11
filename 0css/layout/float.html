@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+        }
+        /*layout: float, inline-block
+        position: relatif, absolute*/
+        
+        .left {
+            background-color: gray;
+            float: left;
+        }
+        /*float so the element like a boat float above other elements*/
+        
+        .right {
+            border: solid;
+            background-color: rebeccapurple;
+        }
+        
+        p {
+            border: solid;
+            /*em relative to the font size of parent elements */
+            font-size: 1.5em;
+            /*16px*1.5=24px*/
+            clear: left;
+            /*clear to not put floating element on (left)*/
+        }
+    </style>
+</head>
+
+<body>
+    <!--.box.left+.box.right+p{Lorem}-->
+    <div class="box left"></div>
+    <div class="box right"></div>
+    <!--text always go around the floating area.-->
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus adipisci, perferendis magnam! Autem ab, in fugiat. Omnis voluptate cupiditate, ipsa animi explicabo, vero facere debitis, corporis magnam laborum vel delectus.</p>
+</body>
+</html>

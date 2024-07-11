@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 600px;
+            height: 600px;
+            border: solid;
+        }
+        
+        .item {
+            width: 300px;
+            /*min width> max width> width*/
+            min-width: 400px;
+            max-width: 200px;
+            height: 200px;
+            background-color: #ff0000;
+        }
+        
+        .item.two {
+            background-color: #000000;
+            width: 1000%;
+            /*inherit from .item*/
+            /*reset in following code*/
+            min-width: auto;
+            max-width: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!--#container>.item-->
+    <!--id selector #   class selector .-->
+    <div id="container">
+        <div class="item"></div>
+        <!--.item.two-->
+        <div class="item two"></div>
+    </div>
+</body>
+</html>
