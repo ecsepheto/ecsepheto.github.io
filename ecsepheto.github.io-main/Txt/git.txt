@@ -8,12 +8,6 @@ To Update
 
     git push
     
-    
-    
-For Errno 10054 
-
-    rm -f .git/index.lock
-    
 
 For Setup on New Local
 
@@ -40,5 +34,20 @@ For Switching Branches:
 
     git checkout -b main
 
-    在push之前要先pull
+        在push之前要先pull
+        
+    git pull
+    git pull /d/_a/ecsepheto.github.io main
+
+
     不要开VPN去push
+    
+    
+For Errno 10054 
+
+    rm -f .git/index.lock
+
+For Failed to connect to github.com port 443 after 21090 ms: Couldn't connect to server
+
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
