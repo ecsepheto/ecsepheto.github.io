@@ -2,24 +2,224 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Ecsepheto | 日语 IPA 转换器 (独立版)</title>
+    <title>Japanese-IPA Converter</title>
     <style>
-        /* 页面样式：保持之前的简洁学术风 */
-        body { font-family: "Helvetica Neue", Arial, sans-serif; background: #f4f7f6; display: flex; justify-content: center; padding-top: 50px; color: #333; }
-        .container { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 600px; text-align: center; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; display: inline-block; margin-bottom: 30px; }
-        input { width: 80%; padding: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 1.2rem; outline: none; transition: border 0.3s; }
-        input:focus { border-color: #3498db; }
-        .result-box { margin-top: 30px; background: #f8f9fa; padding: 20px; border-radius: 8px; min-height: 50px; }
-        .label { font-size: 0.8rem; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-        #output { font-size: 2rem; color: #2980b9; font-weight: bold; font-family: "Lucida Sans Unicode", sans-serif; }
+        body { font-family: "Helvetica Neue", Arial, sans-serif; 
+            background: #f4f7f6; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            padding-top: 50px; 
+            color: #333; 
+        }
+
+        @font-face {
+            font-family: 'THTshyn'; 
+            src: url('./font/TH-Times.ttc') format('truetype'); 
+            font-display: swap; 
+        }
+
+/* #region Converter */
+        .container { 
+            background: white; 
+            padding: 2rem; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            width: 100%; max-width: 600px; 
+            text-align: center; 
+        }
+        
+        h1 { 
+            color: #2c3e50; 
+            border-bottom: 2px solid hwb(333 20% 20%); 
+            padding-bottom: 10px; 
+            display: inline-block; 
+            margin-bottom: 30px; 
+        }
+        
+        input { 
+            width: 80%; 
+            padding: 15px; 
+            border: 2px solid #ddd; 
+            border-radius: 8px; 
+            font-size: 1.2rem; 
+            outline: none; 
+            transition: border 0.3s; 
+        }
+        input:focus { border-color: hwb(333 20% 20%); }
+
+        .result-box { 
+            margin-top: 30px; 
+            background: #f8f9fa; 
+            padding: 20px; 
+            border-radius: 8px; 
+            min-height: 50px; 
+        }
+
+        .label { 
+            font-size: 0.8rem; color: #7f8c8d; 
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        
+        #output { 
+            font-size: 2rem; color: hwb(333 20% 20%); 
+            font-weight: bold; font-family: "Lucida Sans Unicode", sans-serif; }
+        
+/* #endregion */
+
+/* #region Rulebook */
+        .rules-container {
+            display: none;
+            gap: 20px; /* 板块之间的间距 */
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            text-align: left;
+            animation: fadeIn 0.5s;
+        }
+
+    /* #region Responsive Design */
+        @media (orientation: portrait) {
+            .rule-selectioin {
+                
+            }
+        }
+
+        @media (orientation: landscape) {
+            .rules-container {
+                
+            }
+            
+            /* 让每个板块平分宽度，防止挤在一坨 */
+            .rule-section {
+                
+            }
+        }
+    
+    /* #endregion */
+
+    /* #region Fold */
+        details {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        
+        details[open] {
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none; /* 隐藏默认三角 */
+            outline: none;
+        }
+        /* 针对 Webkit 浏览器隐藏默认三角 */
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* 让 h3 变成点击区域，加个小手势 */
+        summary h3 {
+            margin: 0;
+            border: none; /* 去掉之前的左边框，看起来更像按钮 */
+            padding: 5px;
+            color: hwb(333 0% 20%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* (可选) 给 h3 加个小箭头提示 */
+        summary h3::after {
+            content: ' ▼';
+            font-size: 0.8em;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+        
+        /* 展开时箭头旋转 */
+        details[open] summary h3::after {
+            transform: rotate(180deg);
+        }
+    
+    /* #endregion */
+
+    /* #region Basic Function */
+        .rules-toggle-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .toggle-btn {
+            background: hwb(333 20% 20%);
+            color: white; border: none; border-radius: 20px;
+            padding: 10px 20px; 
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        .toggle-btn:hover {background: hwb(333 0% 0%);}
+        
+        /* Basic */
+        /* #region rules-grid */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);             
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        /* Grids */
+        #smallRulesGrid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        #extraRulesGrid {
+            grid-template-columns: repeat(5, 1fr);
+        }
+        /* #endregion */
+
+        /* #region rules-cell */
+        .rule-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .rule-kana {
+            color: #333; 
+            font-family:"THTshyn"; font-size: 1.1rem; font-weight: bold; 
+            display: block;
+            margin-bottom: 4px;
+        }
+        .rule-ipa {
+            color: #e74c3c; font-family: "Lucida Sans Unicode", sans-serif;
+            font-size: 0.9rem;
+        }
+        /* #endregion */
+
+        h3 {
+            color: #7f8c8d;
+            border-left: 4px solid hwb(333 20% 20%);
+            padding-left: 10px; margin-bottom: 15px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    /* #endregion */
+/* #endregion */
+
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Ecsepheto IPA Converter</h1>
-    <input type="text" id="kanaInput" placeholder="输入平假名或片假名..." oninput="convert()">
+    <h1>Kana to IPA Converter</h1>
+    <input type="text" id="kanaInput" placeholder="仮名ヲ入力" oninput="convert()">
     
     <div class="result-box">
         <div class="label">International Phonetic Alphabet</div>
@@ -27,43 +227,66 @@
     </div>
 </div>
 
+<div class="rules-toggle-container">
+    <button onclick="toggleRules()" class="toggle-btn">Rule Book</button>
+</div>
+
+<div id="rulesContainer" class="rules-container">
+    
+    <details class="rule-section">
+        <summary><h3>Basic</h3></summary>
+        <div id="basicRulesGrid" class="rules-grid"></div>
+    </details>
+    
+    <details class="rule-section">
+        <summary><h3>Combination</h3></summary>
+        <div id="smallRulesGrid" class="rules-grid"></div>
+    </details>
+
+    <details class="rule-section">
+        <summary><h3>Foreign</h3></summary>
+        <div id="extraRulesGrid" class="rules-grid"></div>
+    </details>
+
+</div>
+
 <script>
     // --- 第一部分：直接嵌入数据 (替代 require('./ipa.json')) ---
     const IPA_MAP = {
       "ア":"a", "イ":"i", "ウ":"ɯ", "エ":"e", "オ":"o",
-      "ャ":"ja", "ュ":"jɯ", "ョ":"jo",
       "カ":"ka", "キ":"kʲi", "ク":"kɯ", "ケ":"ke", "コ":"ko",
+      "ガ":"ɡa", "ギ":"ɡʲi", "グ":"ɡɯ", "ゲ":"ɡe", "ゴ":"ɡo",
       "サ":"sa", "シ":"ɕi", "ス":"sɯ", "セ":"se", "ソ":"so",
-      "タ":"ta", "チ":"t͡ɕi", "ツ":"tsɯ", "テ":"te", "ト":"to",
+      "ザ":"za", "ジ":"dʑi", "ズ":"zɯ", "ゼ":"ze", "ゾ":"zo",
+      "タ":"ta", "チ":"tɕi", "ツ":"tsɯ", "テ":"te", "ト":"to",
+      "ダ":"da", "ヂ":"ʑi", "ヅ":"dzɯ", "デ":"de", "ド":"do",
       "ナ":"na", "ニ":"ɲi", "ヌ":"nɯ", "ネ":"ne", "ノ":"no",
       "ハ":"ha", "ヒ":"çi", "フ":"ɸɯ", "ヘ":"he", "ホ":"ho",
-      "マ":"ma", "ミ":"mi", "ム":"mɯ", "メ":"me", "モ":"mo",
-      "ヤ":"ja", "ユ":"jɯ", "ヨ":"jo",
-      "ラ":"ɾa", "リ":"ɾi", "ル":"ɾɯ", "レ":"ɾe", "ロ":"ɾo",
-      "ワ":"ɰa", "ヰ":"i", "ヱ":"e", "ヲ":"o", "ン":"N",
-      "ガ":"ɡa", "ギ":"ɡʲi", "グ":"ɡɯ", "ゲ":"ɡe", "ゴ":"ɡo",
-      "ザ":"za", "ジ":"dʑi", "ズ":"zɯ", "ゼ":"ze", "ゾ":"zo",
-      "ダ":"da", "ヂ":"ʑi", "ヅ":"dzɯ", "デ":"de", "ド":"do",
       "バ":"ba", "ビ":"bi", "ブ":"bɯ", "ベ":"be", "ボ":"bo",
-      "パ":"pa", "ピ":"pi", "プ":"pɯ", "ペ":"pe", "ポ":"po"
+      "パ":"pa", "ピ":"pi", "プ":"pɯ", "ペ":"pe", "ポ":"po",
+      "マ":"ma", "ミ":"mi", "ム":"mɯ", "メ":"me", "モ":"mo",
+      "ヤ":"ja", "\u{1B120}":"i", "ユ":"jɯ", "\u{1B121}":"je", "ヨ":"jo",
+      "ラ":"ɾa", "リ":"ɾi", "ル":"ɾɯ", "レ":"ɾe", "ロ":"ɾo",
+      "ワ":"ɰa", "ヰ":"ɰi", "\u{1B122}":"ɯ", "ヱ":"ɰe", "ヲ":"ɰo", 
+      "ャ":"ja", "ュ":"jɯ", "ョ":"jo", " ":" ", "ン":"N"
     };
 
     // --- 第二部分：直接嵌入数据 (替代 require('./ipa-small.json')) ---
     const IPA_SMALL_MAP = {
       "キャ":"kʲa", "キュ":"kʲɯ", "キョ":"kʲo",
+      "ギャ":"ɡʲa", "ギュ":"ɡʲɯ", "ギョ":"ɡʲo",
       "シャ":"ɕa", "シュ":"ɕɯ", "ショ":"ɕo",
-      "チャ":"t͡ɕa", "チュ":"t͡ɕɯ", "チョ":"t͡ɕo",
+      "ジャ":"ʑa", "ジュ":"ʑɯ", "ジョ":"ʑo",
+      "チャ":"tɕa", "チュ":"tɕɯ", "チョ":"tɕo",
+      "ヂャ":"ʑa", "ヂュ":"ʑɯ", "ヂョ":"ʑo",
       "ニャ":"ɲa", "ニュ":"ɲɯ", "ニョ":"ɲo",
       "ヒャ":"ça", "ヒュ":"çɯ", "ヒョ":"ço",
-      "ミャ":"mʲa", "ミュ":"mʲɯ", "ミョ":"mʲo",
-      "リャ":"ɾʲa", "リュ":"ɾʲɯ", "リョ":"ɾʲo",
-      "ギャ":"ɡʲa", "ギュ":"ɡʲɯ", "ギョ":"ɡʲo",
-      "ジャ":"ʑa", "ジュ":"ʑɯ", "ジョ":"ʑo",
-      "ヂャ":"ʑa", "ヂュ":"ʑɯ", "ヂョ":"ʑo",
       "ビャ":"bʲa", "ビュ":"bʲɯ", "ビョ":"bʲo",
       "ピャ":"pʲa", "ピュ":"pʲɯ", "ピョ":"pʲo",
+      "ミャ":"mʲa", "ミュ":"mʲɯ", "ミョ":"mʲo",
+      "リャ":"ɾʲa", "リュ":"ɾʲɯ", "リョ":"ɾʲo",
       "ファ":"ɸa", "フィ":"ɸi", "フゥ":"ɸɯ", "フェ":"ɸe", "フォ":"ɸo",
-      "チェ":"t͡ɕe"
+      "ティ":"ti", "トゥ":"tɯ", "チェ":"tɕe"
     };
 
     // --- 第三部分：核心逻辑 (移植并修改自 converter.js) ---
@@ -153,6 +376,70 @@
         const result = KanaConverter.kana2ipa(input);
         document.getElementById('output').innerText = result ? `[ ${result} ]` : "";
     }
+
+
+    // Kana table
+    // --- 第五部分：自动生成规则表 ---
+    function renderRules() {
+        const basicContainer = document.getElementById('basicRulesGrid');
+        const smallContainer = document.getElementById('smallRulesGrid');
+        const extraContainer = document.getElementById('extraRulesGrid'); // 新容器
+        
+        // 1. 清空现有内容
+        basicContainer.innerHTML = '';
+        smallContainer.innerHTML = '';
+        extraContainer.innerHTML = '';
+
+        // 辅助函数：造卡片
+        const createCard = (kana, ipa) => {
+            const div = document.createElement('div');
+            div.className = 'rule-card';
+            div.innerHTML = `
+                <span class="rule-kana">${kana}</span>
+                <span class="rule-ipa">${ipa}</span>
+            `;
+            return div;
+        };
+
+        // 2. 生成基础假名 (Basic)
+        Object.entries(IPA_MAP).forEach(([kana, ipa]) => {
+            basicContainer.appendChild(createCard(kana, ipa));
+        });
+
+        // 3. 生成拗音 & 外来语 (Split Logic)
+        const smallEntries = Object.entries(IPA_SMALL_MAP);
+        
+        // 切分点：第 36 个正好是标准拗音结束的位置
+        const mainPart = smallEntries.slice(0, 36); // 前36个 (kya -> pyo)
+        const extraPart = smallEntries.slice(36);   // 剩下的 (fa -> che)
+
+        // 填入 拗音区
+        mainPart.forEach(([kana, ipa]) => {
+            smallContainer.appendChild(createCard(kana, ipa));
+        });
+
+        // 填入 外来语区
+        extraPart.forEach(([kana, ipa]) => {
+            extraContainer.appendChild(createCard(kana, ipa));
+        });
+    }
+
+    // 控制显示/隐藏
+    function toggleRules() {
+        const container = document.getElementById('rulesContainer');
+        const isHidden = container.style.display === 'none';
+        
+        if (isHidden) {
+            container.style.display = 'block';
+            // 只有第一次展开时才生成，提升性能
+            if (container.querySelector('.rules-grid').children.length === 0) {
+                renderRules();
+            }
+        } else {
+            container.style.display = 'none';
+        }
+    }
+
 </script>
 
 </body>
