@@ -65,6 +65,21 @@
 /* #endregion */
 
 /* #region Rulebook */
+    /* #region Responsive Design */
+        @media (orientation: portrait) {
+            .rule-selection {
+                flex-direction: column;
+            }
+        }
+
+        @media (orientation: landscape) {
+            .rules-selection {
+                flex-direction: row;
+            }
+        }
+    /* #endregion */
+
+    
         .rules-container {
             display: none;
             gap: 20px; /* 板块之间的间距 */
@@ -75,25 +90,13 @@
             animation: fadeIn 0.5s;
         }
 
-    /* #region Responsive Design */
-        @media (orientation: portrait) {
-            .rule-selectioin {
-                
-            }
+        .rule-selection {
+            display:flex;
         }
 
-        @media (orientation: landscape) {
-            .rules-container {
-                
-            }
-            
-            /* 让每个板块平分宽度，防止挤在一坨 */
-            .rule-section {
-                
-            }
+        .rule-section {
         }
     
-    /* #endregion */
 
     /* #region Fold */
         details {
@@ -232,7 +235,7 @@
 </div>
 
 <div id="rulesContainer" class="rules-container">
-    
+    <div class="rule-selection">
     <details class="rule-section">
         <summary><h3>Basic</h3></summary>
         <div id="basicRulesGrid" class="rules-grid"></div>
@@ -247,6 +250,7 @@
         <summary><h3>Foreign</h3></summary>
         <div id="extraRulesGrid" class="rules-grid"></div>
     </details>
+    </div>
 
 </div>
 
