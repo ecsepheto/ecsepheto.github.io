@@ -13,18 +13,3 @@ To Update
 For Errno 10054 
 
     rm -f .git/index.lock
-
-
-To Update
-
-    cd C:\ecsepheto.github.io
-
-    git add .
-
-    git commit -m "revive"
-
-    git push
-
-p.s., to force push
-
-    git push -f
