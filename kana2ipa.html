@@ -229,6 +229,87 @@
     /* #endregion */
 /* #endregion */
 
+/* #region Rulelist */
+/* 容器样式 */
+    .phonetic-rules-container {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        color: #333;
+    }
+
+    /* 标题样式 */
+    .rule-section-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid hwb(333 20% 20%);
+        color: #2c3e50;
+    }
+
+    /* 表格样式 */
+    .rule-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .rule-table th, .rule-table td {
+        padding: 10px 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    .rule-table th {
+        background-color: #f0f4f8;
+        font-weight: 600;
+        color: #555;
+        width: 40%;
+    }
+
+    .rule-table td {
+        font-family: "Charis SIL", "Doulos SIL", "Times New Roman", serif; /* 优化IPA显示 */
+    }
+
+    /* 强调IPA符号 */
+    .ipa-symbol {
+        font-weight: bold;
+        color: #d32f2f;
+        background: #fff0f0;
+        padding: 2px 6px;
+        border-radius: 4px;
+        margin-right: 5px;
+    }
+
+    /* 注释样式 */
+    .rule-note {
+        font-size: 0.9em;
+        color: #666;
+        background-color: #fff8e1;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        border-left: 4px solid #ffc107;
+    }
+    
+    .context-tag {
+        display: inline-block;
+        background: #e3f2fd;
+        color: #1565c0;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.85em;
+        margin: 2px;
+    }
+/* #endregion */
+
     </style>
 </head>
 <body>
@@ -270,12 +351,89 @@
 
 </div>
 
-<h3 style="margin-top: 15vh;">Atogaki</h3>
+<div class="phonetic-rules-container">
+
+    <div class="rule-section-title">1. Moraic Nasal "N" (ん) Rules</div>
+    
+    <div class="rule-note">
+        <strong>Global Rule:</strong> In almost all cases, the vowel preceding "N" becomes <strong>nasalized</strong> (e.g., a → ã). The table below describes how the nasal consonant itself changes.
+    </div>
+
+    <table class="rule-table">
+        <thead>
+            <tr>
+                <th>Following Context</th>
+                <th>IPA Output</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Followed by <span class="context-tag">p</span> <span class="context-tag">b</span> <span class="context-tag">m</span></td>
+                <td><span class="ipa-symbol">mː</span> (Bilabial)</td>
+            </tr>
+            <tr>
+                <td>Followed by <span class="context-tag">t</span> <span class="context-tag">d</span> <span class="context-tag">n</span> <span class="context-tag">r</span> <span class="context-tag">ts</span></td>
+                <td><span class="ipa-symbol">nː</span> (Alveolar)</td>
+            </tr>
+            <tr>
+                <td>Followed by <span class="context-tag">k</span> <span class="context-tag">g</span></td>
+                <td><span class="ipa-symbol">ŋː</span> (Velar)</td>
+            </tr>
+            <tr>
+                <td>Followed by <span class="context-tag">ch</span> <span class="context-tag">j</span> <span class="context-tag">ny (ɲ)</span></td>
+                <td><span class="ipa-symbol">ɲː</span> (Palatal)</td>
+            </tr>
+            <tr>
+                <td>Followed by <span class="context-tag">s</span> <span class="context-tag">h</span> <span class="context-tag">y</span> <span class="context-tag">w</span></td>
+                <td><span class="ipa-symbol">ɰ͂ː</span> (Nasalized Velar Approximant)</td>
+            </tr>
+            <tr>
+                <td>Followed by <span class="context-tag">Vowels</span> (a, i, u, e, o)</td>
+                <td><span class="ipa-symbol">ṼṼ</span> (Double Nasalized Vowel)</td>
+            </tr>
+            <tr>
+                <td><strong>End of Word</strong> or <strong>Default</strong></td>
+                <td><span class="ipa-symbol">ɴː</span> (Uvular)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="rule-section-title">2. Sokuon (ッ) & Long Vowel Rules</div>
+
+    <table class="rule-table">
+        <thead>
+            <tr>
+                <th>Input Symbol</th>
+                <th>Processing Logic</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="context-tag">ッ</span> + Consonant</td>
+                <td>Gemination (Double Consonant) + <span class="ipa-symbol">ːː</span></td>
+            </tr>
+            <tr>
+                <td><span class="context-tag">mm</span> / <span class="context-tag">nn</span></td>
+                <td>Merge into <span class="ipa-symbol">mː</span> / <span class="ipa-symbol">nː</span></td>
+            </tr>
+            <tr>
+                <td><span class="context-tag">ou</span> (e.g., Toukyou)</td>
+                <td>Correct to Long Vowel <span class="ipa-symbol">oː</span></td>
+            </tr>
+            <tr>
+                <td><span class="context-tag">ー</span> (Long Vowel Mark)</td>
+                <td>Convert to length symbol <span class="ipa-symbol">ː</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<h3 style="border-top: solid 7px hwb(333 20% 20%); border-left: transparent; margin-top: 15vh; background-color: white; padding: 10px;">Atogaki</h3>
 <div style="text-align: center; line-height: 1.5rem; margin: 10vw; margin-top: 0px">
     This website was made for my JPN2750 class at University of Western Ontario. <br>
-    The IPA convertion was modified based on <a href="https://github.com/amanoese/kana2ipa">this</a> github project <br>
-    The font that allows display of unused kana "yi, ye, wu" was downloaded from <a href="http://cheonhyeong.com/Simplified.html">this</a> website. 
-    The convertion is based on Vance's style. <br>
+    The IPA convertion was based on <a href="https://github.com/amanoese/kana2ipa">this</a> github project. However, the rules for conversion was hugely modified to align with Vance's style. <br>
+    The font that allows display of unused kana "yi, ye, wu" was downloaded from <a href="http://cheonhyeong.com/Simplified.html">this</a> website. <br>
     Thanks for Gemini's help in vibe coding this website, as well as helping me figuring out some technical issues that impedes me to update this website I created in high school
 </div>
 
@@ -366,8 +524,8 @@
                 .replace(/(.)N(t͡ɕ|ʑ|ɲ)/ug, '$1\u0303ɲːː')
                 // 7. 后面接 m -> 变 m：：，且前一个音鼻化
                 .replace(/(.)N(m)/ug, '$1\u0303mːː')
-                // 7. 后面接 s, h, w, w, j -> 变 ɰ͂:，且前一个音鼻化
-                .replace(/(.)N(s|h|w|ɰ|j)/ug, '$1\u0303ɰ͂:$2')
+                // 7. 后面接 s -> 变 ɰ͂:，且前一个音鼻化
+                .replace(/(.)N(s|h|j|w|ɰ)/ug, '$1\u0303ɰ͂:$2')
 
                 // 8. m/n/ɲ 前的元音鼻化
                 // 逻辑：找到 [元音] + [m或n或ɲ] + [元音]，给第一个元音戴上波浪号
@@ -382,7 +540,6 @@
 
             // 5. 处理促音和长音
             let mIpaString = nIpaString
-<<<<<<< HEAD
                 // 促音：在 (.) 前面加了 (t͡?ɕ|t͡?s|...) 来优先捕捉塞擦音
                 .replace(/ッ(t͡?ɕ|t͡?ʃ|t͡?s|d͡?z|d͡?ʒ|.)/ug, (match, p1) => {
                     // 逻辑：取出捕捉到的音的第一个字母，加在前面
@@ -390,9 +547,6 @@
                     let firstChar = p1.charAt(0);
                     return firstChar + p1.substring(1) + 'ːː';
                 })
-=======
-                .replace(/ッ(.)/ug, '$1$1')  // 促音双写
->>>>>>> 965d88bbb1dba58b27b5f96d6b5d82bf921fe69b
                 .replace(/mm/ug, 'mː')
                 .replace(/nn/ug, 'nː')
                 .replace(/oɯ/ug, 'oː')       // 修正 "ou" 为长音 o:
@@ -409,7 +563,6 @@
         const result = KanaConverter.kana2ipa(input);
         document.getElementById('output').innerText = result ? `[ ${result} ]` : "";
     }
-<<<<<<< HEAD
 
 
     // Kana table
@@ -474,8 +627,6 @@
         }
     }
 
-=======
->>>>>>> 965d88bbb1dba58b27b5f96d6b5d82bf921fe69b
 </script>
 
 </body>
