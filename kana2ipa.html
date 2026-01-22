@@ -359,15 +359,15 @@
                 // 4. 后面接 r -> 变 n (或处理为 flap)
                 .replace(/(.)N(r)/ug, '$1\u0303nː$2')
                 // 5. 后面接元音/半元音/近音/擦音 -> 特殊鼻化元音 
-                .replace(/(.)N(a|i|ɯ|e|o|h|j|w)/ug, '$1\u0303$1\u0303$2')
+                .replace(/(.)N(a|i|ɯ|e|o)/ug, '$1\u0303$1\u0303$2')
 
                 // Add-ons
                 // 6. 后面接 ch, j, n -> 变 ɲ
                 .replace(/(.)N(t͡ɕ|ʑ|ɲ)/ug, '$1\u0303ɲːː')
                 // 7. 后面接 m -> 变 m：：，且前一个音鼻化
                 .replace(/(.)N(m)/ug, '$1\u0303mːː')
-                // 7. 后面接 s -> 变 ɰ͂:，且前一个音鼻化
-                .replace(/(.)N(s)/ug, '$1\u0303ɰ͂:$2')
+                // 7. 后面接 s, h, w, w, j -> 变 ɰ͂:，且前一个音鼻化
+                .replace(/(.)N(s|h|w|ɰ|j)/ug, '$1\u0303ɰ͂:$2')
 
                 // 8. m/n/ɲ 前的元音鼻化
                 // 逻辑：找到 [元音] + [m或n或ɲ] + [元音]，给第一个元音戴上波浪号
@@ -382,6 +382,7 @@
 
             // 5. 处理促音和长音
             let mIpaString = nIpaString
+<<<<<<< HEAD
                 // 促音：在 (.) 前面加了 (t͡?ɕ|t͡?s|...) 来优先捕捉塞擦音
                 .replace(/ッ(t͡?ɕ|t͡?ʃ|t͡?s|d͡?z|d͡?ʒ|.)/ug, (match, p1) => {
                     // 逻辑：取出捕捉到的音的第一个字母，加在前面
@@ -389,6 +390,9 @@
                     let firstChar = p1.charAt(0);
                     return firstChar + p1.substring(1) + 'ːː';
                 })
+=======
+                .replace(/ッ(.)/ug, '$1$1')  // 促音双写
+>>>>>>> 965d88bbb1dba58b27b5f96d6b5d82bf921fe69b
                 .replace(/mm/ug, 'mː')
                 .replace(/nn/ug, 'nː')
                 .replace(/oɯ/ug, 'oː')       // 修正 "ou" 为长音 o:
@@ -405,6 +409,7 @@
         const result = KanaConverter.kana2ipa(input);
         document.getElementById('output').innerText = result ? `[ ${result} ]` : "";
     }
+<<<<<<< HEAD
 
 
     // Kana table
@@ -469,6 +474,8 @@
         }
     }
 
+=======
+>>>>>>> 965d88bbb1dba58b27b5f96d6b5d82bf921fe69b
 </script>
 
 </body>
