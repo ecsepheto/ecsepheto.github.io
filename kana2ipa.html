@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Japanese-IPA Converter</title>
+    <style>
+        body { font-family: "Helvetica Neue", Arial, sans-serif; 
+            background: #f4f7f6; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            padding-top: 50px; 
+            color: #333; 
+        }
+
+        @font-face {
+            font-family: 'THTshyn'; 
+            src: url('./font/TH-Times.ttc') format('truetype'); 
+            font-display: swap; 
+        }
+
+        #backhome{
+            position:fixed; 
+            background-color: hwb(333 20% 20%); 
+            padding: 1% 5%; 
+            border-right: solid 10px; border-radius: 0 0 30px 0;
+            border-left: solid 10px;
+            z-index: 100; 
+            text-decoration: none; 
+            color: white; 
+            font-weight: 600; 
+            left:0px; top:0px;
+        }
+
+/* #region Converter */
+        .container { 
+            background: white; 
+            padding: 2rem; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            width: 100%; max-width: 600px; 
+            text-align: center; 
+        }
+        
+        h1 { 
+            color: #2c3e50; 
+            border-bottom: 2px solid hwb(333 20% 20%); 
+            padding-bottom: 10px; 
+            display: inline-block; 
+            margin-bottom: 30px; 
+        }
+        
+        input { 
+            width: 80%; 
+            padding: 15px; 
+            border: 2px solid #ddd; 
+            border-radius: 8px; 
+            font-size: 1.2rem; 
+            outline: none; 
+            transition: border 0.3s; 
+        }
+        input:focus { border-color: hwb(333 20% 20%); }
+
+        .result-box { 
+            margin-top: 30px; 
+            background: #f8f9fa; 
+            padding: 20px; 
+            border-radius: 8px; 
+            min-height: 50px; 
+        }
+
+        .label { 
+            font-size: 0.8rem; color: #7f8c8d; 
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        
+        #output { 
+            font-size: 2rem; color: hwb(333 20% 20%); 
+            font-weight: bold; font-family: "Lucida Sans Unicode", sans-serif; }
+        
+/* #endregion */
+
+/* #region Rulebook */
+    /* #region Responsive Design */
+        @media (orientation: portrait) {
+            .rule-selection {
+                flex-direction: column;
+            }
+        }
+
+        @media (orientation: landscape) {
+            .rules-selection {
+                flex-direction: row;
+            }
+        }
+    /* #endregion */
+
+    
+        .rules-container {
+            display: none;
+            gap: 20px; /* 板块之间的间距 */
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            text-align: left;
+            animation: fadeIn 0.5s;
+        }
+
+        .rule-selection {
+            display:flex;
+        }
+
+        .rule-section {
+        }
+    
+
+    /* #region Fold */
+        details {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        
+        details[open] {
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none; /* 隐藏默认三角 */
+            outline: none;
+        }
+        /* 针对 Webkit 浏览器隐藏默认三角 */
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* 让 h3 变成点击区域，加个小手势 */
+        summary h3 {
+            margin: 0;
+            border: none; /* 去掉之前的左边框，看起来更像按钮 */
+            padding: 5px;
+            color: hwb(333 0% 20%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* (可选) 给 h3 加个小箭头提示 */
+        summary h3::after {
+            content: ' ▼';
+            font-size: 0.8em;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+        
+        /* 展开时箭头旋转 */
+        details[open] summary h3::after {
+            transform: rotate(180deg);
+        }
+    
+    /* #endregion */
+
+    /* #region Basic Function */
+        .rules-toggle-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .toggle-btn {
+            background: hwb(333 20% 20%);
+            color: white; border: none; border-radius: 20px;
+            padding: 10px 20px; 
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        .toggle-btn:hover {background: hwb(333 0% 0%);}
+        
+        /* Basic */
+        /* #region rules-grid */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);             
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        /* Grids */
+        #smallRulesGrid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        #extraRulesGrid {
+            grid-template-columns: repeat(5, 1fr);
+        }
+        /* #endregion */
+
+        /* #region rules-cell */
+        .rule-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .rule-kana {
+            color: #333; 
+            font-family:"THTshyn"; font-size: 1.1rem; font-weight: bold; 
+            display: block;
+            margin-bottom: 4px;
+        }
+        .rule-ipa {
+            color: #e74c3c; font-family: "Lucida Sans Unicode", sans-serif;
+            font-size: 0.9rem;
+        }
+        /* #endregion */
+
+        h3 {
+            color: #7f8c8d;
+            border-left: 4px solid hwb(333 20% 20%);
+            padding-left: 10px; margin-bottom: 15px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    /* #endregion */
+/* #endregion */
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Kana to IPA Converter</h1>
+    <input type="text" id="kanaInput" placeholder="仮名ヲ入力" oninput="convert()">
+    
+    <div class="result-box">
+        <div class="label">International Phonetic Alphabet</div>
+        <div id="output"></div>
+    </div>
+</div>
+
+<a href="index.html" id="backhome">Home Page</a>
+
+
+<div class="rules-toggle-container">
+    <button onclick="toggleRules()" class="toggle-btn">Rule Book</button>
+</div>
+
+<div id="rulesContainer" class="rules-container">
+    <div class="rule-selection">
+    <details class="rule-section">
+        <summary><h3>Basic</h3></summary>
+        <div id="basicRulesGrid" class="rules-grid"></div>
+    </details>
+    
+    <details class="rule-section">
+        <summary><h3>Combination</h3></summary>
+        <div id="smallRulesGrid" class="rules-grid"></div>
+    </details>
+
+    <details class="rule-section">
+        <summary><h3>Foreign</h3></summary>
+        <div id="extraRulesGrid" class="rules-grid"></div>
+    </details>
+    </div>
+
+</div>
+
+<h3 style="margin-top: 15vh;">Atogaki</h3>
+<div style="text-align: center; line-height: 1.5rem; margin: 10vw; margin-top: 0px">
+    This website was made for my JPN2750 class at University of Western Ontario. <br>
+    The IPA convertion was modified based on <a href="https://github.com/amanoese/kana2ipa">this</a> github project <br>
+    The font that allows display of unused kana "yi, ye, wu" was downloaded from <a href="http://cheonhyeong.com/Simplified.html">this</a> website. 
+    The convertion is based on Vance's style. <br>
+    Thanks for Gemini's help in vibe coding this website, as well as helping me figuring out some technical issues that impedes me to update this website I created in high school
+</div>
+
+<script>
+    // --- 第一部分：直接嵌入数据 (替代 require('./ipa.json')) ---
+    const IPA_MAP = {
+      "ア":"a", "イ":"i", "ウ":"ɯ", "エ":"e", "オ":"o",
+      "カ":"ka", "キ":"kʲi", "ク":"kɯ", "ケ":"ke", "コ":"ko",
+      "ガ":"ɡa", "ギ":"ɡʲi", "グ":"ɡɯ", "ゲ":"ɡe", "ゴ":"ɡo",
+      "サ":"sa", "シ":"ɕi", "ス":"sɯ", "セ":"se", "ソ":"so",
+      "ザ":"za", "ジ":"dʑi", "ズ":"zɯ", "ゼ":"ze", "ゾ":"zo",
+      "タ":"ta", "チ":"tɕi", "ツ":"tsɯ", "テ":"te", "ト":"to",
+      "ダ":"da", "ヂ":"ʑi", "ヅ":"dzɯ", "デ":"de", "ド":"do",
+      "ナ":"na", "ニ":"ɲi", "ヌ":"nɯ", "ネ":"ne", "ノ":"no",
+      "ハ":"ha", "ヒ":"çi", "フ":"ɸɯ", "ヘ":"he", "ホ":"ho",
+      "バ":"ba", "ビ":"bi", "ブ":"bɯ", "ベ":"be", "ボ":"bo",
+      "パ":"pa", "ピ":"pi", "プ":"pɯ", "ペ":"pe", "ポ":"po",
+      "マ":"ma", "ミ":"mi", "ム":"mɯ", "メ":"me", "モ":"mo",
+      "ヤ":"ja", "\u{1B120}":"i", "ユ":"jɯ", "\u{1B121}":"je", "ヨ":"jo",
+      "ラ":"ɾa", "リ":"ɾi", "ル":"ɾɯ", "レ":"ɾe", "ロ":"ɾo",
+      "ワ":"ɰa", "ヰ":"ɰi", "\u{1B122}":"ɯ", "ヱ":"ɰe", "ヲ":"ɰo", 
+      "ャ":"ja", "ュ":"jɯ", "ョ":"jo", " ":" ", "ン":"N"
+    };
+
+    // --- 第二部分：直接嵌入数据 (替代 require('./ipa-small.json')) ---
+    const IPA_SMALL_MAP = {
+      "キャ":"kʲa", "キュ":"kʲɯ", "キョ":"kʲo",
+      "ギャ":"ɡʲa", "ギュ":"ɡʲɯ", "ギョ":"ɡʲo",
+      "シャ":"ɕa", "シュ":"ɕɯ", "ショ":"ɕo",
+      "ジャ":"ʑa", "ジュ":"ʑɯ", "ジョ":"ʑo",
+      "チャ":"tɕa", "チュ":"tɕɯ", "チョ":"tɕo",
+      "ヂャ":"ʑa", "ヂュ":"ʑɯ", "ヂョ":"ʑo",
+      "ニャ":"ɲa", "ニュ":"ɲɯ", "ニョ":"ɲo",
+      "ヒャ":"ça", "ヒュ":"çɯ", "ヒョ":"ço",
+      "ビャ":"bʲa", "ビュ":"bʲɯ", "ビョ":"bʲo",
+      "ピャ":"pʲa", "ピュ":"pʲɯ", "ピョ":"pʲo",
+      "ミャ":"mʲa", "ミュ":"mʲɯ", "ミョ":"mʲo",
+      "リャ":"ɾʲa", "リュ":"ɾʲɯ", "リョ":"ɾʲo",
+      "ファ":"ɸa", "フィ":"ɸi", "フゥ":"ɸɯ", "フェ":"ɸe", "フォ":"ɸo",
+      "ティ":"ti", "トゥ":"tɯ", "チェ":"tɕe"
+    };
+
+    // --- 第三部分：核心逻辑 (移植并修改自 converter.js) ---
+    const KanaConverter = {
+        // 将平假名转为片假名
+        // 原码使用了 XRegExp 库，这里我们用原生 JS 的 Unicode 正则替代，无需外部依赖
+        hiragana2katakana(text) {
+            return text.replace(/\p{Script=Hiragana}/gu, (char) => {
+                return String.fromCharCode(char.charCodeAt(0) + 0x60);
+            });
+        },
+
+        kana2ipa(inText) {
+            if (!inText || inText.length <= 0) {
+                return "";
+            }
+
+            // 1. 准备拗音正则 (SMALL KANA)
+            // 原码：Object.keys(ipa_small).join('|')
+            let ipa_small_match = Object.keys(IPA_SMALL_MAP).join('|').replace(/.*/, '($&)');
+
+            // 2. 统一转为片假名
+            let katakanaText = this.hiragana2katakana(inText);
+
+            // 3. 基础替换逻辑
+            let bIpaString = katakanaText
+                .normalize('NFKC') // 宽窄字符标准化
+                .replace(new RegExp(ipa_small_match, 'g'), (v) => (IPA_SMALL_MAP[v] || v))
+                .match(/./ug) // 按字符分割
+                .map((v) => IPA_MAP[v] || v) // 查表替换
+                .join('');
+
+            // 4. 处理 "ん" (N) 的特殊发音规则
+            let nIpaString = bIpaString
+                // 1. 后面接 p/b/m -> 变 m
+                .replace(/(.)N(p|b)/ug, '$1\u0303mː$2')
+                // 2. 后面接 t/d/n... -> 变 n
+                .replace(/(.)N(t|d|ts|n)/ug, '$1\u0303nː$2')
+                // 3. 后面接 k/g -> 变 ŋ
+                .replace(/(.)N(k|g|ɡ)/ug, '$1\u0303ŋː$2')
+                // 4. 后面接 r -> 变 n (或处理为 flap)
+                .replace(/(.)N(r)/ug, '$1\u0303nː$2')
+                // 5. 后面接元音/半元音/近音/擦音 -> 特殊鼻化元音 
+                .replace(/(.)N(a|i|ɯ|e|o|h|j|w)/ug, '$1\u0303$1\u0303$2')
+
+                // Add-ons
+                // 6. 后面接 ch, j, n -> 变 ɲ
+                .replace(/(.)N(t͡ɕ|ʑ|ɲ)/ug, '$1\u0303ɲːː')
+                // 7. 后面接 m -> 变 m：：，且前一个音鼻化
+                .replace(/(.)N(m)/ug, '$1\u0303mːː')
+                // 7. 后面接 s -> 变 ɰ͂:，且前一个音鼻化
+                .replace(/(.)N(s)/ug, '$1\u0303ɰ͂:$2')
+
+                // 8. m/n/ɲ 前的元音鼻化
+                // 逻辑：找到 [元音] + [m或n或ɲ] + [元音]，给第一个元音戴上波浪号
+                // (m(?:ʲ)? 意思是匹配 m 或 mʲ，用来兼容 mi/myu)
+                .replace(/([aiɯeo])(m(?:ʲ)?|n|ɲ)(?=[aiɯeo])/ug, '$1\u0303$2')
+
+                // 0. 兜底 -> 变 ɴ
+                .replace(/(.)N( )/ug, '$1\u0303ɴ ')
+                // 0. 词尾 -> 变 ɴ：
+                .replace(/(.)N/ug, '$1\u0303ɴː')
+                .normalize('NFC');
+
+            // 5. 处理促音和长音
+            let mIpaString = nIpaString
+                // 促音：在 (.) 前面加了 (t͡?ɕ|t͡?s|...) 来优先捕捉塞擦音
+                .replace(/ッ(t͡?ɕ|t͡?ʃ|t͡?s|d͡?z|d͡?ʒ|.)/ug, (match, p1) => {
+                    // 逻辑：取出捕捉到的音的第一个字母，加在前面
+                    // 比如 p1 是 "tɕ"，firstChar 就是 "t" -> 返回 "ttɕ"
+                    let firstChar = p1.charAt(0);
+                    return firstChar + p1.substring(1) + 'ːː';
+                })
+                .replace(/mm/ug, 'mː')
+                .replace(/nn/ug, 'nː')
+                .replace(/oɯ/ug, 'oː')       // 修正 "ou" 为长音 o:
+                .replace(/(.)ー/ug, '$1ː')   // 长音符号
+                .normalize('NFC');
+
+            return mIpaString;
+        }
+    };
+
+    // --- 第四部分：连接到网页 ---
+    function convert() {
+        const input = document.getElementById('kanaInput').value;
+        const result = KanaConverter.kana2ipa(input);
+        document.getElementById('output').innerText = result ? `[ ${result} ]` : "";
+    }
+
+
+    // Kana table
+    // --- 第五部分：自动生成规则表 ---
+    function renderRules() {
+        const basicContainer = document.getElementById('basicRulesGrid');
+        const smallContainer = document.getElementById('smallRulesGrid');
+        const extraContainer = document.getElementById('extraRulesGrid'); // 新容器
+        
+        // 1. 清空现有内容
+        basicContainer.innerHTML = '';
+        smallContainer.innerHTML = '';
+        extraContainer.innerHTML = '';
+
+        // 辅助函数：造卡片
+        const createCard = (kana, ipa) => {
+            const div = document.createElement('div');
+            div.className = 'rule-card';
+            div.innerHTML = `
+                <span class="rule-kana">${kana}</span>
+                <span class="rule-ipa">${ipa}</span>
+            `;
+            return div;
+        };
+
+        // 2. 生成基础假名 (Basic)
+        Object.entries(IPA_MAP).forEach(([kana, ipa]) => {
+            basicContainer.appendChild(createCard(kana, ipa));
+        });
+
+        // 3. 生成拗音 & 外来语 (Split Logic)
+        const smallEntries = Object.entries(IPA_SMALL_MAP);
+        
+        // 切分点：第 36 个正好是标准拗音结束的位置
+        const mainPart = smallEntries.slice(0, 36); // 前36个 (kya -> pyo)
+        const extraPart = smallEntries.slice(36);   // 剩下的 (fa -> che)
+
+        // 填入 拗音区
+        mainPart.forEach(([kana, ipa]) => {
+            smallContainer.appendChild(createCard(kana, ipa));
+        });
+
+        // 填入 外来语区
+        extraPart.forEach(([kana, ipa]) => {
+            extraContainer.appendChild(createCard(kana, ipa));
+        });
+    }
+
+    // 控制显示/隐藏
+    function toggleRules() {
+        const container = document.getElementById('rulesContainer');
+        const isHidden = container.style.display === 'none';
+        
+        if (isHidden) {
+            container.style.display = 'block';
+            // 只有第一次展开时才生成，提升性能
+            if (container.querySelector('.rules-grid').children.length === 0) {
+                renderRules();
+            }
+        } else {
+            container.style.display = 'none';
+        }
+    }
+
+</script>
+
+</body>
+</html>
