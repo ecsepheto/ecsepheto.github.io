@@ -328,7 +328,7 @@
 
 
 <div class="rules-toggle-container">
-    <button onclick="toggleRules()" class="toggle-btn">Rule Book</button>
+    <button onclick="toggleRules()" class="toggle-btn">Click for Rule Book</button>
 </div>
 
 <div id="rulesContainer" class="rules-container">
@@ -351,8 +351,9 @@
 
 </div>
 
-<div class="phonetic-rules-container">
+<div class="phonetic-rules-container"> 
 
+    <!-- #region 1 -->
     <div class="rule-section-title">1. Moraic Nasal "N" (ん) Rules</div>
     
     <div class="rule-note">
@@ -398,6 +399,9 @@
         </tbody>
     </table>
 
+    <!-- #endregion -->
+
+    <!-- #region 2 -->
     <div class="rule-section-title">2. Sokuon (ッ) & Long Vowel Rules</div>
 
     <table class="rule-table">
@@ -417,8 +421,8 @@
                 <td>Merge into <span class="ipa-symbol">mː</span> / <span class="ipa-symbol">nː</span></td>
             </tr>
             <tr>
-                <td><span class="context-tag">ou</span> (e.g., Toukyou)</td>
-                <td>Correct to Long Vowel <span class="ipa-symbol">oː</span></td>
+                <td><span class="context-tag">ou</span> / <span class="context-tag">ei</span></td>
+                <td>Correct to Long Vowel <span class="ipa-symbol">oː</span> / <span class="ipa-symbol">eː</span></td>
             </tr>
             <tr>
                 <td><span class="context-tag">ー</span> (Long Vowel Mark)</td>
@@ -427,6 +431,62 @@
         </tbody>
     </table>
 
+    <!-- #endregion -->
+
+    <!-- #region 3 -->
+    <div class="rule-section-title">3. Devoice Vowel & Others</div>
+    <div class="rule-note">
+        <strong>Rule 1:</strong> High vowels <span class="ipa-symbol">i</span> and <span class="ipa-symbol">ɯ</span> (u) become voiceless (<span class="ipa-symbol">i̥</span> / <span class="ipa-symbol">ɯ̥</span>) when they appear between two <strong>voiceless consonants</strong> ( k | s | t | h | p | ɕ | ɸ | ç | ts | tɕ ) or at the end of a word following a voiceless consonant.
+        <br><br>
+        <strong>Rule 1.1:</strong> Except when accent is at the vowel (when it is a <strong>high intonation vowel</strong>), but the converter aren't yet able to detect it.
+
+        <br><br><br>
+        <strong>Rule 2:</strong> The voiced velar stop <span class="ipa-symbol">g</span> becomes the velar nasal <span class="ipa-symbol">ŋ</span> when it appears immediately after a <strong>vowel</strong> (a, i, ɯ, e, o) within a word or as a particle (Except for foreign languages, but the converter aren't yet able to detect it).
+        <br><br>
+        <strong>Rule 2.1: </strong> This rule is no longer appearant among modern Japanese, but is still a part of the official rule. 
+    </div>
+    <table class="rule-table">
+        <thead>
+            <tr>
+                <th>Input (Kana)</th>
+                <th>Phonemic -> Phonetic</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="context-tag">した</span> (shita)</td>
+                <td>ɕita → <span class="ipa-symbol">ɕi̥ta</span></td>
+            </tr>
+            <tr>
+                <td><span class="context-tag">きく（菊）</span> (kiku) (H-L)</td>
+                <td>kʲi̥kɯ → <span class="ipa-symbol">kʲikɯ</span></td>
+            </tr>
+            <tr>
+                <td><span class="context-tag">です</span> (desu)</td>
+                <td>desɯ → <span class="ipa-symbol">desɯ̥</span> (Word Final)</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td><span class="context-tag">が行</span></td>
+                <td>g → <span class="ipa-symbol">ŋ</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- #endregion -->
+
+</div>
+
+<!-- #region atgk -->
+<h3 style="border-top: solid 7px hwb(333 20% 20%); border-left: transparent; background-color: white; padding: 10px;">Note</h3>
+<div style="text-align: center; line-height: 1.5rem; margin: 0 10vw 0 10vw;">
+    To type i̥ or ɯ̥ in MS Word: type i/ɯ followed by unicode "0325", then Alt+X
+    <br><br>
+    The "g" used in this code is "ɡ" (IPA symbol) (U+0261)
+    <br><br>
+    When input, please separate sentence into word segments to avoid mislabelling
+    <br>
+    e.g., あの がくせいが would be [ano ɡakɯ̥seːŋa] rather than [anoŋakɯ̥seːŋa]
 </div>
 
 <h3 style="border-top: solid 7px hwb(333 20% 20%); border-left: transparent; margin-top: 15vh; background-color: white; padding: 10px;">Atogaki</h3>
@@ -436,6 +496,7 @@
     The font that allows display of unused kana "yi, ye, wu" was downloaded from <a href="http://cheonhyeong.com/Simplified.html">this</a> website. <br>
     Thanks for Gemini's help in vibe coding this website, as well as helping me figuring out some technical issues that impedes me to update this website I created in high school
 </div>
+<!-- #endregion -->
 
 <script>
     // --- 第一部分：直接嵌入数据 (替代 require('./ipa.json')) ---
@@ -463,7 +524,7 @@
       "キャ":"kʲa", "キュ":"kʲɯ", "キョ":"kʲo",
       "ギャ":"ɡʲa", "ギュ":"ɡʲɯ", "ギョ":"ɡʲo",
       "シャ":"ɕa", "シュ":"ɕɯ", "ショ":"ɕo",
-      "ジャ":"ʑa", "ジュ":"ʑɯ", "ジョ":"ʑo",
+      "ジャ":"ʑa", "ジュ":"ʑɯ", "ジョ":"dʑo",
       "チャ":"tɕa", "チュ":"tɕɯ", "チョ":"tɕo",
       "ヂャ":"ʑa", "ヂュ":"ʑɯ", "ヂョ":"ʑo",
       "ニャ":"ɲa", "ニュ":"ɲɯ", "ニョ":"ɲo",
@@ -475,6 +536,9 @@
       "ファ":"ɸa", "フィ":"ɸi", "フゥ":"ɸɯ", "フェ":"ɸe", "フォ":"ɸo",
       "ティ":"ti", "トゥ":"tɯ", "チェ":"tɕe"
     };
+
+    // Voiceless constants
+    const voiceless = "(?:k|s|t|h|p|ɕ|ɸ|ç|ts|tɕ)";
 
     // --- 第三部分：核心逻辑 (移植并修改自 converter.js) ---
     const KanaConverter = {
@@ -499,7 +563,7 @@
             let katakanaText = this.hiragana2katakana(inText);
 
             // 3. 基础替换逻辑
-            let bIpaString = katakanaText
+            let aIpaString = katakanaText
                 .normalize('NFKC') // 宽窄字符标准化
                 .replace(new RegExp(ipa_small_match, 'g'), (v) => (IPA_SMALL_MAP[v] || v))
                 .match(/./ug) // 按字符分割
@@ -507,30 +571,31 @@
                 .join('');
 
             // 4. 处理 "ん" (N) 的特殊发音规则
-            let nIpaString = bIpaString
+            let bIpaString = aIpaString
                 // 1. 后面接 p/b/m -> 变 m
                 .replace(/(.)N(p|b)/ug, '$1\u0303mː$2')
-                // 2. 后面接 t/d/n... -> 变 n
-                .replace(/(.)N(t|d|ts|n)/ug, '$1\u0303nː$2')
+                // 2. 后面接 t/d/n/ts/r -> 变 n
+                .replace(/(.)N(t|d|ts|n|r)/ug, '$1\u0303nː$2')
                 // 3. 后面接 k/g -> 变 ŋ
                 .replace(/(.)N(k|g|ɡ)/ug, '$1\u0303ŋː$2')
-                // 4. 后面接 r -> 变 n (或处理为 flap)
-                .replace(/(.)N(r)/ug, '$1\u0303nː$2')
-                // 5. 后面接元音/半元音/近音/擦音 -> 特殊鼻化元音 
+                // 4. 后面接元音 -> 特殊鼻化元音 
                 .replace(/(.)N(a|i|ɯ|e|o)/ug, '$1\u0303$1\u0303$2')
+                // 5. 后面接半元音/近音/擦音 变 ɰ͂:，且前一个音鼻化
+                .replace(/(.)N(s|h|j|w|ɰ)/ug, '$1\u0303ɰ͂:$2')
 
                 // Add-ons
                 // 6. 后面接 ch, j, n -> 变 ɲ
                 .replace(/(.)N(t͡ɕ|ʑ|ɲ)/ug, '$1\u0303ɲːː')
                 // 7. 后面接 m -> 变 m：：，且前一个音鼻化
                 .replace(/(.)N(m)/ug, '$1\u0303mːː')
-                // 7. 后面接 s -> 变 ɰ͂:，且前一个音鼻化
-                .replace(/(.)N(s|h|j|w|ɰ)/ug, '$1\u0303ɰ͂:$2')
 
-                // 8. m/n/ɲ 前的元音鼻化
-                // 逻辑：找到 [元音] + [m或n或ɲ] + [元音]，给第一个元音戴上波浪号
-                // (m(?:ʲ)? 意思是匹配 m 或 mʲ，用来兼容 mi/myu)
-                .replace(/([aiɯeo])(m(?:ʲ)?|n|ɲ)(?=[aiɯeo])/ug, '$1\u0303$2')
+                // 8. 后面接拗音，N颚化
+                .replace(/([mnŋ]ː+)(.)(ʲ)/ug, '$1ʲ$2$3')
+
+                // // 8. m/n/ɲ 前的元音鼻化
+                // // 逻辑：找到 [元音] + [m或n或ɲ] + [元音]，给第一个元音戴上波浪号
+                // // (m(?:ʲ)? 意思是匹配 m 或 mʲ，用来兼容 mi/myu)
+                // .replace(/([aiɯeo])(m(?:ʲ)?|n|ɲ)(?=[aiɯeo])/ug, '$1\u0303$2')
 
                 // 0. 兜底 -> 变 ɴ
                 .replace(/(.)N( )/ug, '$1\u0303ɴ ')
@@ -538,8 +603,8 @@
                 .replace(/(.)N/ug, '$1\u0303ɴː')
                 .normalize('NFC');
 
-            // 5. 处理促音和长音
-            let mIpaString = nIpaString
+            // 5. 处理促音和长音和Ga
+            let cIpaString = bIpaString
                 // 促音：在 (.) 前面加了 (t͡?ɕ|t͡?s|...) 来优先捕捉塞擦音
                 .replace(/ッ(t͡?ɕ|t͡?ʃ|t͡?s|d͡?z|d͡?ʒ|.)/ug, (match, p1) => {
                     // 逻辑：取出捕捉到的音的第一个字母，加在前面
@@ -547,15 +612,38 @@
                     let firstChar = p1.charAt(0);
                     return firstChar + p1.substring(1) + 'ːː';
                 })
+
+                // ga鼻浊音化
+                .replace(/([aeiouɯ])ɡ/ug, '$1ŋ')
+
+                // 长音
                 .replace(/mm/ug, 'mː')
                 .replace(/nn/ug, 'nː')
+                .replace(/aa/ug, 'aː')
+                .replace(/ii/ug, 'iː')
+                .replace(/ɯɯ/ug, 'ɯː')
+                .replace(/ee/ug, 'eː')                      
+                .replace(/ei/ug, 'eː')       // 修正 "ei" 为长音 o:                
+                .replace(/oo/ug, 'oː')       
                 .replace(/oɯ/ug, 'oː')       // 修正 "ou" 为长音 o:
                 .replace(/(.)ー/ug, '$1ː')   // 长音符号
                 .normalize('NFC');
 
-            return mIpaString;
+            // 6. 元音弱化
+            let dIpaString = cIpaString.replace(
+                new RegExp(`(${voiceless}(?:ʲ)?)?([iɯ])(?=${voiceless}|$)`, 'gu'), 
+                (match, consonant, vowel) => {
+                    // Safety check
+                    if (!consonant) return match; 
+                    // Return: Consonant + Vowel + Ring Below Symbol
+                    return consonant + vowel + '\u0325';
+                }
+            );
+
+            return dIpaString;
         }
     };
+
 
     // --- 第四部分：连接到网页 ---
     function convert() {

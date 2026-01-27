@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Gairaigo Accent Predictor</title>
+    <style>
+        /* 继承自原网站的风格 */
+        body { font-family: "Helvetica Neue", Arial, sans-serif; 
+            background: #f4f7f6; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            padding-top: 50px; 
+            color: #333; 
+        }
+
+        @font-face {
+            font-family: 'THTshyn'; 
+            src: url('./font/TH-Times.ttc') format('truetype'); 
+            font-display: swap; 
+        }
+
+        #backhome{
+            position:fixed; 
+            background-color: hwb(333 20% 20%); 
+            padding: 1% 5%; 
+            border-right: solid 10px; border-radius: 0 0 30px 0;
+            border-left: solid 10px;
+            z-index: 100; 
+            text-decoration: none; 
+            color: white; 
+            font-weight: 600; 
+            left:0px; top:0px;
+        }
+
+        .container { 
+            background: white; 
+            padding: 2rem; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            width: 100%; max-width: 600px; 
+            text-align: center; 
+        }
+        
+        h1 { 
+            color: #2c3e50; 
+            border-bottom: 2px solid hwb(333 20% 20%); 
+            padding-bottom: 10px; 
+            display: inline-block; 
+            margin-bottom: 30px; 
+        }
+        
+        input { 
+            width: 80%; 
+            padding: 15px; 
+            border: 2px solid #ddd; 
+            border-radius: 8px; 
+            font-size: 1.2rem; 
+            outline: none; 
+            transition: border 0.3s; 
+        }
+        input:focus { border-color: hwb(333 20% 20%); }
+
+        .result-box { 
+            margin-top: 30px; 
+            background: #f8f9fa; 
+            padding: 20px; 
+            border-radius: 8px; 
+            min-height: 50px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .label { 
+            font-size: 0.8rem; color: #7f8c8d; 
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; 
+        }
+        
+        #output { 
+            font-size: 2.5rem; 
+            color: #333; 
+            font-weight: bold; 
+            font-family: "Hiragino Sans", "Meiryo", sans-serif; 
+            line-height: 1.5;
+        }
+
+        /* Accent Highlight Styles */
+        .mora {
+            display: inline-block;
+            position: relative;
+            padding: 0 2px;
+        }
+        .mora.accented {
+            color: hwb(333 20% 20%);
+        }
+        /* Downstep symbol */
+        .mora.accented::after {
+            content: '¬';
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            font-size: 0.6em;
+            color: hwb(333 20% 20%);
+        }
+        /* Low pitch line (visual aid) */
+        .low-pitch {
+            border-top: 2px solid #ccc; /* Optional: visual line */
+        }
+
+        /* Rule Book Styles */
+        .rules-toggle-container { margin-top: 20px; margin-bottom: 20px; }
+        .toggle-btn {
+            background: hwb(333 20% 20%);
+            color: white; border: none; border-radius: 20px;
+            padding: 10px 20px; 
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        .toggle-btn:hover {background: hwb(333 0% 0%);}
+
+        .phonetic-rules-container {
+            display: none; /* Hidden by default */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            max-width: 800px;
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            color: #333;
+            animation: fadeIn 0.5s;
+        }
+
+        .rule-section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid hwb(333 20% 20%);
+            color: #2c3e50;
+        }
+        .rule-note {
+            font-size: 0.9em;
+            color: #666;
+            background-color: #fff8e1;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ffc107;
+            text-align: left;
+        }
+        .rule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .rule-table th, .rule-table td {
+            padding: 10px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .rule-table th {
+            background-color: #f0f4f8;
+            font-weight: 600;
+            color: #555;
+            width: 30%;
+        }
+        .context-tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin: 2px;
+        }
+        .bad-tag {
+            background: #ffebee; color: #c62828;
+            padding: 2px 6px; border-radius: 4px; font-size: 0.85em;
+        }
+        .good-tag {
+            background: #e8f5e9; color: #2e7d32;
+            padding: 2px 6px; border-radius: 4px; font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Loanword Accent Predictor</h1>
+    <input type="text" id="kanaInput" placeholder="Enter Loanword (e.g. カレンダー)" oninput="predict()">
+    
+    <div class="result-box">
+        <div class="label">Predicted Accent Core (Downstep)</div>
+        <div id="output"></div>
+        <div style="margin-top:10px; font-size: 0.8rem; color: #999;">Type in Hiragana or Katakana</div>
+    </div>
+</div>
+
+<div class="rules-toggle-container">
+    <button onclick="toggleRules()" class="toggle-btn">Explanation & Rules</button>
+</div>
+
+<div id="rulesContainer" class="phonetic-rules-container">
+    
+    <div class="rule-section-title">The "Antepenultimate" Rule</div>
+    
+    <div class="rule-note">
+        <strong>Core Principle:</strong> For Japanese loanwords (Gairaigo), the accent nucleus typically falls on the <strong>Antepenultimate Mora</strong> (3rd from the end). <br>
+        However, if that mora is "Special" (cannot bear accent), it shifts to the <strong>Pre-antepenultimate</strong> (4th from end).
+    </div>
+
+    <table class="rule-table">
+        <thead>
+            <tr>
+                <th>Scenario</th>
+                <th>Logic</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Standard Case</strong><br>Antepenult is normal</td>
+                <td>
+                    Target: <span class="context-tag">-3 Mora</span><br>
+                    Result: <span class="good-tag">Accent Here</span>
+                </td>
+                <td>
+                    <strong>カメラ (Camera)</strong><br>
+                    Morae: ka-me-ra<br>
+                    Target (-3): <strong>ka</strong><br>
+                    Output: <strong>カ</strong>メラ
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Conflict Case 1</strong><br>Antepenult is "N" (ん)</td>
+                <td>
+                    Target: <span class="bad-tag">N (Skip)</span><br>
+                    Shift: <span class="context-tag">-4 Mora</span>
+                </td>
+                <td>
+                    <strong>カレンダー (Calendar)</strong><br>
+                    Morae: ka-re-n-da-a<br>
+                    Target (-3): n <span class="bad-tag">NO</span><br>
+                    Shift (-4): <strong>re</strong><br>
+                    Output: カ<strong>レ</strong>ンダー
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Conflict Case 2</strong><br>Antepenult is "Long Vowel" (ー)</td>
+                <td>
+                    Target: <span class="bad-tag">ー (Skip)</span><br>
+                    Shift: <span class="context-tag">-4 Mora</span>
+                </td>
+                <td>
+                    <strong>コンピューター</strong><br>
+                    Morae: ...pyu-u-ta-a<br>
+                    Target (-3): u <span class="bad-tag">NO</span><br>
+                    Shift (-4): <strong>pyu</strong><br>
+                    Output: コン<strong>ピュ</strong>ーター
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Conflict Case 3</strong><br>Antepenult is "Small Tsu" (ッ)</td>
+                <td>
+                    Target: <span class="bad-tag">ッ (Skip)</span><br>
+                    Shift: <span class="context-tag">-4 Mora</span>
+                </td>
+                <td>
+                    <strong>インデックス</strong><br>
+                    Morae: ...i-n-de-k-ku-su<br>
+                    Target (-3): k <span class="bad-tag">NO</span><br>
+                    Shift (-4): <strong>de</strong><br>
+                    Output: イン<strong>デ</strong>ックス
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="font-size:0.8rem; color:#666;">* Note: This is a predictive heuristic. Actual accent may vary based on word origin and length.</div>
+</div>
+
+<script>
+    // Helper: Convert Hiragana to Katakana
+    function toKatakana(str) {
+        return str.replace(/[\u3041-\u3096]/g, function(ch) {
+            return String.fromCharCode(ch.charCodeAt(0) + 0x60);
+        });
+    }
+
+    // Identify Small Kana that attach to previous mora (kya, sho, etc.)
+    // Note: Small Tsu (ッ) is NOT in this list because it counts as a full mora.
+    const SMALL_KANA = "ァィゥェォャュョヮ"; 
+    
+    // Identify Special Morae that REJECT accent (N, Q, Long Vowel)
+    // Accent cannot fall on these.
+    const SPECIAL_MORA_REGEX = /[ンッー]/;
+
+    const AccentPredictor = {
+        
+        // 1. Break string into Mora Array
+        // e.g., "カレンダー" -> ["カ", "レ", "ン", "ダ", "ー"]
+        // e.g., "コンピューター" -> ["コ", "ン", "ピュ", "ー", "タ", "ー"]
+        segment(text) {
+            let chars = text.split('');
+            let moras = [];
+            
+            for (let i = 0; i < chars.length; i++) {
+                let char = chars[i];
+                
+                // If current char is a small kana (like ャ in キャ), append to previous mora
+                if (SMALL_KANA.includes(char) && moras.length > 0) {
+                    moras[moras.length - 1] += char;
+                } else {
+                    moras.push(char);
+                }
+            }
+            return moras;
+        },
+
+        // 2. Determine accent index
+        predict(text) {
+            let katakana = toKatakana(text);
+            let moras = this.segment(katakana);
+            let len = moras.length;
+
+            if (len === 0) return { moras: [], accentIndex: -1 };
+            
+            // Default Rule: Antepenultimate (Length - 3)
+            // Indices are 0-based.
+            // e.g. Length 3 (Camera) -> Target Index 0 (Ka)
+            // e.g. Length 4 (Amerika) -> Target Index 1 (Me)
+            let targetIndex = len - 3;
+
+            // Edge Case: Word is too short (1 or 2 moras)
+            // Usually accent is on 1st mora (Index 0) or Flat (0).
+            // For this tool, let's default to Index 0 if len < 3, but ideally -3 rule applies to long words.
+            if (targetIndex < 0) targetIndex = 0;
+
+            // CHECK EXCEPTIONS (Ante-antepenult Rule)
+            // If the calculated target mora is "Special" (N, Q, H), shift left.
+            if (targetIndex >= 0) {
+                let targetMora = moras[targetIndex];
+                
+                // If target contains N, Tsu, or Long Vowel mark
+                if (SPECIAL_MORA_REGEX.test(targetMora)) {
+                    targetIndex = targetIndex - 1; // Shift to -4 position
+                }
+            }
+
+            // Safety boundary check
+            if (targetIndex < 0) targetIndex = 0;
+
+            return { moras, accentIndex: targetIndex };
+        }
+    };
+
+    function predict() {
+        const input = document.getElementById('kanaInput').value;
+        const result = AccentPredictor.predict(input);
+        
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = "";
+
+        if (result.moras.length === 0) return;
+
+        // Render HTML
+        result.moras.forEach((mora, index) => {
+            const span = document.createElement('span');
+            span.className = 'mora';
+            span.innerText = mora;
+            
+            // If this is the accented mora, add class
+            if (index === result.accentIndex) {
+                span.classList.add('accented');
+            }
+            
+            outputDiv.appendChild(span);
+        });
+    }
+
+    function toggleRules() {
+        const container = document.getElementById('rulesContainer');
+        if (container.style.display === 'block') {
+            container.style.display = 'none';
+        } else {
+            container.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
