@@ -23,7 +23,7 @@
              }
 
              .zar {
-                 font-size: 1.5rem;
+                 font-size: 1.2rem;
              }
 
              div {
@@ -122,22 +122,25 @@
          }
 /* #endregion */
 
-         #about,
-         #yuukai {
-             text-align: center;
-             width: 90%;
-             position: relative;
-             margin: auto;
-             background-color: #F7F7F7;
-             padding: 30px;
-             letter-spacing: 0.5px;
+         .fullScreen{
+             min-width: 100vw;
+             min-height: 100vh;
+             display: flex;
+             justify-content: center;
+             align-items: center;
          }
 
-         #yuukai {
-             top: auto;
-             padding: 20px;
-             margin-bottom: 90px;
+         .about{
+            display: inline-block;
+             text-align: center;
+             background-color: #F7F7F7;
+             padding: 60px 50px;
+             letter-spacing: 1px;
+             line-height: 25px;
+             height: fit-content;
+             width: 75vw;
          }
+
 
 /* #region Main Box */
          .box {
@@ -146,45 +149,47 @@
              margin: 0px 5px 100px 5px;
              box-shadow: 5px 10px 10px #dddddd;
          }
-         
-         .sahg {
-             color: black;
-             font-size: 100%;
-             width: 18%;
-             display: inline-block;
-             margin-bottom: 10px;
-             background-color: #ededed;
-             border-radius: 30px;
-             height: 35px;
-             line-height: 35px;
-         }
-         
-         .sahg:hover{
-             background-color: black;
-             color: white;
-         }
 
          .muhluh {
-             margin: 0 0 21px;
-             padding: 15px;
-             border-left: solid 7px darkblue;
-             width: 200px;
-             display: inline-block;
-             text-align: left;
-             float: left;
+             /* border-left: solid 20px darkblue; */
+             display: flex;
+             flex-direction: row;
+             width: 33vw;
              height: 300px;
-             overflow: hidden;
-         }
+             overflow-x: scroll;
+             box-shadow: 10px 0 30px rgba(0,0,0,0.5); 
+             background-color: white;
+            font-size: 1rem;
+        }
+
+        #mulubiaotir {
+            writing-mode: vertical-rl;
+            font-size: 2rem;
+            text-align: center;
+            padding: 3vw;
+            background-color: #021534;
+            color:white;
+        }
 
          .mulu {
-             margin: 10px 20px;
+            writing-mode: vertical-rl;
              text-decoration: none;
+             /* list-style: none; */
              color: darkblue;
-             letter-spacing: 2px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 8px;
+            margin-top: 33px;
+            font-size: 1rem;
          }
 
          .mulu:hover {
-             font-size: 110%;
+             border-left: solid 5px blueviolet;
+             background-color: whitesmoke;
+             animation-name: trans-violet-h2;
+             animation-duration: 0.5s;
+             animation-fill-mode: forwards;
          }
 
          #taoh {
@@ -217,6 +222,7 @@
           }
 /* #endregion */
 
+/* #region */
          .word_image {
              width: 100px;
          }
@@ -315,7 +321,11 @@
 
          #jyana {
              background-color: whitesmoke;
-             height: 120vh;
+             height: 100vh;
+             display: flex;
+            flex-direction: column;
+            justify-content: center;
+             width: 100%;
              font-weight: 900;
          }
 
@@ -396,7 +406,7 @@
              transform: rotate(-2deg);
          }
 
-
+/* #endregion */
      </style>
  </head>
 
@@ -416,85 +426,77 @@
              </ul>
          </nav>
 
-         <p style="padding-bottom: 130px;">
-         </p>
+         <span class="fullScreen">
+         <span class="about">
+            <p>此网站以的需要而建，旨在收集一下平旹作为一个俗字爱好者而用到的常用网址。本来想为希顶语建个网址结果發现已经有人建了，想为兒旹的黑厤史而建网站结果發现过于羞耻導致不适。只能为俗字这个稍稍有点逼格的爱好而建。这邊写这麽多也纯粹是为了譲我的网站看起来好似豐满许多啦。</p>
 
+             <p style="margin: 30px 0px;">ご愉快を</p>
+            
+             <a href="SihJih.html" class="zar" style="background-color:#ededed">网站日志</a>
+             <a href="indexEng.html" class="zar" style="background-color:#ededed">English</a>
+             <a href="indexPinIn.html" class="zar" style="background-color:#ededed">PinIn</a>
 
-         <p id="about">此网站以的需要而建，旨在收集一下平旹作为一个俗字爱好者而用到的常用网址。本来想为希顶语建个网址结果發现已经有人建了，想为兒旹的黑厤史而建网站结果發现过于羞耻導致不适。只能为俗字这个稍稍有点逼格的爱好而建。这邊写这麽多也纯粹是为了譲我的网站看起来好似豐满许多啦·。</p>
-
-         <div id="yuukai">ご愉快を
-             <br>
-             <br>
-             <a href="SihJih.html" class="sahg">网站日志</a>
-             <a href="indexEng.html" class="sahg">English</a>
-             <a href="indexPinIn.html" class="sahg">PinIn</a>
-         </div>
+         </span>
+         </span>
      </header>
 
      <main>
-         
         <top>
-        
-         <div id="circle" style="right: 50px;"></div>
-         <div class="xiang" style="background-color: #f3f3f3; overflow: hidden; position: relative; border-top: solid 5px #671eaa;">
-             <a href="jpnClubPg/JpnClub.html" style="color: #671eaa;">
-                 <div style="background-color: transparent; font-weight: bolder; font-size: 8vw; margin: 30px; margin-bottom: 30px; font-family:楷体">在西安大学啦！</div>
-             </a>
-             <div style="width: 100%; background-color: transparent; text-align: center; padding-left: 30px; color: #671eaa; text-decoration: overline">祝 Medical Sci / Life Sci / Health Sci 学子早日医药学院上岸🙏🙏🙏</div>
-         </div>
-         
-         <div id="taoh">
-             <div class='muhluh'>
-                 <a href="hide/index.html">
-                     <h3>目录</h3>
-                 </a>
-                 <li class="mulu"><a href="#g">工具箱</a></li>
-                 <li class="mulu"><a href="#hz">三大箱</a></li>
-                 <li class="mulu"><a href="#zar">杂七杂八</a></li>
-                 <li class="mulu"><a href="#hzec">汉字二创</a></li>
-                 <li class="mulu"><a href="#jyana">之也奈</a></li>
-                 <li class="mulu"><a href="WaagZahnNew.html">怪网站们</a></li>
-                 <li class="mulu"><a href="convience.html">便民</a></li>
-             </div>
-         </div>
+            <!-- <div id="circle" style="right: 50px;"></div> -->
+            <div class="xiang" style="background-color: #f3f3f3; overflow: hidden; position: relative; border-top: solid 5px #671eaa;">
+                <a href="jpnClubPg/JpnClub.html" style="color: #671eaa;">
+                    <div style="background-color: transparent; font-weight: bolder; font-size: 8vw; margin: 30px; margin-bottom: 30px; font-family:楷体">在西安大学啦！</div>
+                </a>
+                <div style="width: 100%; background-color: transparent; text-align: center; padding-left: 30px; color: #671eaa; text-decoration: overline">祝 Medical Science 学子早日医药学院上岸🙏🙏🙏</div>
+            </div>
+            
+            <div id="taoh">
+                <div class='muhluh'>
+                    <h5 id="mulubiaotir"><a href="hide/index.html"></a>目录</a></h5>
+                    <li class="mulu"><a href="#g">工具箱</a></li>
+                    <li class="mulu"><a href="#san-dah-xag">三大箱</a></li>
+                    <li class="mulu"><a href="#zarqzarba">杂七杂八</a></li>
+                    <li class="mulu"><a href="#hahnzherchuag">汉字二创</a></li>
+                    <li class="mulu"><a href="#jyana">之也奈</a></li>
+                    <li class="mulu"><a href="WaagZahnNew.html">怪网站们</a></li>
+                    <li class="mulu"><a href="convience.html">便民</a></li>
+                </div>
+            </div>
 
 
-         <div id="g" style="display: flex; justify-content: space-evenly; width: 96vw; margin: 0 auto; margin-bottom: 60px; background-color: transparent; ">
-             <div style="width: 46%; display: flex; border-top: solid 5px orangered; flex-direction: column; padding-bottom: 35px; box-shadow: 0px 10px 10px grey;">
-                 <h3 style="margin: 25px auto 18px auto;">工具箱</h3>
-                 <div style="display:flex; flex-direction: row; justify-content: space-around;">
-                     <div style="display:flex; flex-direction: row; align-items: center;">
-                         <div style="width:30px;">汉语拼音声调</div>
-                         <hr style="height:100%;">
-                         <div style="margin-left: 18px; font-family: consolas; font-size: 100%;">a ā á ǎ à <br>o ō ó ǒ ò <br>e ē é ě è <br>i ī í ǐ ì<br>u ū ú ǔ ù<br>ü ǖ ǘ ǚ ǜ</div>
-                     </div>
-                     <div style="display:flex; flex-direction: row; align-items: center;">
-                         <div style="width:30px;">文字描述字符</div>
-                         <hr style="height:100%;">
-                         <div style="margin-left: 18px; font-size: 100%;">⿰ ⿱ <br>⿲ ⿳ <br> ⿶ ⿵ <br> ⿺ ⿷ <br> ⿸ ⿹ <br> ⿴ ⿻</div>
-                     </div>
-                 </div>
-             </div>
-             <div style="width: 46%; display: flex; flex-direction: column; border-top: solid 5px orangered; padding-bottom: 30px; box-shadow: 0px 10px 10px grey;">
-                 <h3 style="margin: 25px auto 30px auto;">工具箱</h3>
-                 <div>
-                     <a href="https://achieve.macmillanlearning.com/start" class='zar'>Achieve</a>
-                     <a href="https://www.gradescope.ca/" class="zar">GradeScope</a>
-                     <a href="https://owl.uwo.ca/portal/site/2be3e61d-5c38-4c4f-8e63-baf8b8cba376/tool/2ea56f8e-30f0-474b-a019-3d2b5cbb979b" class="zar">OWL</a>
-                     <a href="https://westernu.brightspace.com/d2l/home/7190" class="zar">BrightSpace</a>
-                     <a href="https://mail.google.com/mail/u/0/#inbox" class="zar">邮箱</a>
-                     <a href="https://docs.google.com/document/u/0/?tgif=c" class='zar'>文档</a>
-                 </div>
-             </div>
-         </div>
-
-         <a href="guanbih.html"><button id="btn">关闭</button></a>
-
-         <a href="https://zhuanlan.zhihu.com/p/149749600">
-             <img border="0" src="media/guaang-gaoh.jpg" alt="ad" id="ads">
-         </a>
-         </top>
-
+            <div id="g" style="display: flex; justify-content: space-evenly; width: 96vw; margin: 0 auto; margin-bottom: 60px; background-color: transparent; ">
+                <div style="width: 46%; display: flex; border-top: solid 5px orangered; flex-direction: column; padding-bottom: 35px; box-shadow: 0px 10px 10px grey;">
+                    <h3 style="margin: 25px auto 18px auto;">工具箱</h3>
+                    <div style="display:flex; flex-direction: row; justify-content: space-around;">
+                        <div style="display:flex; flex-direction: row; align-items: center;">
+                            <div style="width:30px;">汉语拼音声调</div>
+                            <hr style="height:100%;">
+                            <div style="margin-left: 18px; font-family: consolas; font-size: 100%;">a ā á ǎ à <br>o ō ó ǒ ò <br>e ē é ě è <br>i ī í ǐ ì<br>u ū ú ǔ ù<br>ü ǖ ǘ ǚ ǜ</div>
+                        </div>
+                        <div style="display:flex; flex-direction: row; align-items: center;">
+                            <div style="width:30px;">文字描述字符</div>
+                            <hr style="height:100%;">
+                            <div style="margin-left: 18px; font-size: 100%;">⿰ ⿱ <br>⿲ ⿳ <br> ⿶ ⿵ <br> ⿺ ⿷ <br> ⿸ ⿹ <br> ⿴ ⿻</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 46%; display: flex; flex-direction: column; border-top: solid 5px orangered; padding-bottom: 30px; box-shadow: 0px 10px 10px grey;">
+                    <h3 style="margin: 25px auto 30px auto;">工具箱</h3>
+                    <div>
+                        <a href="https://westernu.brightspace.com/d2l/home" class='zar'>Brightspace</a>
+                        <a href="https://owl.uwo.ca/portal/site/!gateway/tool/!gateway-110" class="zar">OWL Sakai</a>
+                        <a href="https://www.gradescope.ca/" class="zar">GradeScope</a>
+                        <a href="https://www.westernlink.ca/" class="zar">USC Clubs</a>
+                        <a href="https://connect.uwo.ca/notLoggedIn.htm" class="zar">Western Connect</a>
+                        <a href="https://westerncalendar.uwo.ca/index.cfm?SelectedCalendar=Live&ArchiveID=" class='zar'>Academic Calendar</a>
+                    </div>
+                </div>
+            </div>
+            <button id="btn">关闭</button>
+            <a href="https://zhuanlan.zhihu.com/p/149749600">
+                <img src="media/guaang-gaoh.jpg" alt="ad" id="ads">
+            </a>
+        </top>
 
 
          <span id="san-dah-xag">
@@ -670,6 +672,8 @@
                  <a href="https://sound.jp/mtnest/k/tojo-daiyo-.htm" class="zar">代用字書き換え</a>
                  <a href="https://sokkidouraku.lsv.jp/" class="zar">速记道乐</a>
                  <a href="kana2ipa.html" class="zar">假名-IPA转换器</a>
+                <a href="kana2accent.html" class="zar">假名音调标注器</a>
+
 
                  <h3 class="h3">个人网站等（应该没版权什么的吧ww）</h3>
                  <div style="color: dimgray; font-size: 13px; padding: 10px 50px ">私自把您的网站收集进来希望原谅！如果您不想您的网站出现在这里 可以通过页尾的 邮箱, b站 或 知乎 联系我，我会第一时间将其移除！</div>
@@ -695,7 +699,7 @@
                  <br>
              </div>
              <div class="xiang" id="zarqzarba">
-                 <h1>汉字二创+新轮子</h1>
+                 <h1 id="hahnzherchuag">汉字二创+新轮子</h1>
                  <div style="color: dimgray; font-size: 13px; padding: 10px 50px ">私自把您的作品收集进来希望原谅！如果您不想您的作品出现在这里 可以通过页尾的 邮箱, b站 或 知乎 联系我，我会第一时间将其移除！</div>
                  <h3 class="h3">六书法</h3>
                  <br>
@@ -742,44 +746,58 @@
              </div>
          </div>
 
-         <div style="background-color: #F7F7F7; margin: 33px; padding: 30px;">
-             <h1 style="margin-bottom: 30px">后记</h1>
+         <span class="fullScreen">
+         <div class="about">
+            <h1 style="margin-bottom: 30px">后记</h1>
              <div style="background-color: transparent">嗯搞完这个网站了呢<br>历时大概几个月，但如果说真正用在他身上多少小时了嘛.. <br>可能不到一周（捂脸<br><br><br>啊之后就要补java script课上的作业了呢<br>有点恐... <br>嘛不过这就行了吧<br>嗯对这样就好这样就好<br><br><br></div>
              <a href="#jyana">那么...</a>
          </div>
-         <p id="synr" style="text-align: left; font-size: 25px; margin-left: 5vw; font-weight: 900; margin-bottom: 10px;">ごめん<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br><a href="https://www.bilibili.com/s/video/BV1i7411d7Fe">サヨナラ</a></p>
-         <div style="width:50%; margin-left:5vw; ; background-color: transparent;">
+         </span>
+
+         <p style="text-align: left; font-size: 25px; margin-left: 15vw; font-weight: 900; margin-bottom: 10px; margin-top: 50px;">ごめん<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br><a href="https://www.bilibili.com/s/video/BV1i7411d7Fe">サヨナラ</a>
+         <div style="width:50%; background-color: transparent; margin-left: 15vw; ">
              <audio src="other/%E6%82%B2%E5%BD%BC%E5%B2%B8.mp3" controls autoplay muted style="margin-bottom: 50px; width: 100%; height: 30px;"></audio>
          </div>
 
-         <p style="text-align: left; padding-left: 10px;">对了，下面的“之也奈”点进去是个人页面捏~</p>
-         <div id="jyana">
-             <a href="diW/DiW.html" style="color: black">
-                 <div id="houh-zyn" style="background-color: transparent; margin-top: 30vh; font-size: 90px; display: inline-block;">之"-也 奈</div>
-             </a>
+         <p style="text-align: center;">对了，下面的“之也奈”点进去是个人页面捏~</p>
+         <span class="fullScreen">
+            <div id="jyana">
+                <a href="diW/DiW.html" style="color: black">
+                    <div id="houh-zyn" style="background-color: transparent; font-size: 90px; display: inline-block;">之"-也 奈</div>
+                </a>
+                <div style="background-color: transparent; display: flex;justify-content: space-evenly;">
+                    <span style="display: flex; flex-direction: column; z-index: 100;">
+                        <a href="https://space.bilibili.com/298174467" class="houh"><i class="fa-brands fa-bilibili"></i></a>
+                        <span class="houhz">bilibili</span>
+                    </span>
 
-             <div style="background-color: transparent; display: flex;justify-content: space-evenly;">
-                 <span style="display: flex; flex-direction: column; z-index: 100;">
-                     <a href="https://space.bilibili.com/298174467" class="houh"><i class="fa-brands fa-bilibili"></i></a>
-                     <span class="houhz">bilibili</span>
-                 </span>
+                    <span style="display: flex; flex-direction: column; z-index: 100;">
+                        <a href="https://www.zhihu.com/people/zhen-shi-xing-56" class="houh"><i class="fa-brands fa-zhihu"></i></a><span class="houhz">知乎</span></span>
 
-                 <span style="display: flex; flex-direction: column; z-index: 100;">
-                     <a href="https://www.zhihu.com/people/zhen-shi-xing-56" class="houh"><i class="fa-brands fa-zhihu"></i></a><span class="houhz">知乎</span></span>
+                    <span style="display: flex; flex-direction: column;  z-index: 100;">
+                        <a href="https://github.com/ecsepheto" class="houh"><i class="fa-brands fa-github"></i></a><span class="houhz">Github</span></span>
 
-                 <span style="display: flex; flex-direction: column;  z-index: 100;">
-                     <a href="https://github.com/ecsepheto" class="houh"><i class="fa-brands fa-github"></i></a><span class="houhz">Github</span></span>
+                    <span style="display: flex; flex-direction: column; z-index: 100;"><a href="https://www.instagram.com/ecsepheto/" class="houh"><i class="fa-brands fa-instagram"></i></a><span class="houhz">Ins</span></span>
 
-                 <span style="display: flex; flex-direction: column; z-index: 100;"><a href="https://www.instagram.com/ecsepheto/" class="houh"><i class="fa-brands fa-instagram"></i></a><span class="houhz">Ins</span></span>
-
-                 <span style="display: flex; flex-direction: column; z-index: 100;"><a href="gmail.html" class="houh">
-                         <i class="fa-solid fa-at"></i>
-                     </a><span class="houhz">邮箱</span></span>
-             </div>
-         </div>
+                    <span style="display: flex; flex-direction: column; z-index: 100;"><a href="gmail.html" class="houh">
+                            <i class="fa-solid fa-at"></i>
+                        </a><span class="houhz">邮箱</span></span>
+                </div>
+            </div>
+         </span>
      </main>
 
 
  </body>
 
  </html>
+
+ 
+
+<script>
+document.getElementById('btn').addEventListener('click', function(e){
+    e.preventDefault();
+    var img = document.getElementById('ads');
+    if(img) img.style.display = 'none';
+});
+</script>

@@ -1,824 +1,800 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title></title>
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
-
-		div {
-			background-color: silver;
-		}
-
-		nav {
-			width: 100%;
-			height: 80px;
-			background-color: whitesmoke;
-			padding: 10px;
-			font-weight: 600;
-			box-shadow: -30px 40px 20px -32px grey;
-			position: fixed;
-			z-index: 10000;
-		}
-
-		#logo {
-			width: 60px;
-			position: absolute;
-			text-align: right;
-			left: 30px;
-			z-index: 999;
-		}
-
-		nav ul {
-			position: absolute;
-			right: 40px;
-			top: 25px;
-		}
-
-		nav ul li a {
-			color: black;
-			text-decoration: none;
-			font-weight: 600;
-			font-size: 16px;
-		}
-
-		nav li {
-			display: inline-block;
-			padding-left: 20px;
-		}
-
-		.box a {
-			position: absolute;
-			left: 136px;
-			top: 96px;
-		}
-
-		#bao {
-			width: 10%;
-		}
-
-		#about,
-		#yuukai {
-			text-align: center;
-			width: 90%;
-			position: relative;
-			top: 25px;
-			margin: auto;
-			background-color: #F7F7F7;
-			padding: 30px;
-			letter-spacing: 0.5px;
-
-		}
-
-		#yuukai {
-			top: auto;
-			padding: 20px;
-		}
-
-		/*main */
-		.box {
-			border: solid;
-			position: relative;
-			width: 31.4%;
-			display: inline-block;
-			margin: 0 5px;
-			margin-bottom: 100px;
-		}
-
-
-		main {
-			margin: auto;
-			text-align: center;
-		}
-
-		.word_image {
-			position: absolute;
-			left: 10px;
-			width: 100px;
-		}
-
-		#hanh {
-			position: absolute;
-			left: 10px;
-			width: 110px;
-		}
-
-		.box {
-			vertical-align: top;
-		}
-
-		.box h1 {
-			position: absolute;
-			top: 10px;
-			right: 10px;
-			margin-right: 15px;
-		}
-
-		.web {
-			position: relative;
-			text-decoration: none;
-			display: inline-block;
-			color: black;
-			font-size: 120%;
-			margin-top: 10px;
-			margin-left: -120px;
-			text-align: left;
-		}
-
-		/*hahn zih*/
-		#hz-zj {
-			margin-top: 130px;
-		}
-
-		#hd {
-			margin-top: 76px;
-		}
-
-		#xxt {
-			margin-top: 112px;
-		}
-
-		#gycx {
-			margin-top: 147px;
-		}
-
-		/*漢字二創*/
-		#hz-zz {
-			margin-top: 150px;
-		}
-
-		#zxwj {
-			margin-top: 255px;
-		}
-
-		#ctst {
-			margin-top: 290px;
-		}
-
-		/*汉字二创（独体户）*/
-		#hz-ec {
-			margin-top: 105px;
-		}
-
-		#csjjz {
-			margin-top: 400px;
-		}
-
-		#jsrj {
-			margin-top: 435px;
-		}
-
-		#hls {
-			margin-top: 470px;
-		}
-
-		#xdy {
-			margin-top: 505px;
-		}
-
-		#gjy {
-			margin-top: 540px;
-		}
-
-		#zz {
-			margin-top: 575px;
-		}
-
-		#ytxhz {
-			margin-top: 610px;
-		}
-
-		#yhz {
-			margin-top: 645px;
-		}
-
-		#zl {
-			margin-top: 680px;
-		}
-
-		#ys {
-			margin-top: 715px;
-		}
-
-		/*sur zih*/
-		/*nihonn ryakuji*/
-		#nihon {
-			margin-top: 130px;
-		}
-
-		#rjir {
-			margin-top: 76px;
-		}
-
-		#rjir2 {
-			margin-top: 112px;
-		}
-
-		#sszj {
-			/*			margin-left: -121px;*/
-			margin-top: 147px;
-		}
-
-		/*zorng guor zahn diaan*/
-		#zorngguor {
-			margin-top: 150px;
-		}
-
-		#gtsz {
-			margin-top: 255px;
-		}
-
-		#dh {
-			margin-top: 290px;
-		}
-
-		#fjnz {
-			margin-top: 325px;
-		}
-
-		/*本集俗字*/
-		#beenjir {
-			margin-top: 150px;
-		}
-
-		#iseng {
-			margin-top: 440px;
-		}
-
-		#nichijo {
-			margin-top: 475px;
-		}
-
-		/*あとがき*/
-		#atogaki1 {
-			margin-top: 430px;
-			margin-bottom: 10px;
-		}
-
-		#atogaki2 {
-			margin-top: 400px;
-			margin-bottom: 10px;
-		}
-
-		#atogaki3 {
-			margin-top: 370px;
-			margin-bottom: 10px;
-		}
-
-		#atgk {
-			text-align: left;
-			margin-bottom: 15px;
-			margin-left: 10px;
-			margin-right: 5px;
-			letter-spacing: 2px;
-			font-size: 16px;
-		}
-
-		/*wern daang*/
-		/*jiaan huah zih biaao*/
-		#jhzb {
-			margin-top: 130px;
-		}
-
-		#yjz {
-			margin-top: 76px;
-			/*			margin-left: -119px;*/
-		}
-
-		#ejz {
-			margin-top: 112px;
-			/*			margin-left: -137px;*/
-		}
-
-		#yjb {
-			margin-top: 147px;
-			text-align: left;
-			/*margin-left: -137px;*/
-		}
-
-		/*su*/
-		#wd-su {
-			margin-top: 180px;
-		}
-
-		#jhzy {
-			margin-top: 285px;
-		}
-
-		#kzwx {
-			margin-top: 320px;
-		}
-
-		#gxds {
-			margin-top: 355px;
-		}
-
-		/*字标*/
-		#wd-zb {
-			margin-top: 150px;
-		}
-
-		#dlzb {
-			margin-top: 470px;
-		}
-
-		#twzb {
-			margin-top: 505px;
-		}
-
-		#xgzb {
-			margin-top: 540px;
-		}
-
-		#cyhz {
-			margin-top: 575px;
-		}
-
-		#kjbs {
-			margin-top: 610px;
-		}
-
-		#hghz {
-			margin-top: 645px;
-		}
-
-		#wjlb {
-			margin-top: 680px;
-		}
-
-		#jyana {
-			background-color: whitesmoke;
-			height: 600px;
-			font-size: 90px;
-			font-weight: 900;
-		}
-
-		#jyana:hover {
-			background-color: silver;
-			font-size: 100px
-		}
-
-		#btn {
-			position: fixed;
-			z-index: 101;
-			right: 0px;
-			bottom: 285px;
-			border: none;
-			background-color: white;
-			opacity: 0.6;
-		}
-
-		#btn:hover {
-			opacity: 0.2;
-		}
-
-		#ads {
-			width: 285px;
-			position: fixed;
-			z-index: 100;
-			bottom: 0px;
-			right: 0px;
-		}
-
-		#ads:hover {
-			width: 302px;
-		}
-
-		.houh {
-			font-weight: 100;
-			font-size: 21px;
-			background: transparent;
-			position: inline-block;
-			text-decoration: none;
-			color: black;
-			text-align: left;
-			margin-left: 81px;
-			margin-top: 49px;
-		}
-
-		#bzan {
-			margin-top: 100px;
-		}
-
-		.houh:hover {
-			font-weight: 900;
-		}
-
-		#houh-zyn {
-			background-color: transparent;
-			margin-top: 25px;
-		}
-
-		#houh-zyn:hover {
-			color: whitesmoke;
-		}
-
-		#hj {
-			background-color: #dedede;
-			margin: 0px 20px 100px 20px;
-			padding: 15px;
-		}
-
-		#hjs {
-			background-color: transparent;
-		}
-
-		#hj-hj {
-			margin-bottom: 30px;
-
-		}
-
-		a {
-			text-decoration: none;
-		}
-
-		#synr {
-			text-align: left;
-			font-size: 25px;
-			margin-left: 10px;
-			margin-bottom: 10px;
-		}
-
-		.zar-box {
-			/*			border: solid;*/
-			position: relative;
-			width: 95%;
-			display: inline-block;
-			margin-bottom: 100px;
-		}
-
-		.xiang {
-			margin: 0px 20px 100px 20px;
-			padding: 15px;
-		}
-
-		#zar-zar {
-			text-align: center;
-			position: relative;
-			margin-bottom: 30px;
-		}
-
-		#zars {
-			line-height: 25px;
-			position: relative;
-			margin-top: 63px;
-		}
-
-		.zar-web {
-			position: relative;
-			text-decoration: none;
-			color: black;
-			font-size: 100%;
-			width: 18%;
-			display: inline-block;
-			margin-bottom: 10px;
-			background-color: lightgray;
-			border-radius: 30px;
-			height: 35px;
-			line-height:35px;
-		}
-
-		.zar-web:hover {
-			background-color: antiquewhite;
-		}
-
-		#ecsepheto:hover {
-			border: solid white;
-			background-color: ghostwhite;
-		}
-
-		.uarndihtp {
-			visibility: hidden;
-			width: 120px;
-			background-color: black;
-			color: #fff;
-			text-align: center;
-			padding: 5px 0;
-			border-radius: 6px;
-			z-index: 888;
-			position: absolute;
-		}
-
-		#ecsepheto:hover .uarndihtp {
-			visibility: visible;
-		}
-
-		.zar-img {
-			width: 15%;
-			border-radius: 30px;
-			margin: 10px;
-		}
-
-		#genshin {
-			text-align: center;
-			font-size: 18px;
-			margin-bottom: 10px;
-		}
-		
-		.xiang{
-			border-top: solid 3px;
-		}
-		
-		.sahg {
-			position: relative;
-			text-decoration: none;
-			color: black;
-			font-size: 100%;
-			width: 18%;
-			display: inline-block;
-			margin-bottom: 10px;
-			background-color: #ededed;
-			border-radius: 30px;
-			height: 35px;
-			line-height:35px;
-		}
-		
-	</style>
+    <meta charset="UTF-8">
+    <title>Zhiyena</title>
+    <script src="https://kit.fontawesome.com/3be782a9ab.js" crossorigin="anonymous"></script>
+    <style>
+/* #region responsive design & Animation*/
+        @media all and (orientation: portrait) {
+
+            #rh-zqzb{
+                display: inline-block;
+            }
+            
+            #zarqzarba {
+                width: auto;
+            }
+
+            #san-dah-xag {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .zar {
+                font-size: 1.2rem;
+            }
+
+            div {
+                font-size: 1.2rem;
+            }
+
+        }
+
+        @media all and (orientation: landscape) {
+
+            #rh-zqzb {
+                display: flex;
+            }
+
+            #zarqzarba {
+                width: 0;
+                flex-grow: 0.5;
+            }
+        }
+
+        @keyframes animatedBackground {
+            from {
+                background-position: 240 0;
+            }
+
+            to {
+                background-position: 100% 0;
+            }
+        }
+        
+        @keyframes trans-violet{
+            from {background-color: transparent;
+                border-left-color: gray;}
+            to {background-color: whitesmoke;
+                border-left-color: blueviolet;}
+        }
+        
+        @keyframes trans-violet-h2{
+            from {background-color: transparent;
+                border-left-color: gray;
+                padding: 0px}
+            to {background-color: whitesmoke;
+                border-left-color: blueviolet;
+                padding: 10px 0px}
+        }
+/* #endregion */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        div {
+            background-color: rgb(191, 191, 191);
+        }
+
+        a {
+            text-decoration: none;
+            color: darkblue;
+        }
+        
+        main {
+            margin: auto;
+            text-align: center;
+        }
+
+/* #region nav */
+        nav {
+            width: 100%;
+            height: 80px;
+            background-color: whitesmoke;
+            padding: 10px;
+            font-weight: 600;
+            box-shadow: -30px 40px 20px -32px grey;
+            position: fixed;
+            z-index: 10000;
+        }
+
+        nav ul {
+            position: absolute;
+            right: 40px;
+            top: 25px;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        nav li {
+            display: inline-block;
+            padding-left: 20px;
+        }
+/* #endregion */
+
+        .fullScreen{
+            min-width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about{
+           display: inline-block;
+            text-align: center;
+            background-color: #F7F7F7;
+            padding: 60px 50px;
+            letter-spacing: 1px;
+            line-height: 25px;
+            height: fit-content;
+            max-width: 75vw;
+        }
+
+
+/* #region Main Box */
+        .box {
+            border-top: solid 9px #021534;
+            padding: 10px;
+            margin: 0px 5px 100px 5px;
+            box-shadow: 5px 10px 10px #dddddd;
+        }
+
+        .muhluh {
+            /* border-left: solid 20px darkblue; */
+            display: flex;
+            flex-direction: row;
+            width: 33vw;
+            height: 300px;
+            overflow-x: scroll;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.5); 
+            background-color: white;
+           font-size: 1rem;
+       }
+
+       #mulubiaotir {
+           writing-mode: vertical-rl;
+           font-size: 2rem;
+           text-align: center;
+           padding: 3vw;
+           background-color: #021534;
+           color:white;
+       }
+
+        .mulu {
+           writing-mode: vertical-rl;
+            text-decoration: none;
+            /* list-style: none; */
+            color: darkblue;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           padding: 0 8px;
+           margin-top: 33px;
+           font-size: 1rem;
+        }
+
+        .mulu:hover {
+            border-left: solid 5px blueviolet;
+            background-color: whitesmoke;
+            animation-name: trans-violet-h2;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        #taoh {
+            width: 100%;
+            height: 300px;
+            text-align: left;
+            margin-bottom: 100px;
+            background-image: url(media/%E6%97%A5%E5%B8%B8%E4%B8%8A%E6%B2%B3%E5%9B%BE.jpg);
+            background-size: cover;
+            background-position: 200px 0px;
+            background-repeat: repeat-x;
+            animation: animatedBackground 210s linear infinite;
+            box-shadow: 0px 12px 30px grey;
+        }
+        
+        #circle {
+            width: 250px;
+            height: 250px;
+/* border-radius: 195px;*/
+            position: absolute;
+            right: -80px;
+            margin-top: -100px;
+            background-color: white;
+/*
+            background: linear-gradient(rgba(138, 43, 226, 0.13), rgba(0, 0, 0, 0.7)), url(media/flags/Dfy-BurOak-Wstrn.png);
+            background-size: contain;
+*/
+            border: solid 5px #671eaa;
+            transform: rotate(90 deg);
+         }
+/* #endregion */
+
+/* #region */
+        .word_image {
+            width: 100px;
+        }
+        
+        
+        #san-dah-xag {
+            display: flex;
+            padding: 0px 20px;
+        }
+
+        .img-ttl {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px;
+            align-items: center;
+            border-bottom: solid whitesmoke;
+        }
+
+        .content {
+            display: flex;
+            height: calc(100% - 160px);
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #box-web-biaotir {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            margin-bottom: 50px;
+            justify-content: space-around;
+        }
+
+        .box-web {
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+            margin-top: 10px;
+            min-width: 100px;
+            border-left: solid 5px gray;
+            text-align: left;
+        }
+
+        .box-web:hover {
+            border-left-color: blueviolet;
+            background-color: whitesmoke;
+            animation-name: trans-violet;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        
+        
+        
+        h1:hover{
+            border-bottom: solid 5px blueviolet;
+            background-color: whitesmoke;
+            animation-name: trans-violet-h2;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        
+        h2:hover{
+            border-left: solid 5px blueviolet;
+            background-color: whitesmoke;
+            animation-name: trans-violet-h2;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        
+        .h3 {
+            margin-top: 50px;
+        }
+
+        
+        h3:hover{
+            border-left: solid 5px blueviolet;
+            background-color: whitesmoke;
+            animation-name: trans-violet-h2;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        .atogaki {
+            line-height: 25px;
+            margin-bottom: 30px;
+        }
+
+        #atgk {
+            text-align: left;
+            margin-bottom: 15px;
+            margin-left: 10px;
+            margin-right: 5px;
+            letter-spacing: 2px;
+            font-size: 16px;
+        }
+
+        #jyana {
+            background-color: whitesmoke;
+            height: 100vh;
+            display: flex;
+           flex-direction: column;
+           justify-content: center;
+            width: 100%;
+            font-weight: 900;
+        }
+
+        #jyana:hover {
+            background-color: silver;
+        }
+
+        #btn {
+            position: fixed;
+            z-index: 101;
+            right: 0px;
+            bottom: 285px;
+            border: none;
+            background-color: white;
+            opacity: 0.6;
+        }
+
+        #btn:hover {
+            opacity: 0.2;
+        }
+
+        #ads {
+            width: 285px;
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            z-index: 90;
+        }
+
+        #ads:hover {
+            width: 300px;
+            opacity: 80%;
+        }
+
+        .houh {
+            font-size: 43px;
+            background: transparent;
+            text-decoration: none;
+            color: black;
+            margin-top: 49px;
+        }
+
+        .houhz {
+            font-size: 25px;
+            font-weight: 300;
+        }
+
+        .houhz:hover {
+            font-weight: 900;
+        }
+
+        #houh-zyn:hover {
+            color: white;
+        }
+
+        .xiang {
+            margin: 0px 20px 100px 20px;
+            padding: 15px;
+            box-shadow: 5px 10px 20px #888888;
+            border-top: solid 7px;
+        }
+
+        .zar {
+            min-width: 30%;
+            color: black;
+            display: inline-block;
+            background-color: lightgray;
+            border-radius: 15px;
+            height: 35px;
+            line-height: 35px;
+            margin: 10px 5px 0px 5px;
+            padding: 0px 20px 0 20px;
+        }
+
+        .zar:hover {
+            background-color: black;
+            color: white;
+            transform: rotate(-2deg);
+        }
+
+/* #endregion */
+    </style>
 </head>
 
 
-<body id="top">
-	<header>
-		<nav>
-			<a href="#top"><img src="media/svgexport-1.svg" alt="guaanggaoh" id="logo"></a>
-			<ul>
-				<li><a href="http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/">汉語多功能字库</a></li>
-				<li><a href="https://dict.variants.moe.edu.tw/variants/rbt/query_by_standard_tiles.rbt">教育部异体字字典</a></li>
-				<li><a href="http://zi.tools/">字统网</a></li>
-			</ul>
-		</nav>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<p id="about">此网站以因网页设计课的需要而建，旨在收集一下平时作为一个俗字爱好者而用到的常用网址。本来想为希顶语建个网址结果發现已经有人建了，想为兒旹的黑厤史而建网站结果發现过于羞耻導致不适。只能为俗字这个稍稍有点逼格的爱好而建。这邊写这麽多也纯粹是为了让我的网站看起来好似豐满许多。别无它意。</p>
-		<div id="yuukai">ご愉快を
-		<br>
-		<br>
-		<a href="SihJih.html" class="sahg">网站日志</a>
-		<a href="Eng.html" class="sahg">English</a>
-		<a href="PinIn.html" class="sahg">PinIn</a>
-		<br>
-		<br>
-		</div>
-		<br>
-		<br>
-		<br>
-		
-	</header>
-	<main>
+<body>
+    <header>
+        <nav>
+            <div style="display: flex; background-color: transparent; padding-left: 3.5vw;">
+                <a href="#top"><img src="media/svgexport-1.svg" alt="guaanggaoh" style="width: 60px;"></a>
+                <a href="WaagZahnNew.html"><img src="media/%E7%8C%AB%E6%87%92%E5%BE%97%E7%90%86%E4%BD%A0.jpg" alt="" style="width: 65px; margin-left: 2vw; border-radius: 50%"></a>
+                <span style="vertical-align: middle;">⬅Weird Websites</span>
+            </div>
+            <ul>
+                <li><a href="http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/">Multi-function Chinese Character Database</a></li>
+                <li><a href="https://dict.variants.moe.edu.tw/variants/rbt/query_by_standard_tiles.rbt">MOE Dictionary of Chinese Character Variants</a></li>
+                <li><a href="http://zi.tools/">Zi.tools</a></li>
+            </ul>
+        </nav>
 
-		<a href="guanbih.html"><button id="btn">关闭</button></a>
-		<a href="https://zhuanlan.zhihu.com/p/149749600">
-			<img border="0" src="media/guaang-gaoh.jpg" alt="ad" id="ads">
-		</a>
+        <span class="fullScreen">
+        <span class="about">
+           <p>This website was built to collect commonly used URLs for me, a Hanzi (Chinese Character) enthusiast. I originally wanted to build a site for the Xdin Aho, but found someone had already done it. So, I could only build one for Hanzi, particularly Shuzi (Folk Variants), a hobby that seems slightly sophisticated. Writing so much here is also purely to make my website look a bit more substantial.</p>
 
-		<div class='box' id="hz">
-			<img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%BC%A2_H.svg" alt="" class='word_image'>
-			<h1>汉<br>字</h1>
+            <p style="margin: 30px 0px;">Enjoy</p>
+           
+            <a href="SihJih.html" class="zar" style="background-color:#ededed">Site Log</a>
+            <a href="index.html" class="zar" style="background-color:#ededed">中文</a>
+            <a href="indexPinIn.html" class="zar" style="background-color:#ededed">PinIn</a>
 
-			<h2 id="hz-zj">正经( • ̀ω•́ )</h2>
-			<a href="https://www.zdic.net/" class="web" id="hd">漢典</a>
+        </span>
+        </span>
+    </header>
 
-			<a href="http://xiaoxue.iis.sinica.edu.tw/" class="web" id="xxt">小學堂</a>
-
-			<a href="http://www.kaom.net/book_niyin.php" class="web" id="gycx">古音小镜 (查古音)</a>
-
-			<h2 id="hz-zz">漢字二創ヾ(•ω•`)o</h2>
-
-			<a href="http://zhs.glyphwiki.org/wiki/GlyphWiki:%E9%A6%96%E9%A1%B5" class="web" id="zxwj">字形維基</a>
-
-			<a href="https://sousaku-kanji.com/archive.html" class="web" id="ctst">創作漢字Contest (日)</a>
-
-			<h2 id="hz-ec">漢字二創(个人)</h2>
-
-			<a href="https://zh.moegirl.org.cn/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6/%E6%99%A8%E5%BC%8F%E6%A5%B5%E7%B0%A1%E5%AD%97%E5%85%A8%E8%A9%B3%E7%B8%BD%E8%A1%A8#%E5%AD%97%E5%BD%A2%E8%B0%83%E6%95%B4" class="web" id="csjjz">晨式极简字 (萌百)</a>
-
-			<a href="http://blog.livedoor.jp/tdiaryblog/archives/1839200.html" class="web" id="jsrj">自作略字 (日)</a>
-
-			<a href="https://zhuanlan.zhihu.com/p/185101371" class="web" id="hls">简体字改革(灰历史)</a>
-
-			<a href="https://xdi8.top/cmn-hans/" class="web" id="xdy">希顶语(知乎)</a>
-
-			<a href="https://zhuanlan.zhihu.com/p/58410690" class="web" id="gjy">汉字国际语(知乎)</a>
-
-			<a href="https://zhuanlan.zhihu.com/p/258038078" class="web" id="zz">周字(知乎)</a>
-
-			<a href="https://zhuanlan.zhihu.com/p/398058723" class="web" id="ytxhz">优体新汉字(知乎)</a>
-
-			<a href="https://jump2.bdimg.com/f?kw=%E4%BC%98%E5%8C%96%E5%AD%97&ie=utf-8&tab=main" class="web" id="yhz">优化字吧（贴吧）</a>
-
-			<a href="https://www.zhihu.com/column/c_1401698676205678592" class="web" id="zl">我造的字 (知乎)</a>
-
-			<a href="https://www.bilibili.com/read/cv11999344?spm_id_from=333.999.0.0" class="web" id="ys">文字改良刍议(哔哩哔哩)</a>
-
-			<h2 id="atogaki1">あとがき</h2>
-			<div id="atgk">先说一下，以上排名不分先后，不分民科啦。我对民科还是很宽容的，只要不害到别人或误人子弟就都好的啦。
-				<br>
-				（虽说黄雀飞直接上北京语委那儿闹就有点儿...但那很浪漫啊w! 了解一下希顶语的背景故事就真的感觉挺浪漫的了...）
-				<br>
-				<br>
-				简体字改革是我的灰历史...之所以叫 灰历史 而不是 黑历史 是因为确实不必要叫他 黑历史。毕竟也不是啥大的污点，我都说过这玩意儿就是个思维体操。
-				<br>
-				但那为什么还说他是 灰历史 嘛...撇去我开头几篇竟然是参考 象形字典 这种网站写出来的，我里面很多字改的都好精分...没有一个坚定的理念，牢固的学识搞出来的就成这了...
-				<br>
-				<br>
-				黄雀飞的 希顶语 收录在这里主要是因为他的希顶语（如果我没理解错的话）是根据汉字的各个部件拉丁化的。这样看来也算是对汉字的二创，或者说就是把汉字以拉丁格式写下来了嘛。
-			</div>
-
-		</div>
-		<div class='box' id="sz">
-			<img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%F0%A3%B6%94_T.svg" alt="" class="word_image">
-			<h1>俗<br>字</h1>
-			<h2 id="nihon">日本站点</h2>
-			<a href="http://pbbs.web.fc2.com/etc/yumei7ryakuji.html" class="web" id="rjir">略字一覽</a>
-			<a href="https://seesaawiki.jp/ryakuji/d/%C4%B6%C4%B6%C4%B6%B0%EC%B2%A1%A4%B7%A4%CA%CE%AC%BB%FA%A4%CE%B0%EC%CD%F7" class="web" id="rjir2">略字一覽 (新增中)</a>
-			<a href="http://nrifs.fra.affrc.go.jp/book/D_archives/2011DA020/jpegver.html" class="web" id="sszj">水產俗字集 (明治編)</a>
-			<!--            -->
-			<h2 id="zorngguor">中國 内 俗字</h2>
-			<a href="https://www.wikiwand.com/zh-cn/%E7%B9%81%E9%AB%94%E4%BF%97%E5%AD%97#/%E5%85%B6%E4%BB%96" class="web" id="gtsz">繁體地區俗字</a>
-			<a href="https://file.deliwenku.com/FileRoot2/temp/book4ce55a260562cc404c01485c8713fbdc/%E6%95%A6%E7%85%8C%E4%BF%97%E5%AD%97%E5%85%B8_11457197.pdf" class="web" id="dh">敦煌俗字典</a>
-			<a href="https://ctext.org/library.pl?if=gb&file=1000071&page=19" class="web" id="fjnz">佛教难字字典</a>
-
-			<h2 id="beenjir">本集俗字</h2>
-
-			<a href="https://www.bilibili.com/read/cv9083138" class="web" id="iseng">台湾医生医嘱</a>
-
-			<a href="https://zhuanlan.zhihu.com/p/367577665" class="web" id="nichijo">本日常使用俗字</a>
+    <main>
+       <top>
+           <div class="xiang" style="background-color: #f3f3f3; overflow: hidden; position: relative; border-top: solid 5px #671eaa;">
+               <a href="jpnClubPg/JpnClub.html" style="color: #671eaa;">
+                   <div style="background-color: transparent; font-weight: bolder; font-size: 8vw; margin: 30px; margin-bottom: 30px; font-family:楷体">At Western University Now!</div>
+               </a>
+               <div style="width: 100%; background-color: transparent; text-align: center; padding-left: 30px; color: #671eaa; text-decoration: overline">Wishing Medical Science students a successful achievement to their pursuit 🙏🙏🙏</div>
+           </div>
+           
+           <div id="taoh">
+               <div class='muhluh'>
+                   <h5 id="mulubiaotir"><a href="hide/index.html"></a>Content</a></h5>
+                   <li class="mulu"><a href="#g">Toolbox</a></li>
+                   <li class="mulu"><a href="#san-dah-xag">The Big Three Boxes</a></li>
+                   <li class="mulu"><a href="#zarqzarba">Odds and Ends</a></li>
+                   <li class="mulu"><a href="#hahnzherchuag">Hanzi Recreation</a></li>
+                   <li class="mulu"><a href="#jyana">Zhiyena</a></li>
+                   <li class="mulu"><a href="WaagZahnNew.html">Weird Websites</a></li>
+                   <li class="mulu"><a href="convience.html">Convenience</a></li>
+               </div>
+           </div>
 
 
-			<h2 id="atogaki2">あとがき</h2>
-			<div id="atgk">爲什麽這裏連古籍這個本來想收錄在 文檔 裏的東西都出來了？
-				<br>因爲找不到官方收集 現代民間俗字 的網站啊！
-				<br>
-				<br>日本做得已經很好了，至少有收集民間俗字的網站。港臺也有一個維基百科頁面收錄。但大陸是真的目前爲止沒找到。
-				<br>
-				<br>這可以看作是簡體字的成功吧。但對漢字圈的所謂 俗字文化是個蠻大的打擊就是了...
-				<br>
-				<br> 但是如果誰知道有哪些政府收集民間俗字的網站的話<br>請務必黑進這個網站告訴我啊！
-				<br>
-				<br>
-				另：上面的“本集俗字”就是本人收集的俗字啦。
-				<br>
-				台湾医生那个是给我长辈看病的医生写的，由于是在海外所以能接触到台湾人
-				<br>
-				本日常使用俗字 就是我从我的 笔记本，单词本，日记 等一堆我的书写物的承载体上 找到的 我写过的 俗字。
-				<br>
-				这俩我觉得还蛮有意思的w
-				<br>
-				<br>
-				(台湾那个估计还不能全看我的www，当时赶着元旦发文 是全程困倦的给收完的，所以漏收了很多。如果想参考的话建议自己一个字一个字地读哏)
-			</div>
-		</div>
-		<div class='box' id="wd">
-			<img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%B1%89_G.svg" alt="" class="word_image" id="hanh">
-			<h1>文<br>档</h1>
-			<h2 id="jhzb">（简化）字表</h2>
-			<a href="https://library.moegirl.org/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%B1%89%E5%AD%97%E7%AE%80%E5%8C%96%E6%96%B9%E6%A1%88%EF%BC%88%E8%8D%89%E6%A1%88%EF%BC%89" class="web" id="ejz">第二次汉字简化方案</a>
-
-			<a href="https://library.moegirl.org.cn/%E3%80%8A%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%B1%89%E5%AD%97%E7%AE%80%E5%8C%96%E6%96%B9%E6%A1%88%E4%BF%AE%E8%AE%A2%E8%8D%89%E6%A1%88%E3%80%8B%E5%BE%81%E6%B1%82%E6%84%8F%E8%A7%81%E8%A1%A8" class="web" id="yjb">第二次汉字简化草案征求意见表</a>
-
-			<a href="https://zh.m.wikisource.org/zh-hans/%E7%AE%80%E5%8C%96%E5%AD%97%E6%80%BB%E8%A1%A8" class="web" id="yjz">简化字总表</a>
-
-			<h2 id="wd-su">書</h2>
-
-			<a href="http://www.kaom.net/book_niyin.php" class="web" id="jhzy">简化字源</a>
-
-			<a href="https://www.modernhistory.org.cn/" class="web" id="kzwx">抗战文献</a>
-
-			<a href="http://www.guoxuedashi.net/" class="web" id="gxds">国学大师</a>
-
-			<h2 id="wd-zb">字标s</h2>
-
-			<a href="http://www.gov.cn/gzdt/att/att/site1/20130819/tygfhzb.pdf" class="web" id="dlzb">通用规范汉字表 2013</a>
-
-			<a href="https://stroke-order.learningweb.moe.edu.tw/home.do" class="web" id="twzb">国字标准字体笔顺</a>
-
-			<a href="https://chineselearning.omghomework.com/" class="web" id="xgzb">香港小学习字表</a>
-
-			<a href="https://web.archive.org/web/20130121232131/http://www.bunka.go.jp/kokugo_nihongo/joho/kakuki/14/pdf/jyouyou_kanjihyou.pdf" class="web" id="cyhz">常用漢字一覧表(日)</a>
-
-			<a href="https://kakijun.jp/m-s/ms_kensakupage.html" class="web" id="kjbs">漢字筆順（日）</a>
-
-			<a href="https://zh.wikipedia.org/wiki/%E6%BC%A2%E6%96%87%E6%95%99%E8%82%B2%E7%94%A8%E5%9F%BA%E7%A4%8E%E6%BC%A2%E5%AD%97" class="web" id="hghz">汉文教育用基础汉字 </a>
-
-			<a href="https://www.wikiwand.com/zh-cn/%E6%BC%A2%E5%AD%97%E6%A8%99%E6%BA%96%E5%88%97%E8%A1%A8#" class="web" id="wjlb">以上元</a>
+           <div id="g" style="display: flex; justify-content: space-evenly; width: 96vw; margin: 0 auto; margin-bottom: 60px; background-color: transparent; ">
+               <div style="width: 46%; display: flex; border-top: solid 5px orangered; flex-direction: column; padding-bottom: 35px; box-shadow: 0px 10px 10px grey;">
+                   <h3 style="margin: 25px auto 18px auto;">Toolbox</h3>
+                   <div style="display:flex; flex-direction: row; justify-content: space-around;">
+                       <div style="display:flex; flex-direction: row; align-items: center;">
+                           <div style="width:30px;"> Pinyin </div>
+                           <hr style="height:100%;">
+                           <div style="margin-left: 18px; font-family: consolas; font-size: 100%;">a ā á ǎ à <br>o ō ó ǒ ò <br>e ē é ě è <br>i ī í ǐ ì<br>u ū ú ǔ ù<br>ü ǖ ǘ ǚ ǜ</div>
+                       </div>
+                       <div style="display:flex; flex-direction: row; align-items: center;">
+                           <div style="width:30px;">IDS </div>
+                           <hr style="height:100%;">
+                           <div style="margin-left: 18px; font-size: 100%;">⿰ ⿱ <br>⿲ ⿳ <br> ⿶ ⿵ <br> ⿺ ⿷ <br> ⿸ ⿹ <br> ⿴ ⿻</div>
+                       </div>
+                   </div>
+               </div>
+               <div style="width: 46%; display: flex; flex-direction: column; border-top: solid 5px orangered; padding-bottom: 30px; box-shadow: 0px 10px 10px grey;">
+                   <h3 style="margin: 25px auto 30px auto;">Toolbox</h3>
+                   <div>
+                       <a href="https://westernu.brightspace.com/d2l/home" class='zar'>Brightspace</a>
+                       <a href="https://owl.uwo.ca/portal/site/!gateway/tool/!gateway-110" class="zar">OWL Sakai</a>
+                       <a href="https://www.gradescope.ca/" class="zar">GradeScope</a>
+                       <a href="https://www.westernlink.ca/" class="zar">USC Clubs</a>
+                       <a href="https://connect.uwo.ca/notLoggedIn.htm" class="zar">Western Connect</a>
+                       <a href="https://westerncalendar.uwo.ca/index.cfm?SelectedCalendar=Live&ArchiveID=" class='zar'>Academic Calendar</a>
+                   </div>
+               </div>
+           </div>
+           <button id="btn">Close</button>
+           <a href="https://zhuanlan.zhihu.com/p/149749600">
+               <img src="media/guaang-gaoh.jpg" alt="ad" id="ads">
+           </a>
+       </top>
 
 
-			<h2 id="atogaki3">あとがき</h2>
-			<div id="atgk">啊果然...没太多書啊...
-				<br>
-				大部分都存到电脑里啦。ですから，这里也没收太多。
-				<br>
-				<br>
-				为什么收录一些 笔顺学习 网站？为了能快速看看一个字在港台日标里到底长啥样儿拉。
-				<br>
-				<br>
-				那個 以上元 其實就是維基百科的 漢字標準列表 頁面...爲什麽我不直接說是維基百科呢？因爲寫個莫名其妙的東西很專業嘛顯得(bushi)
-			</div>
+        <span id="san-dah-xag">
+            <div class='box' style="flex-grow: 0.25">
+                <span class="img-ttl">
+                    <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%BC%A2_H.svg" alt="" class='word_image'>
+                    <h1>Han<br>zi</h1>
+                </span>
+                <span class="content">
+                    <div>
+                        <h2>Serious( • ̀ω•́ )</h2>
+                        <span id="box-web-biaotir">
+                            <a href="https://www.zdic.net/" class="box-web">Zdic</a>
+
+                            <a href="http://xiaoxue.iis.sinica.edu.tw/" class="box-web">Xiaoxuetang</a>
+
+                            <a href="http://www.kaom.net/book_niyin.php" class="box-web" id="gycx">Guyin Xiaojing (Old Pronunciation)</a>
+                        </span>
+
+                        <h2>Hanzi Recreationヾ(•ω•`)</h2>
+                        <span id="box-web-biaotir">
+                            <a href="http://zhs.glyphwiki.org/wiki/GlyphWiki:%E9%A6%96%E9%A1%B5" class="box-web">GlyphWiki</a>
+
+                            <a href="https://sousaku-kanji.com/archive.html" class="box-web">Creative Kanji Contest (JP)</a>
+                        </span>
+
+                        <h2>Hanzi Recreation (Personal)</h2>
+                        <span id="box-web">
+                            <a href="#zarqzarba" class="box-web">See Hanzi Recreation page in directory</a>
+                        </span>
+                    </div>
+                    <div class="atgk">
+                        <h2 class="atogaki">Afterword</h2>
+                        <div id="atgk">Just to clarify, the ranking above is in no particular order, and no distinction regarding "amateur science"...
+                            <br>
+                            (Although Huang Quefei going directly to the Beijing Language Commission to make a scene was... so romantic! It feels very evocative once you understand the background story of the Xidi language ww)
+                            <br>
+                            <br>
+                            The Simplified Character Reform is my "gray history"... The reason I call it "gray history" instead of "black history" (dark/shameful history) is that it doesn't necessarily need to be called a black history. After all, it's not a huge stain; I've said before that this stuff is just mental gymnastics.
+                            <br>
+                            But why call it "gray history"? ... Putting aside that I didn't reference any formal websites for the first few articles, many of the character changes inside are so schizophrenic... It turned out like this without a firm concept or solid knowledge base...
+                            <br>
+                            <br>
+                            Huang Quefei's Xidi Language is included here mainly because his Xidi language (if I understand correctly) involves the latinization of Chinese character components. In this view, it counts as a recreation of Hanzi, or simply writing Hanzi in a Latin format.
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class='box' style="flex-grow: 0.5">
+                <span class="img-ttl">
+                    <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%F0%A3%B6%94_T.svg" alt="" class="word_image">
+                    <h1>Suzi<br>(Folk)</h1>
+                </span>
+                <span class="content">
+                    <div>
+                        <h2 id="nihon">Japanese Sites</h2>
+                        <span id="box-web-biaotir">
+                            <a href="http://pbbs.web.fc2.com/etc/yumei7ryakuji.html" class="box-web" id="rjir">Ryakuji List</a>
+                            <a href="https://seesaawiki.jp/ryakuji/d/%C4%B6%C4%B6%C4%B6%B0%EC%B2%A1%A4%B7%A4%CA%CE%AC%BB%FA%A4%CE%B0%EC%CD%F7" class="box-web">Ryakuji List (New additions)</a>
+                            <a href="http://nrifs.fra.affrc.go.jp/book/D_archives/2011DA020/jpegver.html" class="box-web">Marine Products Folk Character Collection (Meiji)</a>
+                        </span>
+
+                        <h2 id="zorngguor">Folk Characters in China</h2>
+                        <span id="box-web-biaotir">
+                            <a href="https://www.wikiwand.com/zh-cn/%E7%B9%81%E9%AB%94%E4%BF%97%E5%AD%97#/%E5%85%B6%E4%BB%96" class="box-web">Traditional Region Folk Characters</a>
+                            <a href="https://file.deliwenku.com/FileRoot2/temp/book4ce55a260562cc404c01485c8713fbdc/%E6%95%A6%E7%85%8C%E4%BF%97%E5%AD%97%E5%85%B8_11457197.pdf" class="box-web">Dunhuang Folk Character Dictionary</a>
+                            <a href="https://ctext.org/library.pl?if=gb&file=1000071&page=19" class="box-web">Buddhist Difficult Character Dictionary</a>
+                        </span>
+
+                        <h2 id="beenjir">My Collection of Folk Characters</h2>
+
+                        <span id="box-web-biaotir">
+                            <a href="https://www.bilibili.com/read/cv9083138" class="box-web">Taiwan Doctor's Orders</a>
+
+                            <a href="https://zhuanlan.zhihu.com/p/367577665" class="box-web">Folk characters I use daily</a>
+                        </span>
+                    </div>
+                    <div>
+                        <h2 class="atogaki">Afterword</h2>
+                        <div id="atgk">Why did ancient books, which were intended for the Documents section, appear here?
+                            <br>Because I couldn't find any websites collecting modern folk characters!
+                            <br>
+                            <br>Japan has done a great job, at least they have websites collecting folk characters (Ryakuji). Hong Kong and Taiwan also have a Wikipedia page. But for the mainland, I really haven't found any so far. This must be the success of Simplified Chinese...
+                            <br>
+                            <br> But if anyone knows of any government websites collecting folk characters...<br>Please hack into this website and tell me!
+                            <br>
+                            <br>
+                            Note: The "My Collection of Folk Characters" above refers to the folk characters collected by myself.
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class='box' style="flex-grow: 0.25">
+                <span class="img-ttl">
+                    <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/img_zi/%E6%B1%89_G.svg" alt="" class="word_image">
+                    <h1>Docu<br>ments</h1>
+                </span>
+                <span class="content">
+                    <div>
+                        <h2 id="jhzb">(Simplified) Character Lists</h2>
+                        <span id="box-web-biaotir">
+                            <a href="https://library.moegirl.org/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%B1%89%E5%AD%97%E7%AE%80%E5%8C%96%E6%96%B9%E6%A1%88%EF%BC%88%E8%8D%89%E6%A1%88%EF%BC%89" class="box-web">Second Chinese Character Simplification Scheme</a>
+
+                            <a href="https://library.moegirl.org.cn/%E3%80%8A%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%B1%89%E5%AD%97%E7%AE%80%E5%8C%96%E6%96%B9%E6%A1%88%E4%BF%AE%E8%AE%A2%E8%8D%89%E6%A1%88%E3%80%8B%E5%BE%81%E6%B1%82%E6%84%8F%E8%A7%81%E8%A1%A8" class="box-web">Draft of the Second Simplification Scheme</a>
+
+                            <a href="https://zh.m.wikisource.org/zh-hans/%E7%AE%80%E5%8C%96%E5%AD%97%E6%80%BB%E8%A1%A8" class="box-web">General List of Simplified Chinese Characters</a>
+
+                        </span>
+                        <h2 id="wd-zb">Character Standards</h2>
+                        <span id="box-web-biaotir">
+                            <a href="http://www.gov.cn/gzdt/att/att/site1/20130819/tygfhzb.pdf" class="box-web">Table of General Standard Chinese Characters 2013</a>
+
+                            <a href="https://stroke-order.learningweb.moe.edu.tw/home.do" class="box-web">Standard Typeface Stroke Order</a>
+
+                            <a href="https://chineselearning.omghomework.com/" class="box-web">Hong Kong Primary School Character List</a>
+
+                            <a href="https://web.archive.org/web/20130121232131/http://www.bunka.go.jp/kokugo_nihongo/joho/kakuki/14/pdf/jyouyou_kanjihyou.pdf" class="box-web">List of Jōyō Kanji (JP)</a>
+
+                            <a href="https://kakijun.jp/m-s/ms_kensakupage.html" class="box-web">Kanji Stroke Order (JP)</a>
+
+                            <a href="https://zh.wikipedia.org/wiki/%E6%BC%A2%E6%96%87%E6%95%99%E8%82%B2%E7%94%A8%E5%9F%BA%E7%A4%8E%E6%BC%A2%E5%AD%97" class="box-web">Basic Hanja for Educational Use</a>
+
+                            <a href="https://www.wikiwand.com/zh-cn/%E6%BC%A2%E5%AD%97%E6%A8%99%E6%BA%96%E5%88%97%E8%A1%A8#" class="box-web">Above Sources</a>
+                        </span>
+                    </div>
+                    <div>
+                        <h2 class="atogaki">Afterword</h2>
+                        <div id="atgk">Ah, as expected... not many books...
+                            <br>
+                            Most are saved on my computer. So, I didn't include too many here.
+                            <br>
+                            <br>
+                            Why include some Stroke Order learning websites? Just to quickly check what a character looks like in Hong Kong, Taiwan, or Japanese standards.
+                            <br>
+                            <br>
+                            That "Above Sources" is actually the Wikipedia page for "List of Hanzi Standards"... Why didn't I just say Wikipedia? Because writing something vague makes it look professional, right? (Just kidding)
+                        </div>
+                    </div>
+                </span>
+
+            </div>
+        </span>
+
+        <div style="background-color: transparent" id="rh-zqzb">
+            <div class='xiang' id="zarqzarba">
+                <h1 style="margin-bottom: 50px">Odds and Ends</h1>
+
+                <h3 class="h3">Writing Systems</h3>
+                <br>
+                <a href="http://www.guoxuedashi.net/" class="zar">Guoxue Dashi</a>
+                <a href="https://www.shufadict.com/dict/x" class="zar">Calligraphy Dictionary</a>
+                <a href="https://www.mebag.com/index/" class="zar">Yindeshi (Index)</a>
+                <a href="https://www.unicode.org/charts/unihan.html" class='zar'>UniHan Database</a>
+                <a href="https://unicode-table.com/cn/" class="zar">UniCode Encyclopedia</a>
+                <a href="http://www.ccamc.co/index.php" class='zar'>Ancient/Modern Character Integration</a>
+                <a href="https://langwiki.org/w/Home" class="zar">LangWiki</a>
+                <a href="https://langwiki.org/tools/dict/" class="zar">Hanzi Pronunciation Query</a>
+
+                <h3 class="h3">Literature/Docs</h3>
+                <br>
+                <a href="https://www.modernhistory.org.cn/" class="zar">Anti-Japanese War Docs</a>
+                <a href="https://curiosity.lib.harvard.edu/chinese-rare-books/catalog/49-990081640940203941" class="zar">Qing Dynasty Calculus</a>
+                <a href="https://www.kuizhangge.cn/" class="zar">Classical Docs Navigation</a>
+                <a href="https://mp.weixin.qq.com/s/PnG2-Ptkyjndo0TxrgiX_w" class="zar">China County Annals Query</a>
+
+                <h3 class="h3">Japanese Related</h3>
+                <br>
+                <a href="https://gogen-yurai.jp/" class='zar' id='ggyr'>Japanese Etymology</a>
+                <a href="https://phesoca.com/kanbun-html/" class='zar' id='kym'>Kanbun Kundoku Layout</a>
+                <a href="https://dictionary.goo.ne.jp/" class="zar" id="kjjd">Goo Dictionary (JP)</a>
+                <a href="http://daijirin.dual-d.net/extra/katakana.html" class="zar" id='htgn'>Katakana Cursive</a>
+                <a href="http://codh.rois.ac.jp/char-shape/hentaigana/" class='zar' id='hekn'>Hentaigana</a>
+                <a href="https://sound.jp/mtnest/k/tojo-daiyo-.htm" class="zar">Substitute Characters</a>
+                <a href="https://sokkidouraku.lsv.jp/" class="zar">Shorthand</a>
+                <a href="kana2ipa.html" class="zar">Kana-IPA Converter</a>
+               <a href="kana2accent.html" class="zar">Kana Accent Marker</a>
 
 
-		</div>
-		<div class='xiang' id="zar">
-			<h1 id="zar-zar">杂七杂八</h1>
-			
-			<h3>文字系</h3>
-			<br>
-			<a href="https://www.shufadict.com/dict/x" class="zar-web" id="sfzd">书法字典</a>
-			<a href="https://www.mebag.com/index/" class='zar-web' id='yds'>引得市</a>
-			<a href="https://www.unicode.org/charts/unihan.html" class='zar-web' id='unihan'>UniHan数据库</a>
-			<a href="http://www.ccamc.co/index.php" class='zar-web' id='gjwzjc'>古今文字集成</a>
+                <h3 class="h3">Personal Websites etc. (Hope no copyright issues ww)</h3>
+                <div style="color: dimgray; font-size: 13px; padding: 10px 50px ">Forgive me for collecting your website without permission! If you don't want your website to appear here, you can contact me via Email, Bilibili, or Zhihu at the bottom of the page, and I will remove it immediately!</div>
+                <br>
+                <a href="https://zh.moegirl.org.cn/zh-hans/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6" class='zar' id='yc'>Yice Research</a>
+                <a href="https://phesoca.com/" class='zar' id='unt'>Unt's Personal Site</a>
+                <a href="http://www.xubing.com/cn" class="zar">Xu Bing</a>
+                <a href="https://www.babelstone.co.uk/" class="zar">Andrew West (BabelStone)</a>
+                <a href="http://cheonhyeong.com/Simplified.html" class="zar">Tianheng</a>
+                <a href="https://lab.magiconch.com/" class="zar">Magic Conch Lab</a>
+                <a href="https://ecsepheto.github.io/" class='zar' id='ecsepheto'>Zhiyena</a>
 
-			<br>
-			<br>
-			<br>
-			<h3>日语相关</h3>
-			<br>
-			<a href="https://gogen-yurai.jp/" class='zar-web' id='ggyr'>日语词源</a>
-			<a href="https://phesoca.com/kanbun-html/" class='zar-web' id='kym'>汉文训读排版</a>
-			<a href="https://dictionary.goo.ne.jp/" class="zar-web" id="kjjd">Goo辞典(日)</a>
-			<a href="http://daijirin.dual-d.net/extra/katakana.html" class="zar-web" id='htgn'>假名俗写</a>
-			<a href="http://codh.rois.ac.jp/char-shape/hentaigana/" class='zar-web' id='hekn'>变体假名</a>
+                <h3 class="h3">Cultural Works Related</h3>
+                <br>
+                <h3>Genshin Impact</h3>
+                <a href="https://wiki.biligame.com/ys/%E7%8E%B0%E4%BB%A3%E4%B8%98%E4%B8%98%E8%AF%AD%E8%AF%8D%E5%85%B8" class='zar' id='gs'>Hilichurlian Dictionary</a>
+                <a href="https://www.reddit.com/r/Genshin_Impact/comments/jjivx3/linguistics_of_gi_a_study_of_romanizing_liyue_and/" class='zar' id='liyue'>Liyue Romanization</a>
 
-			<br>
-			<br>
-			<br>
-			<h3>个人网站等（应该没版权什么的吧ww）</h3>
-			<br>
-			<a href="https://zh.moegirl.org.cn/zh-hans/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6" class='zar-web' id='yc'>懿册研究所</a>
-			<a href="https://phesoca.com/" class='zar-web' id='unt'>Unt的个人网站</a>
-			<a href="https://ecsepheto.github.io/" class='zar-web' id='ecsepheto'>之也奈</a>
-			<span class='uarndihtp'>原地TP呢你搁这儿</span>
+                <br><br><br>
+                <div class="atogaki">
+                    <h2>Afterword</h2><br>Basically just noting down some random URLs.<br>Today when I tried something new, I realized this pile of code is standard ancestral spaghetti code www<br>Forget it, just collecting whatever.<br>Actually, you can view the three boxes above as the URLs I used when I first built this site, and this box collects the URLs I use now. It can also be seen as protecting my historical layers www <br>(Actually, it's just a pile of spaghetti code I'm too lazy to fix...)
+                </div>
+                <br>
+            </div>
+            <div class="xiang" id="zarqzarba">
+                <h1 id="hahnzherchuag">Hanzi Recreation + New Wheels</h1>
+                <div style="color: dimgray; font-size: 13px; padding: 10px 50px ">Forgive me for collecting your works without permission! If you don't want your work to appear here, you can contact me via Email, Bilibili, or Zhihu at the bottom of the page, and I will remove it immediately!</div>
+                <h3 class="h3">Liushu Methods</h3>
+                <br>
+                <a href="https://zh.moegirl.org.cn/User:%E7%88%B1%E5%BF%83%E6%99%A8/%E9%9B%9C%E9%A0%85%E7%A0%94%E7%A9%B6/%E6%99%A8%E5%BC%8F%E6%A5%B5%E7%B0%A1%E5%AD%97%E5%85%A8%E8%A9%B3%E7%B8%BD%E8%A1%A8#%E5%AD%97%E5%BD%A2%E8%B0%83%E6%95%B4" class="zar">Chen's Minimalist Characters</a>
+                <a href="http://blog.livedoor.jp/tdiaryblog/archives/1839200.html" class="zar">Self-made Ryakuji</a>
+                <a href="https://www.bilibili.com/read/cv11999344?spm_id_from=333.999.0.0" class="zar">Proposal for Script Improvement</a>
+                <a href="https://zhuanlan.zhihu.com/p/185101371" class="zar">Simplified Character Reform</a>
+                <a href="https://zhuanlan.zhihu.com/p/258038078" class="zar">Zhou Script</a>
+                <a href="https://zhuanlan.zhihu.com/p/398058723" class="zar">Optimized New Hanzi</a>
+                <a href="https://zhuanlan.zhihu.com/p/58410690" class="zar">Global Hanzi</a>
+                <a href="http://blog.sina.com.cn/s/blog_50485daa010087h3.html" class="zar">Prime Script (Su Zi)</a>
+                <a href="https://tieba.baidu.com/f?kw=%E8%B1%A1%E7%AC%A6%E5%AD%97&ie=utf-8&pn=250" class="zar">Symbol Script</a>
+                <a href="https://zhuanlan.zhihu.com/p/353634915" class="zar">Meaning-Sound Hanzi**</a>
+                <a href="https://tieba.baidu.com/p/7756554350?red_tag=0494821147" class="zar">Self-created 3rd Simplification</a>
+                <a href="https://seiga.nicovideo.jp/seiga/im4070847" class="zar">Memo Ryakuji</a>
+                <a href="https://twitter.com/jumanjikyo/status/1144630530366791681?lang=zh-Hant" class="zar">My Ryakuji</a>
+                <a href="https://www.zhihu.com/column/c_1401698676205678592" class="zar">My Created Characters</a>
+                <h3  class="h3">Phonetic Methods</h3>
+                <br>
+                <a href="https://xdi8.top/cmn-hans/" class="zar">Xidi Language</a>
+                <a href="http://biaoyinzi.com/index.php/zh-hans" class="zar">Phonetic Square Characters</a>
+                <a href="http://www.rangmo.com/rangmowen/index.html" class="zar">Rangmo Script</a>
+                <a href="https://wukong.toutiao.com/question/6895688526534197508/" class="zar">General Sound Hanzi</a>
+                <h3 class="h3">Others</h3>
+                <br>
+                <a href="https://www.omniglot.com/conscripts/linglese.htm" class="zar">Lingalese</a>
+                <a href="https://www.zhihu.com/column/c_1338531634900533250" class="zar">Torango</a>
+                <a href="https://zhuanlan.zhihu.com/p/406288556" class="zar">Pinfu Han Scheme*</a>
+                <h3 class="h3">Forums</h3>
+                <br>
+                <a href="http://yuyannet.com/forum-44-1.html" class="zar">Language Forum</a>
+                <a href="https://jump2.bdimg.com/f?kw=%E4%BC%98%E5%8C%96%E5%AD%97&ie=utf-8&tab=main" class="zar">Optimization Character Bar</a>
 
-			<br>
-			<br>
-			<br>
-			<h3>文化作品相关</h3>
-			<br>
-			<h5 id='genshin'>原神</h5>
-			<a href="https://wiki.biligame.com/ys/%E7%8E%B0%E4%BB%A3%E4%B8%98%E4%B8%98%E8%AF%AD%E8%AF%8D%E5%85%B8" class='zar-web' id='gs'>丘丘语词典</a>
-			<a href="https://www.reddit.com/r/Genshin_Impact/comments/jjivx3/linguistics_of_gi_a_study_of_romanizing_liyue_and/" class='zar-web' id='liyue'>璃月语罗马化</a>
+                <br>
+                <br>
+                <br>
+                <div class="atogaki">
+                    <h2>Afterword</h2><br>So what's the difference between this and the Hanzi Recreation above?<br>Indeed, there's no difference, except that any Hanzi recreation creators I discover from now on will be updated here, because those three boxes are seriously spaghetti code... <br><br>If I understand correctly, Torango and Lingalese borrow Hanzi for phonetic notation like Man'yōgana, so I don't know how to classify them, or even if they count as Hanzi recreation. But I added them to "Others" anyway.<br>The only information left for Prime Script (Su Zi) is a blog; his original website is down, and I can't even search for a single image. The only image I could find is in <a href="https://www.bilibili.com/video/BV1n34y1U7mZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click" style="color: rgb(20, 70, 183)">this video</a>... <br><br>Regardless of why he made it disappear without a trace, it's a bit sad overall. Like a small town that no one ever visited, growing silently, existing silently, and finally disappearing silently; when later generations accidentally discover the ruins of this small town, the town is long uninhabited. Everywhere is busy, no one recorded this town, only the small town lived lonely until all traces were gone.<br><br>Sad <br><br>
+                    <div style="text-align: left; ">*: Full name: Experimental Scheme for Using Hanyu Pinyin Auxiliary Characters</div>
+                    <div style="text-align: left; ">**: Full name: Construction Method of New Meaning-Sound Dual-Representation Hanzi</div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
 
-			<div id="zars">
-				<h2>あとがき</h2><br>大概就是记一些杂七杂八的网址吧<br>今天我尝试新的时候才发现我这堆代码就是标准的祖传屎山www<br>散了，随便收点啥吧。<br>实际上也可以看作上面那三个箱子收录的是这个网站刚建立那会儿我用的网址，这个箱子收录的是我现在的网址。也可以看作是保护我的历史层次了www <br>（其实是一团屎山实在懒得改了...）
-			</div>
-			<br>
-		</div>
-		<div class='xiang' id='hoka'>
-			<h1>如果 ChromeBook 加载太慢了</h1>
-			<br>
-			<br>
-			<h3>Google 系</h3>
-			<br>
-			<a href="https://classroom.google.com/u/0/h" class='zar-web'>Google 教室</a>
-			<a href="https://docs.google.com/document/u/0/?tgif=c" class='zar-web'>Google 文档</a>
-			<a href="https://docs.google.com/presentation/u/0/?tgif=d" class="zar-web">Google 演讲</a>
-			<a href="https://mail.google.com/mail/u/0/#inbox" class="zar-web">Gmail 邮箱</a>
-			<a href="https://drive.google.com/drive/u/0/my-drive" class="zar-web">Google 云盘</a>
-			<a href="https://docs.google.com/spreadsheets/u/0/?tgif=d" class="zar-web">Google 表单</a>
-			<a href="https://jamboard.google.com/u/0/" class="zar-web">Google 白板</a>
-			<a href="https://earth.google.com/web/?authuser=0" class="zar-web">Google 地球</a>
-			<br>
-			<br>
-			<h3>捷</h3>
-			<br>
-			<a href="https://kahoot.it/" class="zar-web">Kahoot</a>
-			
-			<br>
-			<br>
-			<h3>后</h3>
-			<br>
-			<a href="https://app.myblueprint.ca/student/dashboard" class="zar-web">MyBluePrint</a>
-			<a href="https://ta.yrdsb.ca/live/students/listReports.php?student_id=172212" class="zar-web">TeacherAssist</a>
-			<div id="zars">
-				<h2>あとがき</h2><br>由于上课时ChromeBook加载太慢所以就搞了个这www <br>感觉可能会用到
-			</div>
-			<br>
-		</div>
-		<div class='xiang' id="hj">
-			<h1 id="hj-hj">后记</h1>
-			<div id="hjs">嗯搞完这个网站了呢<br>历时大概几个月，但如果说真正用在他身上多少小时了嘛.. <br>可能不到一周（捂脸<br><br><br>啊之后就要补java script课上的作业了呢<br>有点恐... <br>嘛不过这就行了吧<br>嗯对这样就好这样就好<br><br><br></div>
-			<a href="#jyana">那么...</a>
-		</div>
-		<p id="synr">ごめん<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br><a href="https://www.bilibili.com/s/video/BV1i7411d7Fe">サヨナラ</a>（bushi</p>
-		<div id="jyana">
-			<br>
-			<div id="houh-zyn">之”-也 奈</div>
-			<div class="houh" id="bzan">b站(动态up):
-				<a href="https://space.bilibili.com/298174467" class="houh">猫は懒得理你</a> 
-			</div>
-			<div class="houh">知乎 ():
-				<a href="https://www.zhihu.com/people/zhen-shi-xing-56" class="houh" id="zynai">之也奈</a>
-			</div>
-		</div>
-	</main>
+        <span class="fullScreen">
+        <div class="about">
+           <h1 style="margin-bottom: 30px">Postscript</h1>
+            <div style="background-color: transparent">Well, finished this website.<br>It took about a few months, but if you ask how many hours I actually spent on it... <br>Probably less than a week (facepalm<br><br><br>Ah, I have to make up for the JavaScript homework later... <br>A bit scary... <br>Well, this should be enough<br>Yeah, this is fine, this is fine<br><br><br></div>
+            <a href="#jyana">So then...</a>
+        </div>
+        </span>
+
+        <p style="text-align: left; font-size: 25px; margin-left: 15vw; font-weight: 900; margin-bottom: 10px; margin-top: 50px;">Sorry<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br>ᄂ<br><a href="https://www.bilibili.com/s/video/BV1i7411d7Fe">Sayonara</a>
+        <div style="width:50%; background-color: transparent; margin-left: 15vw; ">
+            <audio src="other/%E6%82%B2%E5%BD%BC%E5%B2%B8.mp3" controls autoplay muted style="margin-bottom: 50px; width: 100%; height: 30px;"></audio>
+        </div>
+
+        <p style="text-align: center;">By the way, clicking "Zyn" below goes to the personal page~</p>
+        <span class="fullScreen">
+           <div id="jyana">
+               <a href="diW/DiW.html" style="color: black">
+                   <div id="houh-zyn" style="background-color: transparent; font-size: 90px; display: inline-block;">Zyn</div>
+               </a>
+               <div style="background-color: transparent; display: flex;justify-content: space-evenly;">
+                   <span style="display: flex; flex-direction: column; z-index: 100;">
+                       <a href="https://space.bilibili.com/298174467" class="houh"><i class="fa-brands fa-bilibili"></i></a>
+                       <span class="houhz">bilibili</span>
+                   </span>
+
+                   <span style="display: flex; flex-direction: column; z-index: 100;">
+                       <a href="https://www.zhihu.com/people/zhen-shi-xing-56" class="houh"><i class="fa-brands fa-zhihu"></i></a><span class="houhz">Zhihu</span></span>
+
+                   <span style="display: flex; flex-direction: column;  z-index: 100;">
+                       <a href="https://github.com/ecsepheto" class="houh"><i class="fa-brands fa-github"></i></a><span class="houhz">Github</span></span>
+
+                   <span style="display: flex; flex-direction: column; z-index: 100;"><a href="https://www.instagram.com/ecsepheto/" class="houh"><i class="fa-brands fa-instagram"></i></a><span class="houhz">Ins</span></span>
+
+                   <span style="display: flex; flex-direction: column; z-index: 100;"><a href="gmail.html" class="houh">
+                           <i class="fa-solid fa-at"></i>
+                       </a><span class="houhz">Email</span></span>
+               </div>
+           </div>
+        </span>
+    </main>
 
 
-</body></html>
+</body>
 
+</html>
 
+<script>
+document.getElementById('btn').addEventListener('click', function(e){
+   e.preventDefault();
+   var img = document.getElementById('ads');
+   if(img) img.style.display = 'none';
+});
+</script>
