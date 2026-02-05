@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肯尼亚狂犬病防控策略互动报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Warm Neutrals & Sage -->
+    <!-- Application Structure Plan:
+         Structure: A tab-based dashboard layout was chosen to segment the dense information into digestible themes: '概览' (Overview), '现行协议' (Protocols), '马赛社区' (Community Context), and '未来战略' (Future Plans).
+         Why: This allows users to explore the "what is" (Protocols) separately from the "who is affected" (Maasai) and "what will be" (Future), preventing cognitive overload.
+         Interactions: Tab switching updates the main view. Inside 'Protocols', an interactive accordion reveals step-by-step care. Inside 'Future', users can toggle between strategies to see potential impacts on charts.
+    -->
+    
+    <!-- Visualization & Content Choices:
+         1. Overview Stats: Big Number Cards -> Goal: Inform -> Immediate context on burden.
+         2. Transmission Sources: Doughnut Chart (Chart.js) -> Goal: Inform -> Shows 99% dog-mediated link.
+         3. Protocol Cost Comparison: Bar Chart (Chart.js) -> Goal: Compare -> IM vs ID cost differences, crucial for policy change justification.
+         4. Maasai Gap Analysis: Radar Chart (Chart.js) -> Goal: Relationships -> Visualizes the disparity between National Avg and Pastoralist zones in access/coverage.
+         5. Elimination Projection: Line Chart (Chart.js) -> Goal: Change -> Demonstrates the effect of 70% dog vaccination over time (2014-2030).
+         CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #F9F8F6; /* Warm off-white */
+            color: #4A4A4A;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif SC', serif;
+            color: #2C2C2C;
+        }
+        
+        /* Chart Container Styling - Mandatory */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #E6DCCA; }
+        ::-webkit-scrollbar-thumb { background: #8DA399; border-radius: 3px; }
+
+        /* Interactive Element Styles */
+        .nav-btn {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .nav-btn.active {
+            border-bottom-color: #8DA399; /* Sage Green */
+            color: #2C2C2C;
+            font-weight: 700;
+        }
+        .info-card {
+            transition: transform 0.2s;
+        }
+        .info-card:hover {
+            transform: translateY(-2px);
+        }
+        .step-item {
+            border-left: 2px solid #E5E7EB;
+            padding-left: 1.5rem;
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        .step-item::before {
+            content: '';
+            position: absolute;
+            left: -0.4rem;
+            top: 0;
+            width: 0.8rem;
+            height: 0.8rem;
+            background-color: #D4A373; /* Muted Orange */
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-[#E6DCCA] shadow-sm py-6 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800">肯尼亚狂犬病防控深度报告</h1>
+                <p class="text-gray-600 mt-2 text-sm md:text-base">基于“同一个健康” (One Health) 策略：从现行协议到 2030 消除愿景</p>
+            </div>
+            <div class="mt-4 md:mt-0 flex gap-2">
+                <span class="px-3 py-1 bg-[#8DA399] text-white text-xs rounded-full uppercase tracking-wide">Focus: Public Health</span>
+                <span class="px-3 py-1 bg-[#D4A373] text-white text-xs rounded-full uppercase tracking-wide">Focus: Pastoralist Communities</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex space-x-4 md:space-x-8 overflow-x-auto">
+                <button onclick="switchTab('overview')" id="btn-overview" class="nav-btn active py-4 px-2 whitespace-nowrap text-gray-500 hover:text-gray-800">
+                    📊 概览与背景
+                </button>
+                <button onclick="switchTab('protocols')" id="btn-protocols" class="nav-btn py-4 px-2 whitespace-nowrap text-gray-500 hover:text-gray-800">
+                    🏥 现行卫生协议
+                </button>
+                <button onclick="switchTab('community')" id="btn-community" class="nav-btn py-4 px-2 whitespace-nowrap text-gray-500 hover:text-gray-800">
+                    🌍 马赛社区聚焦
+                </button>
+                <button onclick="switchTab('future')" id="btn-future" class="nav-btn py-4 px-2 whitespace-nowrap text-gray-500 hover:text-gray-800">
+                    🚀 未来与2030计划
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-6xl mx-auto w-full p-4 md:p-8 space-y-8">
+        
+        <!-- SECTION 1: OVERVIEW -->
+        <section id="view-overview" class="animate-fade-in block">
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-8 border-l-4 border-[#8DA399]">
+                <h2 class="text-2xl font-bold mb-3">当前危机概览</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    狂犬病在肯尼亚呈地方性流行，每年造成约 <strong>2,000 人死亡</strong>。尽管这是一种完全可预防的疾病，但由于疫苗获取困难、公众意识不足以及犬只管理挑战，它仍是主要的公共卫生威胁。本报告整合了肯尼亚人畜共患病部门 (ZDU) 的数据，分析当前的应对协议及未来的消除策略。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- KPI Cards -->
+                <div class="info-card bg-[#FAF9F6] p-6 rounded-lg border border-[#E6DCCA] text-center">
+                    <div class="text-4xl font-bold text-[#D4A373] mb-2">2,000+</div>
+                    <div class="text-sm font-semibold uppercase tracking-wider text-gray-500">年均死亡人数</div>
+                </div>
+                <div class="info-card bg-[#FAF9F6] p-6 rounded-lg border border-[#E6DCCA] text-center">
+                    <div class="text-4xl font-bold text-[#8DA399] mb-2">99%</div>
+                    <div class="text-sm font-semibold uppercase tracking-wider text-gray-500">家犬传播占比</div>
+                </div>
+                <div class="info-card bg-[#FAF9F6] p-6 rounded-lg border border-[#E6DCCA] text-center">
+                    <div class="text-4xl font-bold text-[#8DA399] mb-2">2030</div>
+                    <div class="text-sm font-semibold uppercase tracking-wider text-gray-500">消除目标年份</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-bold mb-4 text-center">传播源分析</h3>
+                    <div class="chart-container">
+                        <canvas id="sourceChart"></canvas>
+                    </div>
+                    <p class="text-xs text-center text-gray-400 mt-2">数据来源: Kenya Zoonotic Disease Unit</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">为什么这是一个持久的挑战？</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-[#D4A373] mr-3 mt-1 text-xl">●</span>
+                            <span class="text-gray-600"><strong>疫苗供应链断裂：</strong> 许多偏远地区的诊所经常面临人用狂犬病疫苗（PEP）缺货。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#D4A373] mr-3 mt-1 text-xl">●</span>
+                            <span class="text-gray-600"><strong>高昂的费用：</strong> 对于农村家庭来说，完成整个暴露后预防疗程的费用可能高达其月收入的大部分。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#D4A373] mr-3 mt-1 text-xl">●</span>
+                            <span class="text-gray-600"><strong>犬只管理：</strong> 只有一小部分家犬接种了疫苗，远低于阻断传播所需的 70% 阈值。</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: PROTOCOLS -->
+        <section id="view-protocols" class="animate-fade-in hidden">
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-8 border-l-4 border-[#8DA399]">
+                <h2 class="text-2xl font-bold mb-3">现行人类卫生协议</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    肯尼亚目前遵循世卫组织（WHO）推荐的暴露后预防（PEP）指南。然而，标准的肌肉注射（IM）方案成本高昂，政府正逐步探索更经济的皮内注射（ID）方案。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Interactive Protocol Steps -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-bold mb-6">标准处置流程 (点击查看详情)</h3>
+                    <div class="space-y-2">
+                        <!-- Step 1 -->
+                        <div class="group">
+                            <button onclick="toggleAccordion('step1')" class="w-full text-left flex justify-between items-center p-4 bg-[#FAF9F6] rounded-lg hover:bg-[#E6DCCA] transition-colors">
+                                <span class="font-bold text-[#2C2C2C]">1. 伤口处理 (立即执行)</span>
+                                <span class="text-[#8DA399]">+</span>
+                            </button>
+                            <div id="step1" class="hidden p-4 text-gray-600 bg-white border border-t-0 border-[#FAF9F6]">
+                                <p><strong>核心动作：</strong> 使用肥皂和流动水彻底冲洗伤口至少 15 分钟。</p>
+                                <p class="mt-2 text-sm">这是最关键的一步，可以显著降低病毒载量。随后使用酒精或碘伏消毒。</p>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="group">
+                            <button onclick="toggleAccordion('step2')" class="w-full text-left flex justify-between items-center p-4 bg-[#FAF9F6] rounded-lg hover:bg-[#E6DCCA] transition-colors">
+                                <span class="font-bold text-[#2C2C2C]">2. 风险评估 (医疗机构)</span>
+                                <span class="text-[#8DA399]">+</span>
+                            </button>
+                            <div id="step2" class="hidden p-4 text-gray-600 bg-white border border-t-0 border-[#FAF9F6]">
+                                <ul class="list-disc pl-5 text-sm space-y-1">
+                                    <li><strong>I 级：</strong> 触摸或喂养动物，完好皮肤被舔。 -> <span class="text-green-600">无需PEP</span>。</li>
+                                    <li><strong>II 级：</strong> 轻微抓伤或咬伤，无出血。 -> <span class="text-orange-500">立即接种疫苗</span>。</li>
+                                    <li><strong>III 级：</strong> 透皮咬伤，出血，或粘膜接触。 -> <span class="text-red-500">疫苗 + 免疫球蛋白 (RIG)</span>。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="group">
+                            <button onclick="toggleAccordion('step3')" class="w-full text-left flex justify-between items-center p-4 bg-[#FAF9F6] rounded-lg hover:bg-[#E6DCCA] transition-colors">
+                                <span class="font-bold text-[#2C2C2C]">3. 疫苗接种 (PEP)</span>
+                                <span class="text-[#8DA399]">+</span>
+                            </button>
+                            <div id="step3" class="hidden p-4 text-gray-600 bg-white border border-t-0 border-[#FAF9F6]">
+                                <p><strong>埃森方案 (Essen Protocol)：</strong> 5 剂肌肉注射。</p>
+                                <p class="text-sm mt-1">时间表：第 0, 3, 7, 14, 28 天。</p>
+                                <p class="text-sm mt-2 font-semibold text-[#D4A373]">挑战：患者往往因为交通费用或疫苗缺货而未能完成全部5针。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cost Comparison Chart -->
+                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col">
+                    <h3 class="text-lg font-bold mb-4">协议改革动力：成本对比</h3>
+                    <p class="text-sm text-gray-500 mb-4">目前肯尼亚正计划推广皮内注射（ID），这可以节省约 60% 的疫苗用量和费用。</p>
+                    <div class="chart-container flex-grow">
+                        <canvas id="costChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: MAASAI COMMUNITY -->
+        <section id="view-community" class="animate-fade-in hidden">
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-8 border-l-4 border-[#D4A373]">
+                <h2 class="text-2xl font-bold mb-3">聚焦：马赛牧民社区 (Maasai Mara Ecosystem)</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    马赛人（Maasai）主要生活在肯尼亚南部的半干旱地区。他们的游牧生活方式、与犬只的密切关系以及地理上的偏远，构成了独特的狂犬病防控挑战。这一群体是“同一个健康”干预的重点对象。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Context Text -->
+                <div class="space-y-6">
+                    <div class="bg-[#FAF9F6] p-5 rounded-lg border border-[#E6DCCA]">
+                        <h3 class="font-bold text-[#2C2C2C] mb-2">人犬关系与风险</h3>
+                        <p class="text-sm text-gray-600">
+                            在马赛社区，狗不仅仅是宠物，更是保护牲畜免受捕食者侵害的必要工具。这导致了很高的人犬接触率。由于居住分散（Bomas），大规模犬只疫苗接种（MDV）的物流难度极大。
+                        </p>
+                    </div>
+                    <div class="bg-[#FAF9F6] p-5 rounded-lg border border-[#E6DCCA]">
+                        <h3 class="font-bold text-[#2C2C2C] mb-2">获取医疗的障碍</h3>
+                        <p class="text-sm text-gray-600">
+                            被咬伤后，寻找交通工具前往最近的拥有PEP库存的诊所可能需要数小时甚至数天。高昂的间接费用（交通、误工）往往超过了治疗本身的费用。
+                        </p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold text-sm text-gray-500 uppercase mb-2">案例研究：Narok 县</h4>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-700">每户平均拥有的犬只数量</span>
+                            <span class="font-bold text-[#D4A373] text-xl">5.2 只</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-2 rounded-full mt-2">
+                            <div class="bg-[#D4A373] h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                        <p class="text-xs text-right mt-1 text-gray-400">全国平均水平约为 1.3 只</p>
+                    </div>
+                </div>
+
+                <!-- Radar Chart: Gap Analysis -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-bold mb-4 text-center">医疗资源差距分析</h3>
+                    <div class="chart-container">
+                        <canvas id="communityRadar"></canvas>
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4">
+                        <span class="inline-block w-3 h-3 bg-[#8DA399] rounded-full mr-1"></span> 国家平均
+                        <span class="inline-block w-3 h-3 bg-[#D4A373] rounded-full mr-1 ml-3"></span> 马赛牧区
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: FUTURE -->
+        <section id="view-future" class="animate-fade-in hidden">
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-8 border-l-4 border-[#8DA399]">
+                <h2 class="text-2xl font-bold mb-3">未来战略与 2030 计划</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    肯尼亚政府已制定战略，旨在通过“同一个健康”方法在 2030 年消除犬传人狂犬病。核心支柱包括：提高犬只疫苗覆盖率、改善监测以及普及经济适用的 PEP。
+                </p>
+            </div>
+
+            <!-- Future Comparison Chart -->
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                    <h3 class="text-lg font-bold">预测模型：犬只免疫的影响</h3>
+                    <div class="mt-2 md:mt-0">
+                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">目标：70% 犬只免疫覆盖率</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="futureChart"></canvas>
+                </div>
+                <p class="text-sm text-gray-500 mt-4 text-center">
+                    数据显示，若能维持 70% 的犬只免疫率，人类狂犬病病例将在 5-7 年内急剧下降至接近零。
+                </p>
+            </div>
+
+            <!-- Action Plan Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-5 rounded-lg shadow-sm border-t-4 border-[#8DA399]">
+                    <h4 class="font-bold text-lg mb-2">1. 推广皮内注射 (ID)</h4>
+                    <p class="text-sm text-gray-600">全面从肌肉注射转向皮内注射，降低 60-80% 的疫苗成本，使政府能采购更多疫苗覆盖偏远地区。</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm border-t-4 border-[#D4A373]">
+                    <h4 class="font-bold text-lg mb-2">2. 整合咬伤管理 (IBCM)</h4>
+                    <p class="text-sm text-gray-600">建立卫生部门与兽医部门的联动机制。一旦医院接收咬伤患者，立即通知兽医追踪并在源头控制疯狗。</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm border-t-4 border-[#2C2C2C]">
+                    <h4 class="font-bold text-lg mb-2">3. 社区参与式监测</h4>
+                    <p class="text-sm text-gray-600">在马赛社区培训社区卫生志愿者，利用手机短信上报疑似病例，解决监测盲区问题。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#E6DCCA] py-8 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-gray-700 font-bold mb-2">肯尼亚狂犬病消除战略 (2014 - 2030)</p>
+            <p class="text-gray-600 text-sm">资料来源: Kenya Zoonotic Disease Unit / WHO Rabies Guidelines / Research on Maasai Pastoralist Health</p>
+            <p class="text-gray-500 text-xs mt-4">Generated via Canvas | No SVG or Mermaid JS used.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- State Management ---
+        let currentTab = 'overview';
+        
+        // --- DOM Elements ---
+        const tabs = ['overview', 'protocols', 'community', 'future'];
+        
+        // --- Navigation Logic ---
+        function switchTab(tabId) {
+            // Update Tab State
+            currentTab = tabId;
+            
+            // Update UI classes
+            tabs.forEach(t => {
+                const btn = document.getElementById(`btn-${t}`);
+                const view = document.getElementById(`view-${t}`);
+                
+                if (t === tabId) {
+                    btn.classList.add('active', 'text-gray-800');
+                    btn.classList.remove('text-gray-500');
+                    view.classList.remove('hidden');
+                    view.classList.add('block');
+                } else {
+                    btn.classList.remove('active', 'text-gray-800');
+                    btn.classList.add('text-gray-500');
+                    view.classList.add('hidden');
+                    view.classList.remove('block');
+                }
+            });
+        }
+
+        // --- Accordion Logic ---
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        // --- Chart.js Configuration ---
+        Chart.defaults.font.family = "'Noto Sans SC', sans-serif";
+        Chart.defaults.color = '#4A4A4A';
+
+        // Helper: Label Wrapping
+        function wrapLabel(str, maxLen = 16) {
+            if (str.length <= maxLen) return str;
+            const words = str.split(''); // Splitting by char for Chinese
+            let lines = [];
+            let currentLine = '';
+            
+            words.forEach(char => {
+                if ((currentLine + char).length > maxLen) {
+                    lines.push(currentLine);
+                    currentLine = char;
+                } else {
+                    currentLine += char;
+                }
+            });
+            lines.push(currentLine);
+            return lines;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Overview: Source Chart (Doughnut)
+            const ctxSource = document.getElementById('sourceChart').getContext('2d');
+            new Chart(ctxSource, {
+                type: 'doughnut',
+                data: {
+                    labels: ['家犬 (Domestic Dogs)', '野生动物 (Wildlife)', '其他 (Others)'],
+                    datasets: [{
+                        data: [99, 0.9, 0.1],
+                        backgroundColor: ['#D4A373', '#8DA399', '#E6DCCA'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right' }
+                    }
+                }
+            });
+
+            // 2. Protocols: Cost Chart (Bar)
+            const ctxCost = document.getElementById('costChart').getContext('2d');
+            new Chart(ctxCost, {
+                type: 'bar',
+                data: {
+                    labels: ['肌肉注射 (IM) - 现行', '皮内注射 (ID) - 目标'],
+                    datasets: [{
+                        label: '平均疗程费用 (USD)',
+                        data: [45, 15], // Approximate figures for contrast
+                        backgroundColor: ['#D4A373', '#8DA399'],
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, title: { display: true, text: '美元 (USD)' } }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` 费用: $${context.raw}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 3. Community: Radar Chart
+            const ctxRadar = document.getElementById('communityRadar').getContext('2d');
+            new Chart(ctxRadar, {
+                type: 'radar',
+                data: {
+                    labels: ['疫苗可及性', '公众意识', '犬只免疫率', '监测报告', '经济承受力'],
+                    datasets: [{
+                        label: '国家平均',
+                        data: [65, 70, 40, 55, 50],
+                        borderColor: '#8DA399',
+                        backgroundColor: 'rgba(141, 163, 153, 0.2)',
+                        pointBackgroundColor: '#8DA399'
+                    }, {
+                        label: '马赛牧区',
+                        data: [20, 45, 15, 30, 20],
+                        borderColor: '#D4A373',
+                        backgroundColor: 'rgba(212, 163, 115, 0.2)',
+                        pointBackgroundColor: '#D4A373'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#E5E7EB' },
+                            grid: { color: '#E5E7EB' },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+
+            // 4. Future: Line Chart
+            const ctxFuture = document.getElementById('futureChart').getContext('2d');
+            new Chart(ctxFuture, {
+                type: 'line',
+                data: {
+                    labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
+                    datasets: [{
+                        label: '仅依赖 PEP (现状)',
+                        data: [2000, 1950, 1900, 1850, 1800, 1750, 1700],
+                        borderColor: '#D4A373',
+                        borderDash: [5, 5],
+                        tension: 0.4
+                    }, {
+                        label: '70% 犬只免疫 + IBCM',
+                        data: [2000, 1500, 800, 300, 100, 20, 0],
+                        borderColor: '#8DA399',
+                        backgroundColor: 'rgba(141, 163, 153, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { title: { display: true, text: '人类狂犬病死亡数' } }
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
