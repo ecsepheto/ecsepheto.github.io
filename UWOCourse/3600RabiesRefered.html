@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenya Rabies Control Protocols | 肯尼亚狂犬病控制方案</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --border-color: #e9ecef;
+            --link-color: #3498db;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Main Layout */
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding-bottom: 3rem;
+        }
+
+        /* Content Styling */
+        h1 {
+            font-size: 2.2rem;
+            margin-top: 2rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            color: #444;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            color: #555;
+        }
+
+        p, li {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        /* Citation Styling */
+        sup {
+            font-size: 0.75em;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+            top: -0.5em;
+        }
+
+        .citation-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 2px;
+            transition: color 0.2s;
+        }
+
+        .citation-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Reference Section */
+        .references-section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 3px solid var(--border-color);
+            background-color: #fafafa;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .ref-item {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            display: flex;
+            gap: 10px;
+        }
+
+        .ref-id {
+            font-weight: bold;
+            color: var(--accent-color);
+            min-width: 30px;
+        }
+
+        .ref-content {
+            flex: 1;
+        }
+
+        .source-link {
+            display: inline-block;
+            margin-left: 0.5rem;
+            color: var(--link-color);
+            font-size: 0.85rem;
+            text-decoration: none;
+            border: 1px solid var(--link-color);
+            padding: 1px 6px;
+            border-radius: 3px;
+        }
+
+        .source-link:hover {
+            background-color: var(--link-color);
+            color: #fff;
+        }
+
+        /* Utilities */
+        .hidden {
+            display: none;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f3f5;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.4rem; }
+            main { margin: 1rem auto; padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">🇰🇪 Rabies Control Tracker</div>
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="switchLang('en')">English</button>
+        <button class="lang-btn" onclick="switchLang('cn')">中文</button>
+    </div>
+</header>
+
+<main>
+    <!-- ENGLISH CONTENT -->
+    <div id="en-content">
+        <h1>Comprehensive Assessment of Kenya's National Rabies Elimination Strategy</h1>
+        <p><strong>Focus:</strong> Protocols, Pastoralist Challenges (Maasai), and Comparative Regional Analysis</p>
+
+        <section>
+            <h2>1. Historical Context and National Framework</h2>
+            <h3>1.1 The Epidemiological Trajectory</h3>
+            <p>Rabies has been a documented public health threat in Kenya for over a century. The first laboratory-confirmed case in a domestic dog was recorded in 1912, followed by the first human case in 1928<sup id="c1-1"><a href="#ref-2" class="citation-link">[2]</a></sup>. Since the structural adjustment programs of the 1980s led to a collapse in state-sponsored vaccination, the virus has expanded to affect over 85% of Kenya's 47 counties<sup id="c1-2"><a href="#ref-3" class="citation-link">[3]</a></sup>.</p>
+
+            <h3>1.2 The "Zero by 30" Strategic Plan</h3>
+            <p>Kenya launched its *Strategic Plan for the Elimination of Human Rabies* in 2014, aiming for elimination by 2030<sup id="c1-3"><a href="#ref-1" class="citation-link">[1]</a></sup>. The strategy relies on mass dog vaccination (70% coverage), Post-Exposure Prophylaxis (PEP) availability, and public education<sup id="c1-4"><a href="#ref-1" class="citation-link">[1]</a></sup>.</p>
+            <p><strong>Zonation Strategy:</strong></p>
+            <ul>
+                <li><strong>Zone A (Pilot):</strong> Machakos, Makueni, Kitui, Siaya, Kisumu.</li>
+                <li><strong>Zone C (Maintenance):</strong> Pastoralist ASAL regions like Narok and Kajiado, which face unique logistical hurdles<sup id="c1-5"><a href="#ref-1" class="citation-link">[1]</a></sup>.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Protocols in the Human Health Pillar</h2>
+            <p>The human health pillar focuses on clinical management to prevent symptom onset.</p>
+
+            <h3>2.1 Standard Clinical Guidelines (PEP)</h3>
+            <p><strong>Wound Management:</strong> Immediate flushing for 15 minutes with water and soap is mandated to reduce viral load<sup id="c2-1"><a href="#ref-9" class="citation-link">[9]</a></sup>.</p>
+            
+            <p><strong>Vaccination (Active Immunization):</strong> The current standard in public hospitals is the 5-dose intramuscular (IM) "Essen" regimen (Days 0, 3, 7, 14, 28)<sup id="c2-2"><a href="#ref-12" class="citation-link">[12]</a></sup>. While effective, it is resource-intensive.</p>
+
+            <p><strong>Immunoglobulin (RIG):</strong> Indicated for Category III exposures (bites/scratches on broken skin). However, studies in Makueni found that 0% of 42 assessed health facilities had RIG in stock<sup id="c2-3"><a href="#ref-14" class="citation-link">[14]</a></sup>. It is largely inaccessible to rural populations.</p>
+
+            <h3>2.2 The Shift to Intradermal (ID)</h3>
+            <p>Future planning focuses on the Intradermal (ID) route, recommended by WHO. ID administration uses 60–80% less vaccine volume, significantly reducing costs<sup id="c2-4"><a href="#ref-18" class="citation-link">[18]</a></sup>. Implementation is currently slowed by a lack of training and appropriate syringes.</p>
+
+            <h3>2.3 Integrated Bite Case Management (IBCM)</h3>
+            <p>This protocol links health and veterinary sectors. If a biting dog is confirmed healthy by a vet, the patient can stop PEP, saving up to 30% of vaccine stock<sup id="c2-5"><a href="#ref-21" class="citation-link">[21]</a></sup>.</p>
+        </section>
+
+        <section>
+            <h2>3. The Maasai Pastoralist Context: Narok & Kajiado</h2>
+            
+            <h3>3.1 Dog Ecology</h3>
+            <p>In Maasai communities, dogs are essential for guarding livestock but are free-roaming. Vaccination rates in these areas often hover between 2% and 22%, far below the 70% herd immunity threshold<sup id="c3-1"><a href="#ref-23" class="citation-link">[23]</a></sup>.</p>
+
+            <h3>3.2 Ethnomedicine Barriers</h3>
+            <p>Many bite victims rely on traditional healers due to cost and distance. Common treatments include herbs like <em>Phytolacca dodecandra</em> (Endod) and <em>Acacia nilotica</em><sup id="c3-2"><a href="#ref-31" class="citation-link">[31]</a></sup>. These are ineffective against the virus and cause fatal delays in seeking PEP.</p>
+
+            <h3>3.3 Economic "Financial Toxicity"</h3>
+            <p>PEP is expensive. When public stockouts occur, patients must buy vaccines from private chemists at ~$15-45 USD per dose. Indirect costs (transport) further exacerbate poverty, with families often selling livestock to pay for treatment<sup id="c3-3"><a href="#ref-17" class="citation-link">[17]</a></sup>.</p>
+        </section>
+
+        <section>
+            <h2>4. Supply Chain & Innovations</h2>
+            <h3>4.1 Procurement Challenges</h3>
+            <p>KEMSA (government supplier) offers subsidized rates (~$1.80/dose) but suffers chronic shortages. Counties often fall back to MEDS (faith-based), where prices are significantly higher (~$12.50/dose), draining budgets<sup id="c4-1"><a href="#ref-48" class="citation-link">[48]</a></sup>.</p>
+
+            <h3>4.2 Drone Logistics (Zipline)</h3>
+            <p>A major innovation is the partnership with <strong>Zipline</strong> in Kisumu. Autonomous drones deliver vaccines to remote islands and clinics within 45 minutes, bypassing poor road infrastructure<sup id="c4-2"><a href="#ref-55" class="citation-link">[55]</a></sup>.</p>
+
+            <h3>4.3 Community Health Promoters (CHPs)</h3>
+            <p>The <em>Community Health Promoters Act 2024</em> formalizes the role of CHPs. While they cannot inject vaccines yet, they are crucial for surveillance using smartphone apps like the Kenya Animal Biosurveillance (KAB) app<sup id="c4-3"><a href="#ref-57" class="citation-link">[57]</a></sup><sup id="c4-4"><a href="#ref-62" class="citation-link">[62]</a></sup>.</p>
+        </section>
+
+        <div class="references-section">
+            <h3>📚 References & Sources</h3>
+            <div class="ref-item" id="ref-1">
+                <span class="ref-id">[1]</span>
+                <div class="ref-content">Ministry of Health Kenya. <em>Strategic Plan for the Elimination of Human Rabies in Kenya (2014–2030)</em>. <a href="http://guidelines.health.go.ke:8000/media/Strategic_plan_for_elimination_of_Rabies.pdf" target="_blank" class="source-link">Source PDF</a></div>
+            </div>
+            <div class="ref-item" id="ref-2">
+                <span class="ref-id">[2]</span>
+                <div class="ref-content">WOAH (World Organisation for Animal Health). <em>Rabies elimination in Kenya: Historical context (1912-Present)</em>. <a href="https://rr-africa.woah.org/en/news/rabies-elimination-in-kenya/" target="_blank" class="source-link">Source</a></div>
+            </div>
+            <div class="ref-item" id="ref-3">
+                <span class="ref-id">[3]</span>
+                <div class="ref-content">Kitala, P. M., et al. "The epidemiology of rabies in Kenya." (Classic historical data).</div>
+            </div>
+            <div class="ref-item" id="ref-9">
+                <span class="ref-id">[9]</span>
+                <div class="ref-content">WHO. <em>Guide for Rabies Pre and Post Exposure Prophylaxis in Humans</em>. <a href="https://cdn.who.int/media/docs/default-source/searo/india/health-topic-pdf/pep-prophylaxis-guideline-15-12-2014.pdf" target="_blank" class="source-link">Source PDF</a></div>
+            </div>
+            <div class="ref-item" id="ref-12">
+                <span class="ref-id">[12]</span>
+                <div class="ref-content">Ministry of Health. <em>National Guidelines on Management of Rabies</em>. (Essen Regimen).</div>
+            </div>
+            <div class="ref-item" id="ref-14">
+                <span class="ref-id">[14]</span>
+                <div class="ref-content">Mutunga, L., et al. (2022). <em>Rabies Elimination in Rural Kenya: Need for Improved Availability of Human Vaccines (Makueni Study)</em>. <a href="https://discovery.researcher.life/article/rabies-elimination-in-rural-kenya-need-for-improved-availability-of-human-vaccines-awareness-and-knowledge-on-rabies-and-its-management-among-healthcare-workers/a4a25a1fc1bd32c38f0d6553bd6d80de" target="_blank" class="source-link">Source Abstract</a></div>
+            </div>
+            <div class="ref-item" id="ref-17">
+                <span class="ref-id">[17]</span>
+                <div class="ref-content">Thumbi, S. M., et al. (2015). "The burden of rabies in Kenya."</div>
+            </div>
+            <div class="ref-item" id="ref-18">
+                <span class="ref-id">[18]</span>
+                <div class="ref-content">WHO. <em>WHO recommends the intradermal route for rabies post-exposure prophylaxis (60-80% savings)</em>. <a href="https://www.who.int/teams/control-of-neglected-tropical-diseases/rabies/pep-recommendations" target="_blank" class="source-link">Source</a></div>
+            </div>
+             <div class="ref-item" id="ref-21">
+                <span class="ref-id">[21]</span>
+                <div class="ref-content">Zoonotic Disease Unit (ZDU). <em>Integrated Bite Case Management (IBCM) Protocols</em>.</div>
+            </div>
+            <div class="ref-item" id="ref-23">
+                <span class="ref-id">[23]</span>
+                <div class="ref-content">FAO / Kitala et al. <em>Owned Dog Population and Knowledge, Attitude and Practices (Machakos/Kajiado)</em>. <a href="https://www.humaneworld.org/sites/default/files/uploads/welfareresources/Machakos-County_Kenya-Owned-Dog-Population-Survey_2017.pdf" target="_blank" class="source-link">Source PDF</a></div>
+            </div>
+            <div class="ref-item" id="ref-31">
+                <span class="ref-id">[31]</span>
+                <div class="ref-content">ResearchGate. <em>Significance of Traditional Medicinal Plants (Phytolacca dodecandra) used for Treatment of Rabies</em>. <a href="https://www.researchgate.net/publication/282444188_Significance_of_Traditional_Medicinal_Plants_used_for_Treatment_of_Rabies_at_Ambo_Town" target="_blank" class="source-link">Source</a></div>
+            </div>
+            <div class="ref-item" id="ref-48">
+                <span class="ref-id">[48]</span>
+                <div class="ref-content">HAIWeb. <em>Prices and Availability of Locally Produced and Imported Medicines in Kenya (KEMSA vs MEDS)</em>. <a href="https://haiweb.org/publication/prices-and-availability-of-locally-produced-and-imported-medicines-in-kenya/" target="_blank" class="source-link">Source</a></div>
+            </div>
+             <div class="ref-item" id="ref-55">
+                <span class="ref-id">[55]</span>
+                <div class="ref-content">MalariaWorld / Zipline. <em>Zipline drones wing vaccines to malaria-prone western Kenya (and Rabies)</em>. <a href="https://malariaworld.org/blogs/zipline-drones-wing-vaccines-to-malaria-prone-western-kenya" target="_blank" class="source-link">Source</a></div>
+            </div>
+            <div class="ref-item" id="ref-57">
+                <span class="ref-id">[57]</span>
+                <div class="ref-content">Parliament of Kenya. <em>The Community Health Promoters Bill, 2022/2024</em>. <a href="https://parliament.go.ke/sites/default/files/2025-01/THE%20COMMUNITY%20HEALTH%20PROMOTERS%20BILL%2C%202022.pdf" target="_blank" class="source-link">Source PDF</a></div>
+            </div>
+             <div class="ref-item" id="ref-62">
+                <span class="ref-id">[62]</span>
+                <div class="ref-content">Google Play Store. <em>Kenya Animal Biosurveillance System (KABS) App</em>. <a href="https://play.google.com/store/apps/details?id=ke.go.kilimo.kabs&hl=gsw" target="_blank" class="source-link">App Source</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHINESE CONTENT -->
+    <div id="cn-content" class="hidden">
+        <h1>肯尼亚国家狂犬病消除战略综合评估</h1>
+        <p><strong>核心关注：</strong> 现行方案、牧民（马赛族）挑战及区域比较分析</p>
+
+        <section>
+            <h2>1. 历史背景与国家战略框架</h2>
+            <h3>1.1 流行病学轨迹</h3>
+            <p>一个多世纪以来，狂犬病一直是肯尼亚公认的公共卫生威胁。1912年记录了首例家犬确诊病例，随后的1928年出现了首例人类病例<sup id="c1-1-cn"><a href="#ref-2" class="citation-link">[2]</a></sup>。由于20世纪80年代的结构调整计划导致国家资助的疫苗接种体系崩溃，病毒现已扩散至肯尼亚47个县中的85%以上<sup id="c1-2-cn"><a href="#ref-3" class="citation-link">[3]</a></sup>。</p>
+
+            <h3>1.2 “2030年零死亡”战略计划</h3>
+            <p>肯尼亚于2014年启动了《消除人类狂犬病战略计划》，目标是到2030年消除该病<sup id="c1-3-cn"><a href="#ref-1" class="citation-link">[1]</a></sup>。该战略依赖于大规模犬只免疫（覆盖率需达70%）、暴露后预防（PEP）的可及性以及公众教育<sup id="c1-4-cn"><a href="#ref-1" class="citation-link">[1]</a></sup>。</p>
+            <p><strong>区域化策略：</strong></p>
+            <ul>
+                <li><strong>A区（试点区）：</strong> 包括马查科斯 (Machakos)、马库埃尼 (Makueni)、基图伊 (Kitui) 等。</li>
+                <li><strong>C区（维持区）：</strong> 纳罗克 (Narok) 和卡加多 (Kajiado) 等干旱半干旱（ASAL）牧区，面临独特的物流挑战<sup id="c1-5-cn"><a href="#ref-1" class="citation-link">[1]</a></sup>。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. 人类健康支柱中的现行方案</h2>
+            <p>人类健康支柱侧重于临床管理，以防止症状发作。</p>
+
+            <h3>2.1 标准临床指南 (PEP)</h3>
+            <p><strong>伤口处理：</strong> 强制要求用肥皂和水冲洗伤口至少15分钟，以降低病毒载量<sup id="c2-1-cn"><a href="#ref-9" class="citation-link">[9]</a></sup>。</p>
+            
+            <p><strong>疫苗接种（主动免疫）：</strong> 公立医院目前的标准是5剂肌肉注射（IM）的“埃森方案”（第0、3、7、14、28天）<sup id="c2-2-cn"><a href="#ref-12" class="citation-link">[12]</a></sup>。虽然有效，但资源消耗大。</p>
+
+            <p><strong>免疫球蛋白 (RIG)：</strong> 适用于III级暴露（破皮咬伤/抓伤）。然而，马库埃尼的一项研究发现，在评估的42个卫生设施中，RIG的库存率为0%<sup id="c2-3-cn"><a href="#ref-14" class="citation-link">[14]</a></sup>。这对农村人口来说几乎无法获得。</p>
+
+            <h3>2.2 向皮内注射 (ID) 的转变</h3>
+            <p>未来的规划重点是采用世卫组织推荐的皮内注射（ID）途径。ID接种可节省60-80%的疫苗剂量，从而显著降低成本<sup id="c2-4-cn"><a href="#ref-18" class="citation-link">[18]</a></sup>。目前的实施受阻于缺乏培训和专用注射器。</p>
+
+            <h3>2.3 综合咬伤病例管理 (IBCM)</h3>
+            <p>该方案建立了卫生与兽医部门的联动。如果兽医确认咬人的狗是健康的，患者可以停止PEP接种，这能节省高达30%的疫苗库存<sup id="c2-5-cn"><a href="#ref-21" class="citation-link">[21]</a></sup>。</p>
+        </section>
+
+        <section>
+            <h2>3. 马赛牧民社区的特殊背景：纳罗克与卡加多</h2>
+            
+            <h3>3.1 犬只生态学</h3>
+            <p>在马赛社区，狗是守护牲畜的重要工具，通常处于自由放养状态。这些地区的疫苗接种率通常在2%到22%之间徘徊，远低于70%的群体免疫阈值<sup id="c3-1-cn"><a href="#ref-23" class="citation-link">[23]</a></sup>。</p>
+
+            <h3>3.2 传统医学的障碍</h3>
+            <p>由于费用和距离问题，许多咬伤受害者依赖传统治疗师。常见的治疗方法包括使用草药，如商陆 (<em>Phytolacca dodecandra</em>) 和金合欢树皮<sup id="c3-2-cn"><a href="#ref-31" class="citation-link">[31]</a></sup>。这些对狂犬病毒无效，并导致寻求PEP的致命延误。</p>
+
+            <h3>3.3 经济壁垒与“财务毒性”</h3>
+            <p>PEP非常昂贵。当公立医院断货时，患者必须从私人药店购买疫苗，每剂约15-45美元。间接成本（如交通）进一步加剧了贫困，家庭经常被迫变卖牲畜来支付治疗费用<sup id="c3-3-cn"><a href="#ref-17" class="citation-link">[17]</a></sup>。</p>
+        </section>
+
+        <section>
+            <h2>4. 供应链与技术创新</h2>
+            <h3>4.1 采购挑战</h3>
+            <p>肯尼亚医疗药品供应局 (KEMSA) 提供补贴价格（约1.80美元/剂），但长期缺货。各县经常被迫转向教会系统 (MEDS) 采购，价格要高得多（约12.50美元/剂），导致预算迅速耗尽<sup id="c4-1-cn"><a href="#ref-48" class="citation-link">[48]</a></sup>。</p>
+
+            <h3>4.2 无人机物流 (Zipline)</h3>
+            <p>一项重大创新是基苏木县与 <strong>Zipline</strong> 的合作。自动无人机可以在45分钟内将疫苗运送到偏远的岛屿和诊所，绕过糟糕的道路基础设施<sup id="c4-2-cn"><a href="#ref-55" class="citation-link">[55]</a></sup>。</p>
+
+            <h3>4.3 社区健康促进者 (CHPs)</h3>
+            <p>《2024年社区健康促进者法案》正式确立了CHP的地位。虽然他们目前不能注射疫苗，但对于使用智能手机应用程序（如肯尼亚动物生物监测 KAB 应用）进行疾病监测至关重要<sup id="c4-3-cn"><a href="#ref-57" class="citation-link">[57]</a></sup><sup id="c4-4-cn"><a href="#ref-62" class="citation-link">[62]</a></sup>。</p>
+        </section>
+
+        <div class="references-section">
+            <h3>📚 参考资料与来源</h3>
+            <p style="font-size: 0.9rem; color: #666;">（点击链接可跳转至原始文件或官方页面）</p>
+            <!-- References content duplicated/shared for CN user convenience -->
+            <div class="ref-item">
+                <span class="ref-id">[1]</span>
+                <div class="ref-content">肯尼亚卫生部. <em>肯尼亚消除人类狂犬病战略计划 (2014–2030)</em>. <a href="http://guidelines.health.go.ke:8000/media/Strategic_plan_for_elimination_of_Rabies.pdf" target="_blank" class="source-link">PDF 源文件</a></div>
+            </div>
+            <div class="ref-item">
+                <span class="ref-id">[2]</span>
+                <div class="ref-content">WOAH (世界动物卫生组织). <em>肯尼亚狂犬病消除：历史背景 (1912至今)</em>. <a href="https://rr-africa.woah.org/en/news/rabies-elimination-in-kenya/" target="_blank" class="source-link">来源</a></div>
+            </div>
+             <div class="ref-item">
+                <span class="ref-id">[9]</span>
+                <div class="ref-content">WHO. <em>人类狂犬病暴露前和暴露后预防指南</em>. <a href="https://cdn.who.int/media/docs/default-source/searo/india/health-topic-pdf/pep-prophylaxis-guideline-15-12-2014.pdf" target="_blank" class="source-link">PDF 源文件</a></div>
+            </div>
+            <div class="ref-item">
+                <span class="ref-id">[14]</span>
+                <div class="ref-content">Mutunga, L., 等. (2022). <em>肯尼亚农村地区的狂犬病消除：提高人类疫苗可及性的需求（马库埃尼研究）</em>. <a href="https://discovery.researcher.life/article/rabies-elimination-in-rural-kenya-need-for-improved-availability-of-human-vaccines-awareness-and-knowledge-on-rabies-and-its-management-among-healthcare-workers/a4a25a1fc1bd32c38f0d6553bd6d80de" target="_blank" class="source-link">摘要来源</a></div>
+            </div>
+             <div class="ref-item">
+                <span class="ref-id">[18]</span>
+                <div class="ref-content">WHO. <em>世卫组织推荐狂犬病暴露后预防采用皮内注射途径（节省60-80%成本）</em>. <a href="https://www.who.int/teams/control-of-neglected-tropical-diseases/rabies/pep-recommendations" target="_blank" class="source-link">来源</a></div>
+            </div>
+            <div class="ref-item">
+                <span class="ref-id">[23]</span>
+                <div class="ref-content">FAO / Kitala 等. <em>家犬种群及知识、态度与实践调查 (马查科斯/卡加多)</em>. <a href="https://www.humaneworld.org/sites/default/files/uploads/welfareresources/Machakos-County_Kenya-Owned-Dog-Population-Survey_2017.pdf" target="_blank" class="source-link">PDF 源文件</a></div>
+            </div>
+            <div class="ref-item">
+                <span class="ref-id">[31]</span>
+                <div class="ref-content">ResearchGate. <em>传统药用植物（商陆）在狂犬病治疗中的意义</em>. <a href="https://www.researchgate.net/publication/282444188_Significance_of_Traditional_Medicinal_Plants_used_for_Treatment_of_Rabies_at_Ambo_Town" target="_blank" class="source-link">来源</a></div>
+            </div>
+            <div class="ref-item">
+                <span class="ref-id">[48]</span>
+                <div class="ref-content">HAIWeb. <em>肯尼亚本地生产与进口药品的价格及可获得性 (KEMSA 对比 MEDS)</em>. <a href="https://haiweb.org/publication/prices-and-availability-of-locally-produced-and-imported-medicines-in-kenya/" target="_blank" class="source-link">来源</a></div>
+            </div>
+             <div class="ref-item">
+                <span class="ref-id">[55]</span>
+                <div class="ref-content">MalariaWorld / Zipline. <em>Zipline 无人机向肯尼亚西部运送疫苗</em>. <a href="https://malariaworld.org/blogs/zipline-drones-wing-vaccines-to-malaria-prone-western-kenya" target="_blank" class="source-link">来源</a></div>
+            </div>
+            <div class="ref-item">
+                <span class="ref-id">[57]</span>
+                <div class="ref-content">肯尼亚议会. <em>2022/2024 社区健康促进者法案</em>. <a href="https://parliament.go.ke/sites/default/files/2025-01/THE%20COMMUNITY%20HEALTH%20PROMOTERS%20BILL%2C%202022.pdf" target="_blank" class="source-link">PDF 源文件</a></div>
+            </div>
+             <div class="ref-item">
+                <span class="ref-id">[62]</span>
+                <div class="ref-content">Google Play 商店. <em>肯尼亚动物生物监测系统 (KABS) 应用</em>. <a href="https://play.google.com/store/apps/details?id=ke.go.kilimo.kabs&hl=gsw" target="_blank" class="source-link">应用来源</a></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function switchLang(lang) {
+        const enContent = document.getElementById('en-content');
+        const cnContent = document.getElementById('cn-content');
+        const btns = document.querySelectorAll('.lang-btn');
+
+        if (lang === 'en') {
+            enContent.classList.remove('hidden');
+            cnContent.classList.add('hidden');
+            btns[0].classList.add('active');
+            btns[1].classList.remove('active');
+        } else {
+            enContent.classList.add('hidden');
+            cnContent.classList.remove('hidden');
+            btns[0].classList.remove('active');
+            btns[1].classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>
