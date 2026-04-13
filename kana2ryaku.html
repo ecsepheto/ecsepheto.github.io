@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Fast Speech Reduction Rules</title>
+    <style>
+        /* --- Visual Style based on kana2ipa.html --- */
+        :root {
+            --primary-pink: hwb(333 20% 20%);
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #333;
+            --text-sub: #666;
+            --border-radius: 15px;
+        }
+
+        body { 
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; 
+            background: var(--bg-color); 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            padding-top: 60px; 
+            padding-bottom: 60px;
+            color: var(--text-main); 
+            margin: 0;
+        }
+
+        /* Back Button Style */
+        #backhome {
+            position: fixed; 
+            background-color: var(--primary-pink); 
+            padding: 10px 25px; 
+            border-right: solid 10px #a11e4d; 
+            border-left: solid 10px #a11e4d;
+            border-radius: 0 0 30px 0;
+            z-index: 100; 
+            text-decoration: none; 
+            color: white; 
+            font-weight: 600; 
+            left: 0px; 
+            top: 0px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        #backhome:hover {
+            transform: translateY(2px);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #444;
+            font-weight: 300;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 0.95rem;
+            color: #888;
+            font-weight: 400;
+            margin-top: 0;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        /* --- Converter Section --- */
+        .converter-container {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            width: 85%;
+            max-width: 700px;
+            margin-bottom: 3rem;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .input-group {
+            margin-bottom: 2rem;
+        }
+
+        input[type="text"] {
+            font-size: 1.5rem;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            width: 100%;
+            box-sizing: border-box;
+            outline: none;
+            transition: all 0.3s;
+            text-align: center;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--primary-pink);
+            box-shadow: 0 0 0 4px rgba(219, 58, 116, 0.1);
+        }
+
+        .result-box {
+            min-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 8px;
+            background: #fafafa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .result-kana {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-pink);
+            line-height: 1.2;
+        }
+
+        .result-meta {
+            font-size: 1rem;
+            color: #aaa;
+            font-weight: 400;
+        }
+
+        /* --- Rules Grid --- */
+        .rules-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* --- Card Style --- */
+        .rule-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-top {
+            padding: 20px 25px;
+        }
+
+        .card-header {
+            font-size: 0.8rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .transformation-display {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 1.4rem;
+            color: #333;
+            font-weight: bold;
+            margin: 10px 0 15px 0;
+        }
+
+        .arrow {
+            margin: 0 15px;
+            color: var(--primary-pink);
+            font-size: 1.2rem;
+        }
+
+        .example-section {
+            font-size: 0.95rem;
+            color: #555;
+            background: #fff;
+            margin-bottom: 10px;
+        }
+
+        /* --- Derivation / Mechanism Section --- */
+        .derivation-box {
+            background: #fdf6f9; /* Light pink tint */
+            padding: 15px 25px;
+            border-top: 1px solid #eee;
+            margin-top: auto;
+        }
+
+        .derivation-title {
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: var(--primary-pink);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+            letter-spacing: 0.5px;
+        }
+
+        .derivation-step {
+            font-size: 0.85rem;
+            color: #444;
+            line-height: 1.5;
+            margin-bottom: 4px;
+            display: flex;
+        }
+        
+        .step-label {
+            font-weight: 600;
+            width: 80px;
+            flex-shrink: 0;
+            color: #666;
+        }
+
+        .highlight { color: var(--primary-pink); }
+        .phonetic { font-family: "Courier New", monospace; background: #eee; padding: 2px 4px; border-radius: 4px; font-size: 0.8rem; }
+
+    </style>
+</head>
+<body>
+
+    <a href="#" id="backhome">← BACK</a>
+
+    <header>
+        <h1>Japanese Fast Speech Reduction</h1>
+        <h2>Morphophonemic Rules & Generative Derivation<br>(Based on Course Notes W3–W6)</h2>
+    </header>
+
+    <div class="converter-container">
+        <h3 style="color:#555; margin-bottom: 20px;">Fast Speech Converter</h3>
+        <p style="font-size:0.9rem; color:#888; margin-bottom: 20px;">Try complex phrases like: <b>なければいけない</b>, <b>たべてしまう</b>, <b>べんきょうすれば</b></p>
+        <div class="input-group">
+            <input type="text" id="inputString" placeholder="Type Hiragana (e.g., なければいけない)...">
+        </div>
+        <div class="result-box" id="resultBox">
+            <span style="color:#ccc;">Result will appear here</span>
+        </div>
+    </div>
+
+    <div class="rules-container" id="rulesGrid">
+        </div>
+
+    <script>
+        // ==========================================
+        // 1. DATA: Rules & Generative Mechanisms
+        // ==========================================
+        const rulesData = [
+            {
+                name: "Conditional Form (~eba)",
+                pattern: "~Ce + ba → ~Cya",
+                exampleInput: "よめば (yomeba)",
+                exampleOutput: "よみゃ (yomya)",
+                // W4, W5: The derivation logic
+                derivation: [
+                    { step: "Input", desc: "yom<span class='highlight'>e</span>ba" },
+                    { step: "Deletion", desc: "yomba (Deletion of /e/)" },
+                    { step: "Epenthesis", desc: "yom<span class='highlight'>i</span>ba (Insert /i/ to fix cluster)" },
+                    { step: "Glide", desc: "yomi<span class='highlight'>w</span>a (/b/ → /w/)" },
+                    { step: "Palataliz.", desc: "yom<span class='highlight'>y</span>a (Merger to Palatal Glide)" }
+                ]
+            },
+            {
+                name: "Topic/Prohibitive (~te wa)",
+                pattern: "~te wa → ~cha",
+                exampleInput: "たべては (tabete wa)",
+                exampleOutput: "たべちゃ (tabecha)",
+                // W4: Logic applied to te-wa
+                derivation: [
+                    { step: "Input", desc: "t<span class='highlight'>e</span> wa" },
+                    { step: "Deletion", desc: "twa (/e/ Deletion)" },
+                    { step: "Epenthesis", desc: "t<span class='highlight'>i</span>wa (Insert /i/)" },
+                    { step: "Palataliz.", desc: "tya (/t/ + /y/ becomes Affricate [tɕ])" },
+                    { step: "Output", desc: "cha" }
+                ]
+            },
+            {
+                name: "Obligation (Must ...)",
+                pattern: "nakereba → nakya",
+                exampleInput: "なければ (nakereba)",
+                exampleOutput: "なきゃ (nakya)",
+                derivation: [
+                    { step: "Note", desc: "Applies the ~eba rule to 'kereba'." },
+                    { step: "Step 1", desc: "nakereba → nakerya" },
+                    { step: "Step 2", desc: "nakerya → nakya (Further reduction)" }
+                ]
+            },
+            {
+                name: "Unvoiced Aspect (~te shimau)",
+                pattern: "~te shimau → ~chau",
+                exampleInput: "たべてしまう",
+                exampleOutput: "たべちゃう",
+                derivation: [
+                    { step: "Contraction", desc: "/te/ + /shi/ fuse." },
+                    { step: "Result", desc: "Results in the affricate /ch/." }
+                ]
+            },
+            {
+                name: "Voiced Aspect (~de shimau)",
+                pattern: "~de shimau → ~jau",
+                exampleInput: "のんでしまう",
+                exampleOutput: "のんじゃう",
+                derivation: [
+                    { step: "Voicing", desc: "Voicing from /d/ spreads to the contraction." },
+                    { step: "Result", desc: "/j/ sound (voiced affricate)." }
+                ]
+            },
+            {
+                name: "Emphatic Negative (~wa shinai)",
+                pattern: "~i wa → ~ya",
+                exampleInput: "いきは (iki wa)",
+                exampleOutput: "いきゃ (ikya)",
+                derivation: [
+                    { step: "Input", desc: "ik<span class='highlight'>i</span> <span class='highlight'>w</span>a" },
+                    { step: "Glide", desc: "/w/ becomes /y/ due to preceding /i/." },
+                    { step: "Merger", desc: "ikiya → ikya" }
+                ]
+            },
+            {
+                name: "Dialectal/Fast ~ikenai",
+                pattern: "ikenai → ikan",
+                exampleInput: "いけない",
+                exampleOutput: "いかん",
+                derivation: [
+                    { step: "Reduction", desc: "ai → an / a:" }
+                ]
+            }
+        ];
+
+        // ==========================================
+        // 2. HELPER: Kana <-> Romaji Engine
+        // ==========================================
+        
+        const romajiToKanaMap = {
+            'a':'あ','i':'い','u':'う','e':'え','o':'お',
+            'ka':'か','ki':'き','ku':'く','ke':'け','ko':'こ',
+            'sa':'さ','shi':'し','su':'す','se':'せ','so':'そ',
+            'ta':'た','chi':'ち','tsu':'つ','te':'て','to':'と',
+            'na':'な','ni':'に','nu':'ぬ','ne':'ね','no':'の',
+            'ha':'は','hi':'ひ','fu':'ふ','he':'へ','ho':'ほ',
+            'ma':'ま','mi':'み','mu':'む','me':'め','mo':'も',
+            'ya':'や','yu':'ゆ','yo':'よ',
+            'ra':'ら','ri':'り','ru':'る','re':'れ','ro':'ろ',
+            'wa':'わ','wo':'を','nn':'ん','n':'ん',
+            'ga':'が','gi':'ぎ','gu':'ぐ','ge':'げ','go':'ご',
+            'za':'ざ','ji':'じ','zu':'ず','ze':'ぜ','zo':'ぞ',
+            'da':'だ','de':'で','do':'ど',
+            'ba':'ば','bi':'び','bu':'ぶ','be':'べ','bo':'ぼ',
+            'pa':'ぱ','pi':'ぴ','pu':'ぷ','pe':'ぺ','po':'ぽ',
+            'kya':'きゃ','kyu':'きゅ','kyo':'きょ',
+            'sha':'しゃ','shu':'しゅ','sho':'しょ',
+            'cha':'ちゃ','chu':'ちゅ','cho':'ちょ',
+            'nya':'にゃ','nyu':'にゅ','nyo':'にょ',
+            'hya':'ひゃ','hyu':'ひゅ','hyo':'ひょ',
+            'mya':'みゃ','myu':'みゅ','myo':'みょ',
+            'rya':'りゃ','ryu':'りゅ','ryo':'りょ',
+            'gya':'ぎゃ','gyu':'ぎゅ','gyo':'ぎょ',
+            'ja':'じゃ','ju':'じゅ','jo':'じょ',
+            'bya':'びゃ','byu':'びゅ','byo':'びょ',
+            'pya':'ぴゃ','pyu':'ぴゅ','pyo':'ぴょ',
+            'tte':'って', 'jja':'っじゃ'
+        };
+
+        const kanaToRomajiMap = {};
+        // Initialize Inverse Map
+        Object.keys(romajiToKanaMap).forEach(key => {
+            kanaToRomajiMap[romajiToKanaMap[key]] = key;
+        });
+        // Add manual overrides for small Kana that act as modifiers
+        kanaToRomajiMap['ゃ']='ya'; kanaToRomajiMap['ゅ']='yu'; kanaToRomajiMap['ょ']='yo';
+        kanaToRomajiMap['っ']='xtu';
+
+        function toRomaji(kanaStr) {
+            let res = "";
+            let chars = kanaStr.split('');
+            for (let i = 0; i < chars.length; i++) {
+                let c = chars[i];
+                let next = chars[i+1];
+
+                // 1. Small Tsu (Geminate Consonant)
+                if (c === 'っ' && next) {
+                    // Check if next is a known char
+                    // To handle it correctly, we need to know the first letter of the next char's Romaji
+                    let nextRomajiCandidate = null;
+                    
+                    // Check compound next (e.g., っきゃ)
+                    if (i+2 < chars.length && (chars[i+2] === 'ゃ'||chars[i+2] === 'ゅ'||chars[i+2] === 'ょ')) {
+                        let combined = next + chars[i+2];
+                        if (kanaToRomajiMap[combined]) nextRomajiCandidate = kanaToRomajiMap[combined];
+                    } 
+                    
+                    if (!nextRomajiCandidate && kanaToRomajiMap[next]) {
+                        nextRomajiCandidate = kanaToRomajiMap[next];
+                    }
+
+                    if (nextRomajiCandidate) {
+                        res += nextRomajiCandidate.charAt(0); // Double the consonant
+                        continue; // Skip 'っ', handle next char in next loop
+                    }
+                }
+
+                // 2. Compound (Kana + small ya/yu/yo)
+                if (next === 'ゃ' || next === 'ゅ' || next === 'ょ') {
+                    let combined = c + next;
+                    if (kanaToRomajiMap[combined]) {
+                        res += kanaToRomajiMap[combined];
+                        i++; 
+                        continue;
+                    }
+                }
+
+                // 3. Normal Kana
+                if (kanaToRomajiMap[c]) {
+                    res += kanaToRomajiMap[c];
+                } else {
+                    res += c;
+                }
+            }
+            return res;
+        }
+
+        function toKana(romajiStr) {
+            let str = romajiStr.toLowerCase();
+            let res = "";
+            let i = 0;
+            while (i < str.length) {
+                // Try 3 chars
+                if (i+3 <= str.length) {
+                    let sub = str.substring(i, i+3);
+                    if (romajiToKanaMap[sub]) { res += romajiToKanaMap[sub]; i+=3; continue; }
+                }
+                // Try 2 chars
+                if (i+2 <= str.length) {
+                    let sub = str.substring(i, i+2);
+                    if (romajiToKanaMap[sub]) { res += romajiToKanaMap[sub]; i+=2; continue; }
+                }
+                
+                // Handle Geminates (kk, tt, pp...)
+                if (i+1 < str.length) {
+                    let c1 = str[i];
+                    let c2 = str[i+1];
+                    // If double consonant and not 'nn'
+                    if (c1 === c2 && c1 !== 'n' && /[bcdfghjklmpqrstvwxyz]/.test(c1)) {
+                        res += 'っ';
+                        i++;
+                        continue; 
+                    }
+                }
+
+                // Try 1 char
+                let sub = str.substring(i, i+1);
+                if (romajiToKanaMap[sub]) { res += romajiToKanaMap[sub]; } 
+                else { res += sub; }
+                i++;
+            }
+            return res;
+        }
+
+        // ==========================================
+        // 3. LOGIC: Recursive/Sequential Reduction
+        // ==========================================
+        function processInput(inputKana) {
+            let romaji = toRomaji(inputKana);
+            
+            // Define rules with REGEX.
+            // Using 'g' flag to handle multiple occurrences or parts of a sentence.
+            const processingRules = [
+                // 1. High Priority: Nakereba -> Nakya (Special compound case)
+                { regex: /nakereba/g, replace: 'nakya' },
+
+                // 2. ~Te/De Shimau
+                { regex: /te\s*shimau/g, replace: 'chau' },
+                { regex: /de\s*shimau/g, replace: 'jau' },
+                
+                // 3. ~Te/De Wa
+                { regex: /te\s*wa/g, replace: 'cha' },
+                { regex: /de\s*wa/g, replace: 'ja' },
+
+                // 4. ~Wa Shinai (Emphasis) -> ~Ya Shinai
+                // Matches patterns like 'iki wa' -> 'ikya'
+                { regex: /([bcdfghjklmnpqrstvwxyz])i\s*wa/g, replace: '$1ya' },
+
+                // 5. ~Eba -> ~Ya (General Conditional)
+                // e.g. sur(eba) -> sur(ya), yom(eba) -> yom(ya)
+                { regex: /([bcdfghjklmnpqrstvwxyz])eba/g, replace: '$1ya' },
+                
+                // 6. Extended Predicate (~ru no -> ~nno)
+                { regex: /ru\s*no/g, replace: 'nno' },
+
+                // 7. Negative Ra-dropping (~ranai -> ~nnai)
+                { regex: /ranai/g, replace: 'nnai' },
+                
+                // 8. Specific: Ikenai -> Ikan (often used with Nakya)
+                { regex: /ikenai/g, replace: 'ikan' },
+
+                // 9. Particle To -> Tte
+                { regex: /to($|[!?])/g, replace: 'tte$1' }
+            ];
+
+            let processed = romaji;
+            
+            // Apply rules sequentially to allow chaining
+            // Example: nakereba ikenai -> nakya ikenai -> nakya ikan
+            processingRules.forEach(r => {
+                processed = processed.replace(r.regex, r.replace);
+            });
+
+            return {
+                original: inputKana,
+                finalKana: toKana(processed)
+            };
+        }
+
+        // ==========================================
+        // 4. UI RENDERING
+        // ==========================================
+        
+        // Render Cards
+        const grid = document.getElementById('rulesGrid');
+        
+        rulesData.forEach(rule => {
+            const card = document.createElement('div');
+            card.className = 'rule-card';
+            
+            // Build Derivation HTML
+            let derivationHTML = '';
+            rule.derivation.forEach(d => {
+                derivationHTML += `
+                    <div class="derivation-step">
+                        <span class="step-label">${d.step}:</span>
+                        <span>${d.desc}</span>
+                    </div>
+                `;
+            });
+
+            card.innerHTML = `
+                <div class="card-top">
+                    <div class="card-header">${rule.name}</div>
+                    <div class="transformation-display">
+                        <span>${rule.pattern}</span>
+                    </div>
+                    <div class="example-section">
+                        Example: ${rule.exampleInput} <span class="arrow">➔</span> <b>${rule.exampleOutput}</b>
+                    </div>
+                </div>
+                <div class="derivation-box">
+                    <span class="derivation-title">Phonetic Mechanism (Generative)</span>
+                    ${derivationHTML}
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // Input Listener
+        const inputEl = document.getElementById('inputString');
+        const resultBox = document.getElementById('resultBox');
+
+        inputEl.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            if (!val) {
+                resultBox.innerHTML = '<span style="color:#ccc;">Result will appear here</span>';
+                return;
+            }
+
+            const res = processInput(val);
+
+            if (res.finalKana === res.original) {
+                 resultBox.innerHTML = `
+                    <div class="result-kana">${res.finalKana}</div>
+                    <div class="result-meta">No reduction rule applied</div>
+                `;
+            } else {
+                resultBox.innerHTML = `
+                    <div class="result-kana">${res.finalKana}</div>
+                    <div class="result-meta">
+                        ${res.original} <span style="margin:0 5px;">➔</span> ${res.finalKana}
+                    </div>
+                `;
+            }
+        });
+
+    </script>
+</body>
+</html>

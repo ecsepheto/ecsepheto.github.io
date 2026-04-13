@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vital Pulse: Clinical Practice Simulator</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        #quiz-container {
+            background-color: #ffffff;
+            max-width: 750px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border-top: 12px solid #1a5276;
+        }
+        h1 { color: #1a5276; text-align: center; margin-bottom: 5px; font-size: 28px; }
+        .subtitle { text-align: center; color: #566573; margin-bottom: 30px; letter-spacing: 0.5px; }
+        .scenario-box { 
+            background: #f8fbfe; 
+            border: 1px solid #d6eaf8; 
+            padding: 25px; 
+            border-radius: 12px; 
+            margin-bottom: 30px;
+            line-height: 1.6;
+            position: relative;
+        }
+        .scenario-label { 
+            font-weight: bold; 
+            color: #2980b9; 
+            font-size: 12px;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #fff;
+            padding: 0 10px;
+            text-transform: uppercase;
+        }
+        .question { font-weight: 700; margin-bottom: 25px; font-size: 20px; color: #2c3e50; }
+        .option {
+            display: block;
+            width: 100%;
+            padding: 16px 20px;
+            margin-bottom: 15px;
+            border: 2px solid #ebedef;
+            border-radius: 12px;
+            background: #fff;
+            cursor: pointer;
+            text-align: left;
+            font-size: 17px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .option:hover:not([disabled]) { 
+            background-color: #fdfefe; 
+            border-color: #3498db; 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .correct { background-color: #e9f7ef !important; border-color: #27ae60 !important; color: #1e8449; font-weight: bold; }
+        .incorrect { background-color: #fdedec !important; border-color: #e74c3c !important; color: #943126; }
+        #feedback { margin-top: 30px; padding: 25px; border-radius: 12px; display: none; border-left: 6px solid; }
+        #next-btn {
+            display: none;
+            margin: 40px auto 0;
+            padding: 14px 40px;
+            background-color: #1a5276;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        #next-btn:hover { background-color: #2471a3; }
+        .progress-text { text-align: center; font-size: 13px; color: #7f8c8d; margin-bottom: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div id="quiz-container">
+    <h1>Doctor for a Day</h1>
+    <p class="subtitle">Clinical Diagnostic Challenge</p>
+    <div id="progress" class="progress-text"></div>
+    <div id="quiz-content">
+        <div class="scenario-box">
+            <span class="scenario-label">Current Case</span>
+            <div id="scenario-text"></div>
+        </div>
+        <div id="question-text" class="question"></div>
+        <div id="options-container"></div>
+        <div id="feedback"></div>
+        <button id="next-btn" onclick="loadQuestion()">Next Patient</button>
+    </div>
+</div>
+
+<script>
+    const quizData = [
+        {
+            scenario: "A 35-year-old patient asks if they are eligible for diabetes screening. They have no current symptoms and consider themselves low-risk.",
+            question: "According to the 2026 American Diabetes Association Standards of Care, what should you tell them?",
+            options: [
+                "Screening for all individuals should now begin at age 35.",
+                "Wait until age 45 unless you develop symptoms.",
+                "Screening is only needed if you have a family history."
+            ],
+            correctIndex: 0,
+            explanation: "The 2026 Standards (Bajaj et al.) recommend that diabetes screening should now commence at age 35 for all individuals."
+        },
+        {
+            scenario: "You receive laboratory results for a patient. Their Fasting Plasma Glucose (FPG) is 7.4 mmol/L and their HbA1c is 6.8%.",
+            question: "Based on these specific values, what is the appropriate clinical diagnosis?",
+            options: [
+                "Type 2 Diabetes Mellitus",
+                "Prediabetes",
+                "Gestational Diabetes"
+            ],
+            correctIndex: 0,
+            explanation: "T2DM is diagnosed when HbA1c is ≥ 6.5% or Fasting Plasma Glucose is ≥ 7.0 mmol/L. This patient exceeds both thresholds."
+        },
+        {
+            scenario: "A patient is confused about the underlying cause of their high blood sugar. You need to explain the two key pathological hallmarks of Type 2 Diabetes.",
+            question: "Which processes define the progression of this disease?",
+            options: [
+                "Insulin resistance and beta-cell dysfunction.",
+                "Lack of hydration and high sodium intake.",
+                "Low protein absorption and liver inflammation."
+            ],
+            correctIndex: 0,
+            explanation: "The disease develops through a cycle where cells stop responding to insulin (resistance) and the pancreas fails to produce enough to compensate (beta-cell dysfunction)."
+        },
+        {
+            scenario: "A patient mentions they have been storing a lot of weight specifically around their abdominal organs.",
+            question: "Which tissue type is highlighted in the research as a major driver of insulin resistance?",
+            options: [
+                "Visceral Adipose Tissue (VAT).",
+                "Subcutaneous fatty tissue.",
+                "Intramuscular adipose tissue."
+            ],
+            correctIndex: 0,
+            explanation: "Visceral Adipose Tissue (VAT), or fat around the organs, is a primary etiological factor in the development of metabolic disorders."
+        },
+        {
+            scenario: "A patient with long-term diabetes complains of blurred vision and a lack of sensation in their hands and feet.",
+            question: "How would you categorize these specific long-term complications?",
+            options: [
+                "Microvascular complications.",
+                "Macrovascular complications.",
+                "Etiological manifestations."
+            ],
+            correctIndex: 0,
+            explanation: "Retinopathy (eyes) and neuropathy (nerves) are microvascular complications caused by damage to the small blood vessels."
+        },
+        {
+            scenario: "A student shadowing you asks about the history of medicine. They want to know where the first successful purification of insulin took place.",
+            question: "Which team and location achieved this milestone in 1921-1922?",
+            options: [
+                "Banting, Best, and Collip at the University of Toronto.",
+                "Research teams at Harvard Medical School.",
+                "The Mayo Clinic endocrine department."
+            ],
+            correctIndex: 0,
+            explanation: "Insulin was famously discovered and purified by Banting, Best, and Collip at the University of Toronto."
+        },
+        {
+            scenario: "You are prescribing Metformin to a newly diagnosed patient. They are worried about the drug causing them to gain weight.",
+            question: "What is the most accurate information to provide regarding this first-line treatment?",
+            options: [
+                "It generally does not cause weight gain or low blood sugar crashes.",
+                "It often leads to significant weight gain over time.",
+                "It is only used when insulin therapy has failed."
+            ],
+            correctIndex: 0,
+            explanation: "Metformin is a first-line treatment precisely because it effectively manages sugar without the side effects of weight gain or frequent hypoglycemia."
+        },
+        {
+            scenario: "A patient expresses a strong fear of needles and is looking for a different way to take their mealtime insulin.",
+            question: "Which innovative delivery method should you suggest?",
+            options: [
+                "Afrezza (inhaled insulin powder).",
+                "Automated smart pens.",
+                "Implantable insulin reservoirs."
+            ],
+            correctIndex: 0,
+            explanation: "Afrezza is a fast-acting inhaled insulin powder that allows patients to manage mealtime sugar spikes without an injection."
+        },
+        {
+            scenario: "You are discussing future pharmacological frontiers with a medical researcher. You mention a new triple-receptor agonist.",
+            question: "What is the name of this emerging medication mentioned in the research?",
+            options: [
+                "Retatrutide",
+                "Exenatide",
+                "Pioglitazone"
+            ],
+            correctIndex: 0,
+            explanation: "Retatrutide is an emerging triple-receptor agonist identified as a future frontier in treating both diabetes and obesity."
+        },
+        {
+            scenario: "A patient asks why people in developing countries are also seeing a rise in diabetes cases, even without high obesity rates.",
+            question: "According to the provided research, what is a specific social factor in these regions?",
+            options: [
+                "Malnutrition and low birth weight.",
+                "Excessive access to smart medical technology.",
+                "High intake of expensive processed proteins."
+            ],
+            correctIndex: 0,
+            explanation: "The research identifies malnutrition as a significant social factor that contributes to diabetes risk in developing countries."
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+
+    // Shuffle Function (Fisher-Yates)
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function loadQuestion() {
+        const data = quizData[currentQuestionIndex];
+        
+        // Prepare options with tracking for the correct answer
+        const optionsWithMetadata = data.options.map((text, index) => ({
+            text: text,
+            isCorrect: index === data.correctIndex
+        }));
+        
+        // Shuffle the options
+        shuffleArray(optionsWithMetadata);
+
+        document.getElementById('progress').innerText = `PATIENT ${currentQuestionIndex + 1} OF ${quizData.length}`;
+        document.getElementById('scenario-text').innerText = data.scenario;
+        document.getElementById('question-text').innerText = data.question;
+        document.getElementById('feedback').style.display = 'none';
+        document.getElementById('next-btn').style.display = 'none';
+        
+        const optionsContainer = document.getElementById('options-container');
+        optionsContainer.innerHTML = '';
+        
+        optionsWithMetadata.forEach((option) => {
+            const btn = document.createElement('button');
+            btn.className = 'option';
+            btn.innerText = option.text;
+            btn.onclick = () => selectOption(option.isCorrect, btn, optionsWithMetadata);
+            optionsContainer.appendChild(btn);
+        });
+    }
+
+    function selectOption(isCorrect, clickedBtn, allOptions) {
+        const optionsButtons = document.querySelectorAll('.option');
+        const feedback = document.getElementById('feedback');
+        const data = quizData[currentQuestionIndex];
+        
+        optionsButtons.forEach((btn, index) => {
+            btn.disabled = true;
+            // Mark the correct button in green regardless of what was clicked
+            if (allOptions[index].isCorrect) {
+                btn.classList.add('correct');
+            }
+        });
+
+        if (!isCorrect) {
+            clickedBtn.classList.add('incorrect');
+            feedback.style.borderColor = '#e74c3c';
+            feedback.style.backgroundColor = '#fdedec';
+            feedback.innerHTML = "<strong>Clinical Update:</strong> Incorrect choice. " + data.explanation;
+        } else {
+            feedback.style.borderColor = '#27ae60';
+            feedback.style.backgroundColor = '#e9f7ef';
+            feedback.innerHTML = "<strong>Clinical Update:</strong> Correct! " + data.explanation;
+        }
+
+        feedback.style.display = 'block';
+        currentQuestionIndex++;
+        
+        if (currentQuestionIndex < quizData.length) {
+            document.getElementById('next-btn').style.display = 'block';
+        } else {
+            document.getElementById('next-btn').innerText = "Submit Daily Clinic Report";
+            document.getElementById('next-btn').style.display = 'block';
+            document.getElementById('next-btn').onclick = finishQuiz;
+        }
+    }
+
+    function finishQuiz() {
+        document.getElementById('quiz-content').innerHTML = `
+            <div style='text-align:center; padding: 40px;'>
+                <h2 style='color:#1a5276;'>Medical Rounds Complete</h2>
+                <p style='font-size:18px; line-height:1.6;'>You have successfully consulted all 10 patients. Your expertise in diagnostic thresholds, history, and modern treatments is vital for our community!</p>
+                <button onclick='location.reload()' style='margin-top:20px; padding:10px 20px; cursor:pointer;'>Restart Clinic Shift</button>
+            </div>`;
+    }
+
+    loadQuestion();
+</script>
+
+</body>
+</html>
